@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="section">
+    <view class="top-section" bindtap="startService" id="{{topSection.id}}">
+      <image class="top-section-image" src="{{topSection.src}}"></image>
+      <view class="top-section-title">{{topSection.text}}</view>
+    </view>
+    <view class="bottom-sections">
+      <view class="bottom-section" wx:for="{{bottomSectionArr}}" wx:for-item="section" wx:key="index" bindtap="startService" id="{{section.id}}">
+        <view class="bottom-section-title" wx:if="{{fontLoaded}}">{{section.title}}</view>
+        <image class="bottom-section-image" src="{{section.src}}" mode="scaleToFill" style="background-color: {{section.bgColor}}"></image>
+      </view>
+    </view>
+  </view>
+</view>

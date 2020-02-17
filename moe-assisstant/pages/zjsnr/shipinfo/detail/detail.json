@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "parameter-pair": "/components/parameter-pair/parameter-pair"
+  },
+  "navigationBarTitleText": "舰船详情"
+}

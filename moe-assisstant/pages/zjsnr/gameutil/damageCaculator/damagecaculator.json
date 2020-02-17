@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "parameter-pair": "/components/parameter-pair/parameter-pair"
+  },
+  "navigationBarTitleText": "伤害计算器"
+}

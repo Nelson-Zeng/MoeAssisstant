@@ -1,0 +1,113 @@
+.container {
+  padding: unset;
+  display: flex;
+}
+
+.container .navigator {
+  width: 40%;
+  height: 100vh;
+  background-color: #606266;
+}
+
+.container .equipment-list-container {
+  width: 60%;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.container .equipment-list-container .order-type-switch {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 24rpx;
+}
+
+.container .equipment-list-container .order-type-switch switch {
+  margin-left: 10rpx;
+  transform: scale(0.6);
+  line-height: 60rpx;
+}
+
+.container .equipment-list-container .equipment-list {
+  border: 1px solid #606266;
+  border-radius: 10rpx;
+  height: calc(100% - 60rpx);
+  overflow: scroll;
+}
+
+.container .equipment-list-container .equipment-list .equipment {
+  height: 200rpx;
+  width: calc(100% - 20rpx);
+  box-sizing: border-box;
+  margin: 10rpx;
+  border: 1px solid #909399;
+  border-radius: 10rpx;
+  display: flex;
+  position: relative;
+}
+
+.container .equipment-list-container .equipment-list .equipment .picture {
+  height: 100%;
+  width: 50%;
+  border-radius: 10rpx;
+  background-position: center;
+}
+
+.container .equipment-list-container .equipment-list .equipment .background {
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+}
+
+.container .equipment-list-container .equipment-list .equipment .detail-container {
+  font-size: 20rpx;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10rpx;
+}
+
+.container .equipment-list-container .equipment-list .equipment .detail-container view {
+  flex-grow: 1;
+}
+
+.container .equipment-list-container .equipment-list .equipment .detail-container #key0 {
+  flex-grow: 3;
+}
+
+.container .detail-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(48, 49, 51, 0.5);
+  z-index: 10;
+}
+
+.container .detail-dialog .dialog {
+  position: absolute;
+  top: 10vh;
+  height: 80vh;
+  width: 80vw;
+  background-color: white;
+  left: 10vw;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.container .detail-dialog .dialog .picture {
+  height: 50%;
+  width: 100%;
+}
+
+.container .detail-dialog .dialog .parameter-list {
+  height: 50%;
+  width: 100%;
+  overflow: scroll;
+}

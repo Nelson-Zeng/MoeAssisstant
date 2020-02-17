@@ -1,0 +1,27 @@
+/* components/parameter-pair/parameter-pair.wxss */
+.content-container {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.content-container view {
+  padding-left: 10rpx;
+  vertical-align: middle;
+}
+
+.content-container .dividing-line {
+  border-right: 1px solid #909399;
+  height: 100%;
+}
+
+.content-container .content-title {
+  min-width: 40%;
+  font-size: 28rpx;
+}
+
+.content-container .content-value {
+  padding-right: 10rpx;
+  color: #79BBFF;
+}

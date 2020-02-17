@@ -1,0 +1,17 @@
+<view class="custom-filter">
+  <view class="filter-title">{{source.title}}</view>
+  <view class="filter-content">
+    <view class="fast-selection-area selection-area" wx:if="{{source.fastSelections}}">
+      <view class="selection-title">快捷选择\n<label style="font-size: 24rpx;">(单选)</label></view>
+      <view class="selection-container">
+        <view class="selection-item {{item.selected ? 'selected' : ''}}" wx:for="{{source.fastSelections}}" wx:for-item="item" wx:key="index" id="fastSelection{{item.id}}" catchtap="clickFastSelection">{{item.title}}</view>
+      </view>
+    </view>
+    <view class="detail-selection-area selection-area">
+      <view class="selection-title">详细选择\n<label style="font-size: 24rpx;">(可多选)</label></view>
+      <view class="selection-container">
+        <view class="selection-item small {{item.selected ? 'selected' : ''}}" wx:for="{{source.selections}}" wx:for-item="item" wx:key="index" id="selection{{item.id}}" catchtap="clickDetailSelection">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,60 @@
+.custom-filter {
+  border-bottom: 1px solid #c0c4cc;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.custom-filter .filter-title {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.custom-filter .filter-content {
+  padding: 10rpx;
+}
+
+.custom-filter .filter-content .selection-title {
+  font-size: 26rpx;
+  padding-right: 10rpx;
+  width: 20%;
+  box-sizing: border-box;
+  border-right: 1px solid #c0c4cc;
+}
+
+.custom-filter .filter-content .selection-container {
+  width: 80%;
+  box-sizing: border-box;
+  display: block;
+  padding: 0 10rpx;
+  margin-bottom: -10rpx;
+}
+
+.custom-filter .filter-content .selection-area {
+  margin-top: 20rpx;
+  display: flex;
+  margin-bottom: -10rpx;
+}
+
+.custom-filter .filter-content .selection-container .selection-item {
+  display: inline-block;
+  padding: 5rpx 10rpx;
+  font-size: 24rpx;
+  border: 1px solid #303133;
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.custom-filter .filter-content .selection-container .small {
+  font-size: 20rpx;
+  padding: 5rpx 10rpx;
+}
+
+.custom-filter .filter-content .selection-container .selected {
+  background-color: #409EFF;
+  color: white;
+  box-sizing: content-box;
+  border: 1px solid #409EFF;
+}

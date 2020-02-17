@@ -1,0 +1,5 @@
+<view class="container">
+  <image class="img-1" src="{{src1}}"></image>
+  <image class="img-2" src="{{src2}}"></image>
+  <image class="img-3" src="{{src3}}"></image>
+</view>

@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="navigator">
+    <custom-tab wx:for="{{navigatorItems}}" wx:for-item="navigator" wx:key="index" source="{{navigator}}" bindselectKey="selectKeyChanged" id="tab{{navigator.id}}"></custom-tab>
+  </view>
+  <view class="equipment-list-container">
+    <view class="order-type-switch">
+      <label>倒序</label>
+      <switch type="checkbox" checked="{{descRequired}}" bindchange="refreshList" class="switch" />
+    </view>
+    <view class="equipment-list">
+      <view wx:for="{{contents}}" wx:for-item="content" wx:key="index" class="equipment" bindtap="callEquipmentDetail" id="content{{content.id}}">
+        <image src="{{content.src}}" mode="aspectFill" class="picture"></image>
+        <image src="{{content.backgroundSrc}}" class="background" mode="center"></image>
+        <view class="detail-container">
+          <view wx:for="{{parameterKeys}}" wx:for-item="key" wx:key="index" id="key{{index}}">{{key.title}}: {{content[key.id]}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="detail-dialog" wx:if="{{showEquipmentDetail}}" id="mask" bindtap="clickMask">
+    <view class="dialog" catchtap="clickDialog">
+      <image src="{{currentEquipment.src}}" class="picture" mode="aspectFit" style="background-image: {{currentEquipment.backgroundSrc ? currentEquipment.backgroundSrc : ''}}"></image>
+      <view class="parameter-list">
+        <parameter-pair wx:for="{{currentEquipmentParameters}}" wx:for-item="pair" wx:key="index" title="{{pair.title}}" value="{{pair.value}}" height="50rpx"></parameter-pair>
+      </view>
+    </view>
+  </view>
+</view>

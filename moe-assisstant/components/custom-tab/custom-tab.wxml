@@ -1,0 +1,12 @@
+<view class="tab-container {{selectedKey === source.key ? 'selected' : ''}}">
+  <view class="first-class" bindtap="clickFirstClassItem">
+    <label class="first-class-name">{{source.name}}</label>
+    <view class="first-class-icon-container" wx:if="{{source.secondary}}">
+      <view class="first-class-icon-folded" wx:if="{{!expanded}}"></view>
+      <view class="first-class-icon-expanded" wx:if="{{expanded}}"></view>
+    </view>
+  </view>
+  <view class="second-class" wx:if="{{source.secondary && expanded}}">
+    <view class="second-class-item {{selectedKey === class.key ? 'selected' : ''}}" wx:for="{{source.secondary}}" wx:for-item="class" wx:key="index" catchtap="clickSecondaryClassItem" id="{{class.key}}">{{class.name}}</view>
+  </view>
+</view>

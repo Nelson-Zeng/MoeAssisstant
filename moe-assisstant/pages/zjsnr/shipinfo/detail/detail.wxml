@@ -1,0 +1,74 @@
+<view class="container">
+  <view class="header">
+    <button type="primary" bindtap="checkDialogue">查看台词</button>
+    <button type="primary" bindtap="checkIllustration">查看立绘</button>
+    <view class="switch-container">
+      <label>基础</label>
+      <switch wx:if="true" checked="{{shipUpdated}}" class="ship-update-switch" bindchange="statusChange"></switch>
+      <label>改造</label>
+    </view>
+  </view>
+  <view class="body">
+    <view class="base-info">
+      <view class="base-info-title title">基础信息:</view>
+      <view class="base-info-content content">
+        <view class="portrait-container">
+          <image class="portrait-background" src="{{shipInfo.backgroundPicSrc}}" mode="center"></image>
+          <image class="portrait-image" src="{{shipInfo.url}}" mode="aspectFill"></image>
+        </view>
+        <view class="base-info-description">
+          <parameter-pair title="舰名" value="{{shipInfo.name}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="舰种" value="{{shipInfo.type}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="国籍" value="{{shipInfo.nationality}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="舷号" value="{{shipInfo.shipClass}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="船型" value="{{shipInfo.dimension}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="射程" value="{{shipInfo.fireRange}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="装备孔数" value="{{shipInfo.equipmentSlot}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="初始装备" value="{{shipInfo.originalEquipment}}" height="calc(100% * 0.3)" hide-bottom-line="true" class="parameter-pair"></parameter-pair>
+        </view>
+      </view>
+    </view>
+    <view class="ability-info">
+      <view class="ability-info-title title">能力数据:</view>
+      <view class="ability-info-content content">
+        <view class="first-column column">
+          <parameter-pair title="火力" value="{{shipInfo.power}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="耐久" value="{{shipInfo.life}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="对空" value="{{shipInfo.antiAircraft}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="幸运" value="{{shipInfo.luck}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="命中" value="{{shipInfo.hitRate}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="索敌" value="{{shipInfo.tracking}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="补给油耗" value="{{shipInfo.fuel}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="修理油耗" value="{{shipInfo.fuelCosting}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="回收提供" value="{{shipInfo.recyclingIncome}}" height="calc(100% / 9)" hide-bottom-line="true" class="parameter-pair"></parameter-pair>
+        </view>
+        <view class="second-column column">
+          <parameter-pair title="鱼雷" value="{{shipInfo.torpedo}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="装甲" value="{{shipInfo.armor}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="反潜" value="{{shipInfo.antiSubmarine}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="航速" value="{{shipInfo.speed}}节" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="回避" value="{{shipInfo.evadeRate}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="搭载" value="{{shipInfo.aircraftCapacity}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="补给弹耗" value="{{shipInfo.cartridge}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="修理钢耗" value="{{shipInfo.steelCosting}}" height="calc(100% / 9)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="强化提供" value="{{shipInfo.enhancingIncome}}" height="calc(100% / 9)" hide-bottom-line="true" class="parameter-pair"></parameter-pair>
+        </view>
+      </view>
+    </view>
+    <view class="skill-info">
+      <view class="skill-info-title title">技能数据:</view>
+      <view class="skill-info-content content">
+        <view class="first-column column">
+          <parameter-pair title="{{shipInfo.firstSkillTitle}}" value="{{shipInfo.firstSkill}}" height="100%" hide-bottom-line="true" class="parameter-pair"></parameter-pair>
+        </view>
+        <view class="second-column column">
+          <parameter-pair title="{{shipInfo.secondSkillTitle}}" value="{{shipInfo.secondSkill}}" height="100%" hide-bottom-line="true" class="parameter-pair"></parameter-pair>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="illustration-container" wx:if="{{showIllustration}}">
+    <image class="illustration" src="{{illustrationList[illustrationIndex]}}" mode="aspectFit" style="background: {{backgroundPicSrc}}" bindtouchstart="illustrationTouchstart" bindtouchend="illustrationTouchend" bindtap="closeImage"></image>
+  </view>
+</view>

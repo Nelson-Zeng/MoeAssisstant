@@ -1,0 +1,151 @@
+<view class="container">
+  <picker bindchange="selectSituation" value="{{index}}" range="{{situations}}" range-key="title">
+    <view class="picker">
+      当前模拟类型(点击更换)：
+      <label style="color: #409EFF">{{currentSituation.title}}</label>
+    </view>
+  </picker>
+
+  <view class="input-area">
+    <view class="input-panel base-param-panel">
+      <view class="title">基础值伤害模块</view>
+      <view class="base-params-container">
+        <view class="base-param" wx:for="{{currentSituation.baseATKItems}}" wx:for-item="item" wx:key="index">
+          <label>{{item.title}}: </label>
+          <input value="{{item.value}}" type="number" class="base-param-input" bindinput="baseATKInput" id="ATKParam{{item.id}}" />
+        </view>
+      </view>
+      <view class="base-params-caculation-formular formular-item">计算公式：
+        <label>{{currentSituation.baseATKFormula.title}}</label>
+      </view>
+      <view class="base-params-caculation-result formular-item">等效攻击力：
+        <label style="font-weight: bold; font-size: 30rpx; color: #409eff;">{{ATKResult}}</label>
+      </view>
+    </view>
+    <view class="input-panel coefficient-param-panel">
+      <view class="title">伤害系数模块</view>
+      <view class="coefficient-params-container">
+        <view class="formation-coefficient-container" wx:if="{{currentSituation.formationCoefficient}}"></view>
+        <view class="direction-coefficient-container" wx:if="{{currentSituation.directionCoefficient}}"></view>
+        <view class="formation-coefficient-container coefficient-param-container" wx:if="{{currentSituation.formationCoefficient}}">
+          <view class="coefficient-title">阵型系数</view>
+          <radio-group class="formation-options option-container" bindchange="formationChanged">
+            <radio class="formation-option" wx:for-items="{{currentSituation.formationOptions}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}" color="#409EFF">
+              <text>{{item.name}}</text>
+            </radio>
+          </radio-group>
+        </view>
+        <view class="direction-coefficient-container coefficient-param-container" wx:if="{{currentSituation.directionCoefficient}}">
+          <view class="coefficient-title">航向系数</view>
+          <radio-group class="direction-options option-container" bindchange="directionChanged">
+            <radio class="direction-option" wx:for-items="{{currentSituation.directionOptions}}" wx:key="value" value="{{item.value}}" checked="{{item.checked}}" color="#409EFF">
+              <text>{{item.name}}</text>
+            </radio>
+          </radio-group>
+        </view>
+        <view class="sky-mastery-coefficient-container coefficient-param-container" wx:if="{{currentSituation.skyMasteryCoefficient}}">
+          <view class="coefficient-title">制空系数</view>
+          <radio-group class="sky-mastery-options option-container" bindchange="skyMasteryChanged">
+            <radio class="sky-mastery-option" wx:for-items="{{currentSituation.skyMasteryOptions}}" wx:key="value" value="{{item.value}}" checked="{{item.checked}}" color="#409EFF">
+              <text>{{item.name}}</text>
+            </radio>
+          </radio-group>
+        </view>
+        <view class="sonar-coefficient-container coefficient-param-container" wx:if="{{currentSituation.sonarCoefficient}}">
+          <view class="coefficient-title">声呐系数</view>
+          <view class="sonar-container option-container base-option">
+            <label>填入声呐装备的反潜值：</label>
+            <input type="number" bindinput="sonarlCoefficientInput" id="sonarCoefficientInput" value="{{sonarInput}}"></input>
+            <text>声呐系数计算公式：1 + 声呐反潜值 / {{currentSituation.antiSubmarineCoefficient}}\n当前声呐系数：{{sonarCoefficientResult}}</text>
+          </view>
+        </view>
+        <view class="cartridge-coefficient-container coefficient-param-container" wx:if="{{currentSituation.cartridgeCoefficient}}">
+          <view class="coefficient-title">弹药系数
+            <label style="font-weight: normal; font-size: 24rpx;">(总12格)</label>
+          </view>
+          <view class="cartridge-container option-container">
+            <view class="cartridge-percent {{percent.selected ? 'selected' : ''}}" wx:for="{{currentSituation.cartridgePercents}}" wx:for-item="percent" wx:key="index" id="cartridge{{percent.id}}" bindtap="selectCartridgePercent"></view>
+          </view>
+        </view>
+        <view class="torpedo-coefficient-container coefficient-param-container" wx:if="{{currentSituation.torpedoCoefficient}}">
+          <view class="coefficient-title">鱼雷机系数</view>
+          <view class="torpedo-container option-container base-option">
+            <label>每次发动攻击时在{{currentSituation.torpedoBottom}}~{{currentSituation.torpedoTop}}之间随机选取。</label>
+          </view>
+        </view>
+        <view class="damage-coefficient-container coefficient-param-container" wx:if="{{currentSituation.damageCoefficient}}">
+          <view class="coefficient-title">战损系数</view>
+          <radio-group class="damage-options option-container" bindchange="damageChanged">
+            <radio class="sdamage-option" wx:for-items="{{currentSituation.damageOptions}}" wx:key="value" value="{{item.value}}" checked="{{item.checked}}" color="#409EFF">
+              <text>{{item.name}}</text>
+            </radio>
+          </radio-group>
+        </view>
+        <view class="skill-coefficient-container coefficient-param-container" wx:if="{{currentSituation.attackCoefficient}}">
+          <view class="coefficient-title">攻击力系数
+            <label style="font-weight: normal; font-size: 24rpx;">(基础值:1)</label>
+          </view>
+          <view class="skill-container option-container base-option">
+            <label>填入技能额外提供的攻击力加成百分数(如15%则填入15，无则填0)</label>
+            <input type="number" bindinput="attackCoefficientInput" id="attackCoefficientInput" value="{{skillInitData}}"></input>
+          </view>
+        </view>
+        <view class="critical-coefficient-container coefficient-param-container" wx:if="{{currentSituation.criticalCoefficient}}">
+          <view class="coefficient-title">暴击系数
+            <label style="font-weight: normal; font-size: 24rpx;">(基础值:1.5)</label>
+          </view>
+          <view class="critical-container option-container base-option">
+            <label>填入技能额外提供的暴击伤害加成百分数(如15%则填入15，无则填0)</label>
+            <input type="number" bindinput="criticalCoefficientInput" id="criticalCoefficientInput" value="{{criticalInitData}}"></input>
+          </view>
+        </view>
+        <view class="float-coefficient-container coefficient-param-container" wx:if="{{currentSituation.floatCoefficient}}">
+          <view class="coefficient-title">浮动系数</view>
+          <view class="float-container option-container base-option">
+            <label>当前攻击类型下的浮动系数：{{currentSituation.floatArea}}。平均值为：{{currentSituation.floatAverage}}</label>
+            <view class="overweight-bullet-switch" wx:if="{{currentSituation.overWeightBullet}}">
+              <label>是否装备超重弹</label>
+              <switch type="checkbox" checked="{{overWeightBulletEquiped}}" bindchange="overWeightBUlletSwitched" color="#409EFF" />
+            </view>
+          </view>
+        </view>
+        <view class="coefficient-caculation-formular formular-item">系数计算公式：
+          <label>{{currentSituation.coefficientFormula}}</label>
+        </view>
+        <view class="coefficient-caculation-result formular-item">等效基础值系数(不含鱼雷机系数、暴击系数与浮动系数)：
+          <label style="font-weight: bold; font-size: 30rpx; color: #409eff;">{{coefficientResult}}</label>
+        </view>
+      </view>
+    </view>
+    <view class="input-panel additional-param-panel">
+      <view class="title">额外参数模块</view>
+      <view class="additional-params-container">
+        <view wx:for="{{currentSituation.additionalParams}}" wx:for-item="param" wx:key="index" class="additional-param">
+          <view class="additional-param-title">{{param.title}}
+            <label wx:if="{{param.defaultValue}}">
+              <label style="font-weight: normal; font-size: 24rpx;">(基础值：{{param.defaultValue}})</label>
+            </label>
+          </view>
+          <view class="additional-param-input-area {{param.id === 3 || param.id === 2 ? 'column' : ''}}">
+            <label wx:if="{{param.id === 2}}">填入额外的最终伤害加成百分数(如15%则填入15，无则填0)</label>
+            <label wx:if="{{param.id === 3}}">填入额外的穿甲加成百分数(如15%则填入15，无则填0)</label>
+            <input class="additional-param-input" value="{{param.value}}" id="additionalParam{{param.id}}" bindinput="additionalParamInput" type="number" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="get-damage-result-container">
+    <label class="get-damage-result {{!resultAvailable ? 'disabled' : ''}}" bindtap="getFinalResult">获取结果</label>
+  </view>
+
+  <view class="result-panel" wx:if="{{showResult}}" bindtap="clickMask">
+    <view class="result-table" catchtap="clickDialog">
+      <view wx:for="{{resultItems}}" wx:for-item="resultItem" wx:key="index" class="result-item">
+        <view class="result-title">{{resultItem.title}}</view>
+        <view class="result-value {{resultItem.important ? 'important' : ''}}">{{resultItem.value}}</view>
+      </view>
+    </view>
+  </view>
+</view>

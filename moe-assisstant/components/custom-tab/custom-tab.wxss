@@ -1,0 +1,50 @@
+.tab-container {
+  width: 100%;
+  padding: 10rpx 20rpx;
+  font-size: 26rpx;
+  color: white;
+  border-bottom: 1rpx solid #303133;
+  box-sizing: border-box;
+  background-color: #606266;
+}
+
+.tab-container .first-class {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected {
+  background-color: #909399;
+}
+
+.tab-container .first-class .first-class-icon-container .first-class-icon-folded {
+  height: 0;
+  width: 0;
+  border-top: 10rpx solid white;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+}
+
+.tab-container .first-class .first-class-icon-container .first-class-icon-expanded {
+  height: 0;
+  width: 0;
+  border-bottom: 10rpx solid white;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+}
+
+.tab-container .second-class .second-class-item {
+  width: 100%;
+  padding: 10rpx 20rpx;
+  font-size: 20rpx;
+  background-color: #909399;
+  color: white;
+  box-sizing: border-box;
+  border-top: 1px solid #606266;
+  border-radius: 2px;
+}
+
+.tab-container .second-class .selected {
+  background-color: rgba(144, 147, 153, 0.5);
+}

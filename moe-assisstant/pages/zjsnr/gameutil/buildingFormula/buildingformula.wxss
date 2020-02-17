@@ -1,0 +1,28 @@
+.border-text {
+  text-align: center;
+  border: 1rpx solid #303133;
+  padding: 10rpx 0;
+}
+
+.container .list-container {
+  width: 100%;
+  border: 1rpx solid #303133; 
+}
+
+.container .list-container .list-header {
+  font-size: 36rpx;
+}
+
+.container .list-container .list-explaination {
+  font-size: 30rpx;
+}
+
+.container .list-container .list-header-container {
+  display: flex;
+  font-size: 30rpx;
+}
+
+.container .list-container .list-content-item-container .list-content {
+  display: flex;
+  font-size: 24rpx;
+}
