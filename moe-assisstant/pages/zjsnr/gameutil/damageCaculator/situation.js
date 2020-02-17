@@ -1,6 +1,5 @@
 const getPercentage = proportion => {
   let percentage = '0%'
-  console.log(proportion.getFixed())
   if (proportion < 0) percentage = '0%'
   else if (proportion > 1) percentage = '100%'
   else percentage = `${Math.ceil(proportion.getFixed() * 1000) / 10}%`

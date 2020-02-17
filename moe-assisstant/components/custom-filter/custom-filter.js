@@ -76,7 +76,6 @@ Component({
         })
       })
 
-      console.log(currentSelections)
       this.triggerEvent('selectionchanged', currentSelections)
     }
   }

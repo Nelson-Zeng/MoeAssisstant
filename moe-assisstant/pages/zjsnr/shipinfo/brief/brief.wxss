@@ -87,10 +87,22 @@
   text-align: center;
   vertical-align: middle;
 }
+
 .container .simple-filter .sorting-area .sorting-container .selected {
   color: white;
   background-color: #409eff;
   border: 1px solid #409eff;
+}
+
+.container .detail-switch {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 40rpx;
+  align-items: center;
+}
+
+.container .detail-switch switch {
+  transform: scale(0.7);
 }
 
 .container .ship-list {
@@ -127,51 +139,42 @@
   z-index: 2;
 }
 
-.container .ship-list .ship-item .upper-content {
-  height: 200rpx;
-  display: flex;
-  margin-bottom: 20rpx 0;
-  position: relative;
-}
-
-.container .ship-list .ship-item .upper-content .ship-icon {
-  height: inherit;
-  width: 40vw;
+.container .ship-list .ship-item .ship-icon {
+  height: 100%;
+  width: 100%;
   border-radius: 5px;
   border: 1px solid #909399;
-  background-color: #f2f6fc;
 }
 
-.container .ship-list .ship-item .upper-content .ship-brief-info {
-  height: inherit;
-  width: calc(100% - 40vw - 20rpx);
-  margin-left: 20rpx;
+.container .ship-list .ship-item .show-mask {
+  background-image: linear-gradient(0, rgba(96, 98, 102, 0.4) 0, transparent 30%);
+}
+
+.container .ship-list .ship-item .simple-introduce {
+  position: absolute;
+  bottom: 10rpx;
+  left: 10rpx;
+  color: white;
+  font-size: 36rpx;
+}
+
+.container .ship-list .ship-item .base-info-container {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rpx;
+  background-color: rgba(48, 49, 51, 0.4);
   display: flex;
   flex-direction: column;
+  color: white;
+  padding: 10rpx;
+  box-sizing: border-box;
 }
 
-.container .ship-list .ship-item .ship-brief-info label {
-  margin-top: 20rpx;
-}
-
-.container .ship-list .ship-item .ship-brief-info .ship-name {
-  margin-top: unset;
-  font-size: 40rpx;
-}
-
-.container .ship-list .ship-item .lower-content {
-  width: 100%;
-  height: 100rpx;
-}
-
-.container .ship-list .ship-item .lower-content view {
-  display: flex;
-  line-height: 50rpx;
-}
-
-.container .ship-list .ship-item .lower-content view label {
-  width: 50%;
-  padding-left: 80rpx;
+.container .ship-list .ship-item .base-info-container label {
+  flex-grow: 1;
 }
 
 .container .settings {

@@ -575,7 +575,9 @@ Page({
         value: 5,
         selected: false
       }],
-      sortDesc: true
+      sortDesc: false,
+
+      detailInfo: false
   },
   onLoad() {
     const renderedShipInfo = mockShip.map(info => {
@@ -715,6 +717,11 @@ Page({
   sortingOrientationChanged(e) {
     this.setData({
       sortDesc: e.detail.value
+    })
+  },
+  detailInfoStatusChanged(e) {
+    this.setData({
+      detailInfo: e.detail.value
     })
   }
 })
