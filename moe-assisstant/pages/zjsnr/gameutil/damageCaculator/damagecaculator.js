@@ -288,12 +288,6 @@ Page({
         break
     }
 
-    this.setData({
-      currentSituation: Object.assign(this.data.currentSituation, {
-        additionalParams: this.data.currentSituation.additionalParams
-      })
-    })
-
     this.validateDataModels()
   },
   updateCoefficientValue() {
@@ -304,7 +298,7 @@ Page({
     this.validateDataModels()
   },
   validateDataModels() {
-    const baseATKValidation = dataContainer.baseATK > 0
+    const baseATKValidation = dataContainer.baseATK > 0 || new RegExp(/^\d+[.]{0,1}\d*~\d+[.]{0,1}\d*$/).test(dataContainer.baseATK)
     const coefficientValidation = dataContainer.baseCoefficient != NaN
 
     this.setData({
