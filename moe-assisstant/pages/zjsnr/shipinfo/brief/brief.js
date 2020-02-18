@@ -591,6 +591,9 @@ Page({
       shipList: renderedShipInfo
     })
   },
+  onReachBottom(e) {
+    app.util.toast.info('Yes, RPG!')
+  },
   checkShipDetail(e) {
     const shipId = e.currentTarget.id
     app.util.navigateTo('/pages/zjsnr/shipinfo/detail/detail')

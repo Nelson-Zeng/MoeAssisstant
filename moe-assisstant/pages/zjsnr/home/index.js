@@ -44,12 +44,7 @@ Page({
         app.util.navigateTo('/pages/zjsnr/gameutil/index')
         break
       case 'equipment':
-        wx.showToast({
-          title: '当前模块将会在域名报备成功后开放',
-          icon: 'none',
-          duration: 500
-        })
-        // app.util.navigateTo('/pages/zjsnr/equipmentinfo/brief/brief')
+        app.util.navigateTo('/pages/zjsnr/equipmentinfo/brief/brief')
         break
       case 'shipgirl':
         app.util.navigateTo('/pages/zjsnr/shipinfo/brief/brief')

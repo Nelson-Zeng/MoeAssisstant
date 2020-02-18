@@ -1,6 +1,8 @@
 .container {
   padding: unset !important;
   overflow: scroll;
+  /* 微信的onReachBottom方法只有在页面高度指定为百分比的时候才可以生效 */
+  height: 100%;
 }
 
 .container .setting-icon {

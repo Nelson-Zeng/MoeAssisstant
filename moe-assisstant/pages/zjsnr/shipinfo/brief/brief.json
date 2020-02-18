@@ -2,5 +2,6 @@
   "usingComponents": {
     "custom-filter": "/components/custom-filter/custom-filter"
   },
-  "navigationBarTitleText": "舰船列表"
+  "navigationBarTitleText": "舰船列表",
+  "onReachBottomDistance": 300
 }
