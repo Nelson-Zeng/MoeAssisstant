@@ -93,6 +93,8 @@ Page({
     illustrationIndex: 0,
 
     illustrationTouchStartX: 0,
+
+    doubleFinger: 0
   },
   onLoad() {
     this.initData()
@@ -136,10 +138,20 @@ Page({
       this.data.illustrationTouchStartX = e.touches[0].pageX
     } else if (e.touches.length === 2) {
       // 双指缩放事件
+      this.doubleFinger = 2
+      wx.showToast({
+        title: '双指可放大立绘',
+        icon: 'none',
+        duration: 500
+      })
     }
 
   },
   illustrationTouchend(e) {
+    if (this.doubleFinger > 0) {
+      this.doubleFinger -= 1
+      return
+    }
     if (e.changedTouches.length === 1) {
       // 单指滑动事件
       const illustrationTouchEndX = e.changedTouches[0].pageX
@@ -152,13 +164,18 @@ Page({
         this.setData({
           illustrationIndex: app.util.getImageSwipperIndex(newIndex, illustrationLength)
         })
+      } else if (Math.abs(illustrationTouchEndX - this.data.illustrationTouchStartX) < windowWidth / 40) {
+        this.closeImage()
       }
     } else if (e.changedTouches.length === 2) {
-      // 双指缩放事件
     }
 
   },
   closeImage() {
+    if (this.doubleFinger > 0) {
+      this.doubleFinger -= 1
+      return
+    }
     this.setData({
       showIllustration: false
     })

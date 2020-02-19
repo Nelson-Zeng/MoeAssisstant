@@ -69,7 +69,10 @@
     </view>
   </view>
 
-  <view class="illustration-container" wx:if="{{showIllustration}}">
-    <image class="illustration" src="{{illustrationList[illustrationIndex]}}" mode="aspectFit" style="background: {{backgroundPicSrc}}" bindtouchstart="illustrationTouchstart" bindtouchend="illustrationTouchend" bindtap="closeImage"></image>
-  </view>
+  <movable-area class="illustration-container" style="width: 100%;height: 100%" wx:if="{{showIllustration}}">
+    <movable-view scale="true" scale-min="1.0" scale-max="2.5" style="width: 100%; height: 100%">
+      <image class="illustration" src="{{illustrationList[illustrationIndex]}}" mode="aspectFit" style="background: {{backgroundPicSrc}}" bindtouchstart="illustrationTouchstart" bindtouchend="illustrationTouchend"></image>
+    </movable-view>
+  </movable-area>
+
 </view>
