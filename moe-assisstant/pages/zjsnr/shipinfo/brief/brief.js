@@ -734,5 +734,7 @@ Page({
     this.setData({
       detailInfo: e.detail.value
     })
+  },
+  settingIgnoreTouchMove:function() {
   }
 })

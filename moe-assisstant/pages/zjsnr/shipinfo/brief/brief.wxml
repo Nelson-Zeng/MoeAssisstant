@@ -38,7 +38,7 @@
     </view>
   </view>
 
-  <view class="settings" wx:if="{{showSetting}}">
+  <view class="settings" wx:if="{{showSetting}}" catchtouchmove="settingIgnoreTouchMove">
     <custom-filter source="{{nationalitySetting}}" catchselectionchanged="nationalityChanged"></custom-filter>
     <custom-filter source="{{typeSetting}}" catchselectionchanged="typeChanged"></custom-filter>
     <custom-filter source="{{dimensionSetting}}" catchselectionchanged="dimensionChanged"></custom-filter>
