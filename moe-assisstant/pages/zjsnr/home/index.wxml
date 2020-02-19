@@ -7,7 +7,7 @@
     <view class="bottom-sections">
       <view class="bottom-section" wx:for="{{bottomSectionArr}}" wx:for-item="section" wx:key="index" bindtap="startService" id="{{section.id}}">
         <view class="bottom-section-title" wx:if="{{fontLoaded}}">{{section.title}}</view>
-        <image class="bottom-section-image" src="{{section.src}}" mode="scaleToFill" style="background-color: {{section.bgColor}}"></image>
+        <image class="bottom-section-image" src="{{section.src}}" mode="aspectFill" style="background-color: {{section.bgColor}}"></image>
       </view>
     </view>
   </view>

@@ -173,6 +173,7 @@
   color: white;
   padding: 10rpx;
   box-sizing: border-box;
+  font-size: 28rpx;
 }
 
 .container .ship-list .ship-item .base-info-container label {

@@ -26,3 +26,7 @@
   display: flex;
   font-size: 24rpx;
 }
+
+.container .list-container .list-content-item-container .list-content .list-content-item:last-of-type {
+  font-size: 20rpx;
+}

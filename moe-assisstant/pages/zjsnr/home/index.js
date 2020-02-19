@@ -11,17 +11,17 @@ Page({
     bottomSectionArr: [{
       id: 'util',
       title: '游戏工具集',
-      src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/M_NORMAL_1060.png',
+      src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/left.png',
       bgColor: '#ead0d1'
     }, {
       id: 'equipment',
       title: '装备查询',
-      src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/M_NORMAL_60_2.png',
+        src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/middle.png',
       bgColor: '#e0e5df'
     }, {
       id: 'shipgirl',
       title: '舰船查询',
-      src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/M_NORMAL_60_1.png',
+        src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/right.png',
       bgColor: '#c1cbd7'
     }]
   },
