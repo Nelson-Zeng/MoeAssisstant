@@ -6,7 +6,8 @@
 .container .navigator {
   width: 40%;
   height: 100vh;
-  background-color: #606266;
+  background-color: #303133;
+  overflow: scroll;
 }
 
 .container .equipment-list-container {
