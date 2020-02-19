@@ -452,6 +452,14 @@ const SHIP_TYPE_FAST_SELECTIONS = [{
   {
     title: '大人，时代变了',
     content: [15, 16, 17]
+  },
+  {
+    title: '主力披挂',
+    content: [0,1,2,3,4,5,15,16,17]
+  },
+  {
+    title: '护卫上阵',
+    content: [6,7,8,9,10,11,14]
   }
 ]
 const DETAIL_SHIP_TYPES = [{
