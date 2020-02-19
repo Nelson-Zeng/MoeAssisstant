@@ -183,9 +183,9 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  left: 0;
+  left: 20%;
   right: 0;
-  background-color: #f2f6fc;
+  background-color: #dfe7f5bd;
   box-sizing: border-box;
   padding: 20rpx 30rpx;
   overflow: scroll;
