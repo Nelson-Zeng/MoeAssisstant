@@ -10,7 +10,7 @@
 		"enhance": true
 	},
 	"appid": "wx50d4b96072ae8626",
-	"projectname": "MoeAssistant",
+	"projectname": "miniprogram",
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
