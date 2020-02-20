@@ -108,12 +108,20 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: transparent;
+  margin: auto;
   width: 100%;
-  height: 100%
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
 }
 
-.container .illustration-container .illustration {
+.container .illustration-container .illustration-view {
+  width: 70%;
+  height: 70%
+}
+
+.container .illustration-container .illustration-view .illustration {
   width: 100%;
   height: 100%;
 }
