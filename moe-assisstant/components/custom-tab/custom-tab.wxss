@@ -1,11 +1,11 @@
 .tab-container {
   width: 100%;
-  padding: 10rpx 20rpx;
+  padding: 15rpx 20rpx;
   font-size: 26rpx;
   color: white;
-  border-bottom: 1rpx solid #303133;
+  border-bottom: 1rpx solid rgb(30, 30, 30);
   box-sizing: border-box;
-  background-color: #606266;
+  background-color: #303133;
 }
 
 .tab-container .first-class {
@@ -36,15 +36,15 @@
 
 .tab-container .second-class .second-class-item {
   width: 100%;
-  padding: 10rpx 20rpx;
-  font-size: 20rpx;
-  background-color: #909399;
+  padding: 15rpx 20rpx;
+  font-size: 24rpx;
+  background-color: #606266;
   color: white;
   box-sizing: border-box;
-  border-top: 1px solid #606266;
+  border-top: 1px solid #303133;
   border-radius: 2px;
 }
 
 .tab-container .second-class .selected {
-  background-color: rgba(144, 147, 153, 0.5);
+  background-color: #909399;
 }
