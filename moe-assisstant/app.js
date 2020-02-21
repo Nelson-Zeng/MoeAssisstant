@@ -4,6 +4,7 @@ import request from './global/request.js'
 import util from './global/util.js'
 import filters from './global/filters.js'
 import constants from './global/constants.js'
+import http from './global/http.js'
 
 App({
   onLaunch: function() {
@@ -20,5 +21,6 @@ App({
     this.util = util
     this.filters = filters
     this.constants = constants
+    this.http = http
   }
 })

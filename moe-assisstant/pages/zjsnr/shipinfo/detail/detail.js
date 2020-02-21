@@ -1,5 +1,3 @@
-import './temp.js'
-
 const app = getApp()
 
 const mockAccessData = {
