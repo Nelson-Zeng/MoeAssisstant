@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "custom-table": "/components/custom-table/custom-table"
+  },
   "navigationBarTitleText": "公式列表"
 }
