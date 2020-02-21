@@ -1,4 +1,4 @@
-<view class="content-container" style="height: {{ height ? height : '40rpx'}}; border-bottom: {{ hideBottomLine ? 'unset' : '1px solid #909399' }}; font-size: {{ fontSize ? fontSize : '24rpx' }}">
+<view class="content-container" style="height: {{ height ? height : 'auto'}}; border-bottom: {{ hideBottomLine ? 'unset' : '1px solid #909399' }}; font-size: {{ fontSize ? fontSize : '24rpx' }}">
   <view class="content-title">{{title}}</view>
   <view class="dividing-line"></view>
   <view class="content-value">{{value}}</view>

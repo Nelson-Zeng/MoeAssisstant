@@ -22,7 +22,7 @@
     <view class="dialog" catchtap="clickDialog">
       <image src="{{currentEquipment.src}}" class="picture" mode="aspectFit" style="background-image: {{currentEquipment.backgroundSrc ? currentEquipment.backgroundSrc : ''}}"></image>
       <view class="parameter-list">
-        <parameter-pair wx:for="{{currentEquipmentParameters}}" wx:for-item="pair" wx:key="index" title="{{pair.title}}" value="{{pair.value}}" height="50rpx"></parameter-pair>
+        <parameter-pair wx:for="{{currentEquipmentParameters}}" wx:for-item="pair" wx:key="index" title="{{pair.title}}" value="{{pair.value}}"></parameter-pair>
       </view>
     </view>
   </view>
