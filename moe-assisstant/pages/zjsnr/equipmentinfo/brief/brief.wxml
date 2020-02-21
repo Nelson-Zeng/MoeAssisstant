@@ -12,7 +12,7 @@
         <image src="{{content.src}}" mode="aspectFill" class="picture"></image>
         <image src="{{content.backgroundSrc}}" class="background" mode="center"></image>
         <view class="detail-container">
-          <view wx:for="{{parameterKeys}}" wx:for-item="key" wx:key="index" id="key{{index}}">{{key.title}}: {{content[key.id]}}</view>
+          <view wx:for="{{parameterKeys}}" wx:for-item="key" wx:key="index" id="key{{index}}" wx:if="{{content[key.id]}}">{{key.title}}: {{content[key.id]}}</view>
         </view>
       </view>
     </view>
