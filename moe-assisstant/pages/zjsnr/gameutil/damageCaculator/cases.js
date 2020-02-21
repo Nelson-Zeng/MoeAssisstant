@@ -127,18 +127,17 @@ const SITUATION_CASES = [{
       },
       {
         title: '敌人总对空'
-      },
-      {
-        title: '系数α（0~1）'
       }
     ],
     baseATKFormula: {
-      title: '(火力+轰炸*2+鱼雷)*取最高值(0,1-敌人总对空*α/150) + 35',
+      title: '(火力+轰炸*2+鱼雷)*取最高值(0,1-敌人总对空*随机系数α（范围0,1）/150) + 35',
       formula: dataContainer => {
         let result = ''
 
-        if (dataContainer['ATKParam0'] && (dataContainer['ATKParam1'] || dataContainer['ATKParam1'] === 0) && (dataContainer['ATKParam2'] || dataContainer['ATKParam2'] === 0) && dataContainer['ATKParam3'] && dataContainer['ATKParam4']) {
-          result = (dataContainer['ATKParam0'] + dataContainer['ATKParam1'] * 2 + dataContainer['ATKParam2']) * Math.max(0, 1 - dataContainer['ATKParam3'] * dataContainer['ATKParam4'] / 150) + 35
+        if (dataContainer['ATKParam0'] && (dataContainer['ATKParam1'] || dataContainer['ATKParam1'] === 0) && (dataContainer['ATKParam2'] || dataContainer['ATKParam2'] === 0) && dataContainer['ATKParam3']) {
+          const bottom = (dataContainer['ATKParam0'] + dataContainer['ATKParam1'] * 2 + dataContainer['ATKParam2']) * Math.max(0, 1 - dataContainer['ATKParam3'] * 1 / 150) + 35
+          const top = (dataContainer['ATKParam0'] + dataContainer['ATKParam1'] * 2 + dataContainer['ATKParam2']) * Math.max(0, 1 - dataContainer['ATKParam3'] * 0 / 150) + 35
+          result = `${bottom.getFixed()}~${top.getFixed()}`
         }
 
         return result

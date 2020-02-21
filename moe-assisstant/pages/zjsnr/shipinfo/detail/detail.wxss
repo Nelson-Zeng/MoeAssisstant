@@ -108,10 +108,96 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: transparent;
-}
-
-.container .illustration-container .illustration {
+  margin: auto;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .illustration-container .illustration-view {
+  width: 70%;
+  height: 70%;
+}
+
+.container .illustration-container .illustration-view .illustration {
+  width: 100%;
+  height: 100%;
+}
+
+.container .ship-access-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(48, 49, 51, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .ship-access-container .ship-access-simple-data {
+  background-color: #f2f6fc;
+  width: 80%;
+  border-radius: 10rpx;
+  border: 1px solid #606266;
+  padding: 20rpx;
+}
+
+.container .ship-access-container .ship-access-simple-data .part-container {
+  padding-bottom: 40rpx;
+}
+
+.container .ship-access-container .ship-access-simple-data .part-container:last-of-type {
+  padding-bottom: unset;
+}
+
+.container .ship-access-container .ship-access-simple-data .part-container .title-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+  align-items: center;
+}
+
+.container .ship-access-container .ship-access-simple-data .part-container .title-container .title {
+  font-size: 36rpx;
+}
+
+.container .ship-access-container .ship-access-simple-data .part-container .title-container .show-more {
+  font-size: 28rpx;
+  color: #409eff;
+}
+
+.container .ship-detail-access-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .ship-detail-access-container .ship-access-detail-data {
+  width: 90%;
+  height: 90%;
+  background-color: #f2f6fc;
+  padding: 20rpx;
+  border-radius: 10rpx;
+}
+
+.container .ship-detail-access-container .ship-access-detail-data .close-icon {
+  color: #f56c6c;
+  font-size: 60rpx;
+  text-align: right;
+}
+
+.container .ship-detail-access-container .ship-access-detail-data .table-area {
+  height: calc(100% - 40rpx - 40px);
+  overflow: scroll;
 }

@@ -17,32 +17,28 @@
       </view>
     </view>
   </view>
+  <view class="detail-switch">
+    <switch type="checkbox" checked="{{detailInfo}}" bindchange="detailInfoStatusChanged" />显示基础数据
+  </view>
   <view class="ship-list">
     <view class="ship-item" wx:for="{{shipList}}" wx:for-item="ship" wx:key="index" bindtap="checkShipDetail" id="{{ship.dexIndex}}">
       <image src="{{ship.backgroundPicSrc}}" class="background-image" mode="center"></image>
       <image src="https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/shipDetail_change1.png" class="update-icon" wx:if="{{ship.updated}}"></image>
-      <view class="upper-content">
-        <image src="{{ship.url}}" class="ship-icon" mode="aspectFill"></image>
-        <view class="ship-brief-info">
-          <label class="ship-name">{{ship.name}}</label>
-          <label class="ship-nationality">{{ship.nationality}}</label>
-          <label class="ship-type">{{ship.type}}</label>
-        </view>
-      </view>
-      <view class="lower-content">
-        <view class="first-line">
-          <label class="ship-power" wx:if="{{ship.power}}">火力： {{ship.power}}</label>
-          <label class="ship-torpedo" wx:if="{{ship.torpedo}}">鱼雷： {{ship.torpedo}}</label>
-        </view>
-        <view class="second-line">
-          <label class="ship-life" wx:if="{{ship.life}}">耐久： {{ship.life}}</label>
-          <label class="ship-speed" wx:if="{{ship.speed}}">航速： {{ship.speed}}节</label>
-        </view>
+      <image src="{{ship.url}}" class="ship-icon {{!detailInfo ? 'show-mask' : ''}}" mode="aspectFill"></image>
+      <text class="simple-introduce" wx:if="{{!detailInfo}}">{{ship.name}}</text>
+      <view class="base-info-container" wx:else>
+        <label class="ship-name">名称： {{ship.name}}</label>
+        <label class="ship-nationality">国籍： {{ship.nationality}}</label>
+        <label class="ship-type">舰种： {{ship.type}}</label>
+        <label class="ship-power" wx:if="{{ship.power}}">火力： {{ship.power}}</label>
+        <label class="ship-torpedo" wx:if="{{ship.torpedo}}">鱼雷： {{ship.torpedo}}</label>
+        <label class="ship-life" wx:if="{{ship.life}}">耐久： {{ship.life}}</label>
+        <label class="ship-speed" wx:if="{{ship.speed}}">航速： {{ship.speed}}节</label>
       </view>
     </view>
   </view>
 
-  <view class="settings" wx:if="{{showSetting}}">
+  <view class="settings" wx:if="{{showSetting}}" catchtouchmove="settingIgnoreTouchMove">
     <custom-filter source="{{nationalitySetting}}" catchselectionchanged="nationalityChanged"></custom-filter>
     <custom-filter source="{{typeSetting}}" catchselectionchanged="typeChanged"></custom-filter>
     <custom-filter source="{{dimensionSetting}}" catchselectionchanged="dimensionChanged"></custom-filter>

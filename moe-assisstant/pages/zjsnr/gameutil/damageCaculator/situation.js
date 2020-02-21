@@ -1,6 +1,5 @@
 const getPercentage = proportion => {
   let percentage = '0%'
-  console.log(proportion.getFixed())
   if (proportion < 0) percentage = '0%'
   else if (proportion > 1) percentage = '100%'
   else percentage = `${Math.ceil(proportion.getFixed() * 1000) / 10}%`
@@ -23,8 +22,19 @@ const caculateAttackRange = dataContainer => {
     criticalTop: 0
   }
 
-  finalAttack.normalBottom = (dataContainer.baseCoefficient * dataContainer.baseATK * dataContainer.floatBottom).getFixed()
-  finalAttack.normalTop = (dataContainer.baseCoefficient * dataContainer.baseATK * dataContainer.floatTop).getFixed()
+  // 航母炮击有个随机系数
+  if (dataContainer.type === 4) {
+    const attackOptions = dataContainer.baseATK.split('~')
+    const bottom = Number(attackOptions[0])
+    const top = Number(attackOptions[1])
+
+    finalAttack.normalBottom = (dataContainer.baseCoefficient * bottom * dataContainer.floatBottom).getFixed()
+    finalAttack.normalTop = (dataContainer.baseCoefficient * top * dataContainer.floatTop).getFixed()
+  } else {
+    finalAttack.normalBottom = (dataContainer.baseCoefficient * dataContainer.baseATK * dataContainer.floatBottom).getFixed()
+    finalAttack.normalTop = (dataContainer.baseCoefficient * dataContainer.baseATK * dataContainer.floatTop).getFixed()
+  }
+
   finalAttack.criticalBottom = (finalAttack.normalBottom * dataContainer.criticalCoefficientValue).getFixed()
   finalAttack.criticalTop = (finalAttack.normalTop * dataContainer.criticalCoefficientValue).getFixed()
 
@@ -59,7 +69,7 @@ const caculateFinalDamage = dataContainer => {
     for (let key in finalDamage) {
       const tempDamage = Math.ceil(dataContainer.attackRange[key] * (1 - dataContainer.enemyArmor / (Number(0.5 * dataContainer.enemyArmor) + Number(dataContainer.piercingCoefficient * dataContainer.attackRange[key]))) * dataContainer.finalDamageCoefficient)
 
-      finalDamage[key] = tempDamage > 0 ? tempDamage : Math.ceil(Math.min(dataContainer.baseATK, dataContainer.enemyLife) * 0.1)
+      finalDamage[key] = tempDamage > 0 ? tempDamage : Math.ceil(Math.min(Number(dataContainer.baseATK.split('~')[0]), dataContainer.enemyLife) * 0.1)
     }
   }
 
@@ -281,8 +291,9 @@ class Situation {
     }, {
       id: 3,
       title: '穿甲系数',
+      defaultValue: defaultPiercingCoefficient,
       calculating: function(value) {
-        return 1 + Number((Number(value) / 100).getFixed())
+        return this.defaultValue + Number((Number(value) / 100).getFixed())
       },
       value: ''
     }]

@@ -1,17 +1,3 @@
 <view class="container">
-  <view class="list-container" wx:if="{{loaded}}">
-    <view class="list-header border-text">{{listContent.title}}</view>
-    <view class="list-explaination border-text" wx:if="{{listContent.explaination}}">{{listContent.explaination}}</view>
-    <view class="list-header-container">
-      <view class="list-header-item border-text" wx:for="{{listContent.headerItemList}}" wx:for-item="headerItem" wx:key="index" style="width: {{listContent.columnWidth[index] ? listContent.columnWidth[index] : 1}}">{{headerItem}}</view>
-    </view>
-    <view class="list-content-container">
-      <view class="list-content-item-container" wx:for="{{listContent.contentList}}" wx:for-item="contentListItem" wx:key="index">
-        <view class="list-content">
-          <view class="list-content-item border-text" wx:for="{{contentListItem}}" wx:for-item="contentItem" wx:key="contentIndex" style="width: {{listContent.columnWidth[index] ? listContent.columnWidth[index] : 1}}">{{contentItem}}
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
+  <custom-table class="list-container" table-content="{{listContent}}" width-distribution="{{listContent.columnWidth}}" wx:if="{{loaded}}" />
 </view>
