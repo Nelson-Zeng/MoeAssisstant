@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "parameter-pair": "/components/parameter-pair/parameter-pair"
+    "parameter-pair": "/components/parameter-pair/parameter-pair",
+    "custom-table": "/components/custom-table/custom-table"
   },
   "navigationBarTitleText": "舰船详情"
 }
