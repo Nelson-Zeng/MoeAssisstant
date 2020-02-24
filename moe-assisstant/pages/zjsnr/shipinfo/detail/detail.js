@@ -127,9 +127,9 @@ Page({
       })
 
       wx.showToast({
-        title: '单指快速左右滑动切换，慢速滑动调整位置，双指缩放',
+        title: '点击按钮切换立绘，点击界面其他部分退出，双指可放大立绘',
         icon: 'none',
-        duration: 2000
+        duration: 1000
       })
     })
   },
@@ -151,6 +151,16 @@ Page({
     }
 
   },
+  prevImage() {
+    this.setData({
+      illustrationIndex: app.util.getImageSwipperIndex(this.data.illustrationIndex - 1, this.data.illustrationList.length)
+    })
+  },
+  nextImage() {
+    this.setData({
+      illustrationIndex: app.util.getImageSwipperIndex(this.data.illustrationIndex + 1, this.data.illustrationList.length)
+    })
+  },
   illustrationTouchend(e) {
     if (this.doubleFinger > 0) {
       this.doubleFinger -= 1
@@ -162,17 +172,18 @@ Page({
       const illustrationLength = this.data.illustrationList.length
       const windowWidth = wx.getSystemInfoSync().windowWidth
 
-      if (e.timeStamp - this.data.illustrationTouchStartTime > 200) { //认为拖动时间大于200的不是快速滑动切换
+      if (e.timeStamp - this.data.illustrationTouchStartTime > 200) { //认为拖动时间大于200的不是快速滑动切换或关闭
         return
       }
 
-      if (Math.abs(illustrationTouchEndX - this.data.illustrationTouchStartX) > windowWidth / 4) {
+      /*if (Math.abs(illustrationTouchEndX - this.data.illustrationTouchStartX) > windowWidth / 5) {
         const newIndex = illustrationTouchEndX - this.data.illustrationTouchStartX > 0 ? this.data.illustrationIndex - 1 : this.data.illustrationIndex + 1
 
         this.setData({
           illustrationIndex: app.util.getImageSwipperIndex(newIndex, illustrationLength)
         })
-      } else if (Math.abs(illustrationTouchEndX - this.data.illustrationTouchStartX) < windowWidth / 40) {
+      } else */
+      if (Math.abs(illustrationTouchEndX - this.data.illustrationTouchStartX) < windowWidth / 40) {
         this.closeImage() //认为滑动距离特别短的是单击事件
       }
     } else if (e.changedTouches.length === 2) {}

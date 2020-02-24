@@ -74,8 +74,8 @@
     <movable-view class="illustration-view" direction="all" scale="true" scale-min="1.5" scale-max="8.0" scale-value="1.5">
       <image class="illustration" src="{{illustrationList[illustrationIndex]}}" mode="aspectFit" bindtouchstart="illustrationTouchstart" bindtouchend="illustrationTouchend"></image>
     </movable-view>
-    <view class="go-pre button"></view>
-    <view class="go-next button"></view>
+    <view class="go-pre button" bindtap="prevImage"></view>
+    <view class="go-next button" bindtap="nextImage"></view>
   </movable-area>
 
   <view class="ship-access-container" wx:if="{{showSimpleAccessTable}}" bindtap="closeSimpleAccessTable">
