@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/zjsnr/shipinfo/brief/brief",
     "pages/zjsnr/home/index",
+    "pages/zjsnr/shipinfo/brief/brief",
     "pages/zjsnr/equipmentinfo/brief/brief",
     "pages/zjsnr/shipinfo/detail/detail",
     "pages/zjsnr/gameutil/index",
