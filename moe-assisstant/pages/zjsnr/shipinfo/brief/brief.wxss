@@ -208,6 +208,15 @@
   flex-grow: 1;
 }
 
+.container .ship-list .reloading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  padding-bottom: 10rpx;
+  color: #909399;
+}
+
 .container .settings {
   position: fixed;
   top: 0;
