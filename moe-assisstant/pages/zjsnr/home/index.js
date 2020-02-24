@@ -16,24 +16,20 @@ Page({
     }, {
       id: 'equipment',
       title: '装备查询',
-        src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/middle.png',
+      src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/middle.png',
       bgColor: '#e0e5df'
     }, {
       id: 'shipgirl',
       title: '舰船查询',
-        src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/right.png',
+      src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/right.png',
       bgColor: '#c1cbd7'
     }]
   },
   onLoad() {
     wx.loadFontFace({
       family: 'Qing Ning You Yuan',
-      source: 'url("https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/font-family/qlyy.ttf")',
-      complete: () => {
-        this.setData({
-          fontLoaded: true
-        })
-      }
+      source: 'url("https://www.moeassisstant.com/font/qlyy.ttf")',
+      complete: () => {}
     })
   },
   startService(event) {

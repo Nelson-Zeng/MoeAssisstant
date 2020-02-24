@@ -159,7 +159,7 @@ const getZJSNShipMediumPicture = id => {
 }
 
 const getZJSNEquipmentPicture = id => {
-  return `https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/equipments/equip_L_${id}.png`
+  return `https://www.moeassisstant.com/zjsnr/illustration/equipments/equip_L_${id}.png`
 }
 
 const getZJSNShipBackground = rarity => {
