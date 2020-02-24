@@ -403,7 +403,7 @@ Page({
   async updateShipList() {
     const response = await app.http.get(app.http.GET_SHIP_LIST, {}, this.data.limitationDataContainer)
 
-    const shipList = response.data
+    const shipList = response.data.shipList
     const renderedShipInfo = shipList.map(info => {
       info.url = app.filters.getZJSNShipSmallPicture(info.picId)
       info.backgroundPicSrc = app.filters.getZJSNShipBackground(info.rarity)
