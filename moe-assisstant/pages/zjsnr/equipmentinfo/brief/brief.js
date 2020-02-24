@@ -523,7 +523,6 @@ Page({
     this.updateList()
   },
   async updateList() {
-    console.log(this.data.dataContainer)
     const response = await app.http.get(app.http.GET_EQUIPMENT_LIST, {}, this.data.dataContainer)
 
     const equipmentData = response.data
