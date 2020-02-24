@@ -21,6 +21,7 @@ Component({
 
         this.triggerEvent('selectKey', {
           key: this.properties.source.secondary[0].key,
+          currentItem: this.properties.source.secondary[0],
           firstClassId: this.properties.source.id
         })
       } else {
@@ -30,17 +31,21 @@ Component({
 
         this.triggerEvent('selectKey', {
           key: this.properties.source.key,
+          currentItem: this.properties.source,
           firstClassId: this.properties.source.id
         })
       }
     },
     clickSecondaryClassItem(e) {
       this.setData({
-        selectedKey: e.currentTarget.id
+        selectedKey: Number(e.currentTarget.id)
       })
 
       this.triggerEvent('selectKey', {
         key: e.currentTarget.id,
+        currentItem: this.properties.source.secondary.find(item => {
+          return item.key === Number(e.currentTarget.id)
+        }),
         firstClassId: this.properties.source.id
       })
     },

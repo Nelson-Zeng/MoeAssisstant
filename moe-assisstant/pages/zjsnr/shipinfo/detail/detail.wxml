@@ -2,7 +2,8 @@
   <view class="header">
     <button type="primary" bindtap="checkDialogue">查看台词</button>
     <button type="primary" bindtap="checkIllustration">查看立绘</button>
-    <view class="switch-container">
+    <button type="primary" bindtap="checkAccess">查看出货</button>
+    <view class="switch-container" wx:if="{{canBeUpdated}}">
       <label>基础</label>
       <switch wx:if="true" checked="{{shipUpdated}}" class="ship-update-switch" bindchange="statusChange"></switch>
       <label>改造</label>
@@ -73,6 +74,35 @@
     <movable-view class="illustration-view" direction="all" scale="true" scale-min="1.5" scale-max="8.0" scale-value="1.5">
       <image class="illustration" src="{{illustrationList[illustrationIndex]}}" mode="aspectFit" bindtouchstart="illustrationTouchstart" bindtouchend="illustrationTouchend"></image>
     </movable-view>
+    <view class="go-pre button"></view>
+    <view class="go-next button"></view>
   </movable-area>
 
+  <view class="ship-access-container" wx:if="{{showSimpleAccessTable}}" bindtap="closeSimpleAccessTable">
+    <view class="ship-access-simple-data" catchtap="clickOnTable">
+      <view class="build-part part-container" wx:if="{{showBuild}}">
+        <view class="title-container">
+          <text class="title">建造数据</text>
+          <text class="show-more" id="build" bindtap="checkMore">查看更多</text>
+        </view>
+        <custom-table table-content="{{buildSimpleTable}}" width-distribution="{{buildTableWidthDistribution}}" />
+      </view>
+      <view class="drop-part part-container" wx:if="{{showDrop}}">
+        <view class="title-container">
+          <text class="title">掉落数据</text>
+          <text class="show-more" id="drop" bindtap="checkMore">查看更多</text>
+        </view>
+        <custom-table table-content="{{dropSimpleTable}}" width-distribution="{{dropTableWidthDistribution}}" />
+      </view>
+    </view>
+  </view>
+
+  <view class="ship-detail-access-container" catchtap="clickDetailTable" wx:if="{{showDetailAccessTable}}">
+    <view class="ship-access-detail-data">
+      <view class="close-icon" catchtap="closeDetailTable">×</view>
+      <view class="table-area">
+        <custom-table table-content="{{detailTable}}" width-distribution="{{detailWidthDistribution}}" class="table-area" />
+      </view>
+    </view>
+  </view>
 </view>

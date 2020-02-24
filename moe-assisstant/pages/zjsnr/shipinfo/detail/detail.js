@@ -1,130 +1,136 @@
 const app = getApp()
 
-const mockShipInfo = {
-  "id": 5256,
-  "picId": 1097,
-  "cid": 11009711,
-  "dexIndex": 1097,
-  "name": "长春",
-  "nationality": "中国",
-  "rarity": 5,
-  "type": "导驱",
-  "shipClass": "6607型3号舰",
-  "life": 33,
-  "power": "17/42",
-  "armor": "15/40",
-  "torpedo": "1/1",
-  "antiAircraft": "30/60",
-  "antiSubmarine": "0/0",
-  "tracking": "15/42",
-  "evadeRate": "45/89",
-  "hitRate": "42/101",
-  "luck": 25,
-  "speed": 39,
-  "aircraftCapacity": "8/8/8/0",
-  "fireRange": "短",
-  "dimension": "小型",
-  "equipmentSlot": 3,
-  "originalEquipment": "上游-1发射器/上游-1导弹",
-  "fuel": "25",
-  "cartridge": "65",
-  "fuelCosting": "0.48",
-  "steelCosting": "1.5",
-  "timeCosting": "0.8",
-  "recyclingIncome": "8/12/10/16",
-  "enhancingIncome": "17/1/15/30",
-  "firstSkillTitle": "四大金刚",
-  "secondSkillTitle": null,
-  "firstSkill": "自身战斗造成伤害提升10%，命中+10，演习获得经验提升15%。",
-  "secondSkill": null
-}
-
-const originalShipInfo = {
-  "id": 5087,
-  "picId": 97,
-  "cid": 10009711,
-  "dexIndex": 97,
-  "name": "果敢",
-  "nationality": "苏联",
-  "rarity": 4,
-  "type": "驱逐",
-  "shipClass": "7型17号舰",
-  "life": 18,
-  "power": "12/32",
-  "armor": "8/23",
-  "torpedo": "12/62",
-  "antiAircraft": "20/50",
-  "antiSubmarine": "24/57",
-  "tracking": "5/16",
-  "evadeRate": "39/83",
-  "hitRate": "31/88",
-  "luck": 25,
-  "speed": 39,
-  "aircraftCapacity": "0",
-  "fireRange": "短",
-  "dimension": "小型",
-  "equipmentSlot": 2,
-  "originalEquipment": "S国单装130毫米炮/四联533毫米鱼雷",
-  "fuel": "10",
-  "cartridge": "15",
-  "fuelCosting": "0.48",
-  "steelCosting": "0.9",
-  "timeCosting": "0.5",
-  "recyclingIncome": "4/8/6/0",
-  "enhancingIncome": "0/12/8/0",
-  "firstSkillTitle": null,
-  "secondSkillTitle": null,
-  "firstSkill": null,
-  "secondSkill": null
-}
-
 Page({
   data: {
-    shipUpdated: true,
+    shipUpdated: false,
     shipInfo: {},
     showIllustration: false,
-    illustrationList: [
-      'https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/ships/L/NORMAL/L_NORMAL_1097.png',
-      'https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/ships/L/NORMAL/L_NORMAL_97_1.png',
-      'https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/ships/L/NORMAL/L_NORMAL_97_2.png',
-      'https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/ships/L/NORMAL/L_NORMAL_97_3.png'
-    ],
-    backgroundPicSrc: 'url(https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/star-background/ship_star_bg5.png)',
+    illustrationList: [],
+    backgroundPicSrc: '',
     illustrationIndex: 0,
 
     illustrationTouchStartX: 0,
 
     illustrationTouchStartTime: 0,
 
-    doubleFinger: 0
+    doubleFinger: 0,
+
+    showSimpleAccessTable: false,
+    buildTableWidthDistribution: ['12%', '12%', '12%', '12%', '12%', '20%', '20%'],
+    dropTableWidthDistribution: ['25%', '25%', '25%', '25%'],
+    buildSimpleTable: {
+      title: '常用建造数据列表',
+      explaination: '注：已过滤了样本数较少的数据',
+      headerItemList: ['油', '弹', '钢', '铝', '出货数', '公式使用数', '出货率']
+    },
+    dropSimpleTable: {
+      title: '常用掉落数据列表',
+      explaination: '注：已过滤了样本数较少的数据',
+      headerItemList: ['节点', '出货数', '总打捞数', '出货率']
+    },
+
+    showDetailAccessTable: false,
+    detailTable: {
+      explaination: '注：已过滤了样本数过少的数据'
+    },
+    detailWidthDistribution: [],
+
+    originalShipInfo: {},
+    updatedShipInfo: {},
+    canBeUpdated: false,
+
+    acquireRouteData: {},
+
+    showBuild: false,
+    showDrop: false
   },
   onLoad() {
-    this.initData()
-  },
-  initData(flag) {
-    const defaultInfo = flag ? originalShipInfo : mockShipInfo
+    let queryPromise
+    const shipInfo = app.currentShipInfo
+    // 图鉴ID大于1000说明是改造船，需要获取原始数据；反之需要判断该船是否可以改造，如果可以的话获取改造数据
+    if (shipInfo.dexIndex > 1000 && shipInfo.dexIndex < 8000) {
+      this.data.updatedShipInfo = shipInfo
 
-    const renderedShipInfo = Object.assign(defaultInfo, {
-      url: app.filters.getZJSNShipXMediumPicture(defaultInfo.picId),
-      backgroundPicSrc: app.filters.getZJSNShipBackground(defaultInfo.rarity)
+      queryPromise = new Promise((resolve, reject) => {
+        app.http.get(app.http.GET_RELATED_SHIP_INFO, {
+          id: shipInfo.dexIndex
+        }, {}, response => {
+          this.data.originalShipInfo = response.data
+
+          this.setData({
+            canBeUpdated: true,
+            shipUpdated: true,
+            shipInfo: shipInfo
+          })
+          resolve()
+        })
+      })
+    } else if (shipInfo.dexIndex > 8000) {
+      queryPromise = new Promise((resolve, reject) => {
+        this.setData({
+          canBeUpdated: false,
+          shipInfo: shipInfo
+        })
+        resolve()
+      })
+    } else if (shipInfo.dexIndex < 1000 && shipInfo.dexIndex > 0) {
+      this.data.originalShipInfo = shipInfo
+
+      queryPromise = new Promise((resolve, reject) => {
+        app.http.get(app.http.GET_RELATED_SHIP_INFO, {
+          id: shipInfo.dexIndex
+        }, {}, response => {
+          if (Object.keys(response.data).length > 0) {
+            this.data.updatedShipInfo = response.data
+            this.setData({
+              canBeUpdated: true,
+              shipInfo: shipInfo
+            })
+          } else {
+            this.setData({
+              canBeUpdated: false,
+              shipInfo: shipInfo
+            })
+          }
+          resolve()
+        })
+      })
+    }
+
+    queryPromise.then(() => {
+      this.initData(shipInfo)
+    })
+  },
+  statusChange(e) {
+    this.initData(e.detail.value ? this.data.updatedShipInfo : this.data.originalShipInfo)
+  },
+  initData(shipInfo) {
+    const renderedShipInfo = Object.assign(shipInfo, {
+      url: app.filters.getZJSNShipXMediumPicture(shipInfo.picId),
+      backgroundPicSrc: app.filters.getZJSNShipBackground(shipInfo.rarity)
     })
 
     this.setData({
       shipInfo: renderedShipInfo
     })
   },
-  statusChange(e) {
-    this.initData(!e.detail.value)
-  },
   checkIllustration() {
-    this.setData({
-      showIllustration: true
-    })
+    app.http.get(app.http.GET_SHIP_ILLUSTRATIONS, {
+      id: this.data.shipInfo.dexIndex
+    }, {}, response => {
+      this.setData({
+        illustrationList: response.data.map(url => {
+          return `https://www.moeassisstant.com/zjsnr/${url}`
+        }),
+        backgroundPicSrc: `url(https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/star-background/ship_star_bg${this.data.shipInfo.rarity}.png)`,
+        showIllustration: true
+      })
 
-    wx.showToast({
-      title: '单指快速左右滑动切换，慢速滑动调整位置，双指缩放',
-      icon: 'none',
-      duration: 2000
+      wx.showToast({
+        title: '单指快速左右滑动切换，慢速滑动调整位置，双指缩放',
+        icon: 'none',
+        duration: 2000
+      })
     })
   },
   checkDialogue() {
@@ -161,16 +167,15 @@ Page({
       }
 
       if (Math.abs(illustrationTouchEndX - this.data.illustrationTouchStartX) > windowWidth / 4) {
-        const newIndex = illustrationTouchEndX - this.data.illustrationTouchStartX > 0 ? this.data.illustrationIndex + 1 : this.data.illustrationIndex - 1
+        const newIndex = illustrationTouchEndX - this.data.illustrationTouchStartX > 0 ? this.data.illustrationIndex - 1 : this.data.illustrationIndex + 1
 
         this.setData({
           illustrationIndex: app.util.getImageSwipperIndex(newIndex, illustrationLength)
         })
-      } else if (Math.abs(illustrationTouchEndX - this.data.illustrationTouchStartX) < windowWidth / 40) { 
+      } else if (Math.abs(illustrationTouchEndX - this.data.illustrationTouchStartX) < windowWidth / 40) {
         this.closeImage() //认为滑动距离特别短的是单击事件
       }
-    } else if (e.changedTouches.length === 2) {
-    }
+    } else if (e.changedTouches.length === 2) {}
 
   },
   closeImage() {
@@ -180,6 +185,90 @@ Page({
     }
     this.setData({
       showIllustration: false
+    })
+  },
+  checkAccess() {
+    wx.showLoading({
+      title: '正在获取数据',
+    })
+    let tempCid = Number(this.data.shipInfo.cid)
+    if (tempCid > 10100000) tempCid = tempCid - 100000
+    app.http.get(app.http.GET_SHIP_ACQUIRE_ROUTES, { cid: tempCid}, {}, response => {
+      wx.hideLoading()
+      this.data.acquireRouteData = response.data
+      this.setData2SimpleTable()
+    })
+  },
+  setData2SimpleTable() {
+    console.log(this.data.acquireRouteData.build.simple.length != 0)
+    const simpleBuildContent = this.data.acquireRouteData.build.simple.map(item => {
+      return [item.oil, item.ammo, item.steel, item.al, item.C, item.C_form, item.scale]
+    })
+    const simpleDropContent = this.data.acquireRouteData.drop.simple.map(item => {
+      return [item.nodeName, item.C, item.C_node, item.scale]
+    })
+    this.setData({
+      showSimpleAccessTable: true,
+      buildSimpleTable: Object.assign(this.data.buildSimpleTable, {
+        contentList: simpleBuildContent
+      }),
+      dropSimpleTable: Object.assign(this.data.dropSimpleTable, {
+        contentList: simpleDropContent
+      }),
+      showBuild: this.data.acquireRouteData.build.simple.length !== 0,
+      showDrop: this.data.acquireRouteData.drop.simple.length !== 0
+    })
+  },
+  clickDetailTable(e) {
+    return
+  },
+  checkMore(e) {
+    const type = e.currentTarget.id
+
+    let tableTitle
+    let headerItemList
+    let contentList
+    let widthDistribution
+    switch (type) {
+      case 'build':
+        tableTitle = '详细建造数据查询表'
+        headerItemList = this.data.buildSimpleTable.headerItemList
+        contentList = this.data.acquireRouteData.build.detail.map(item => {
+          return [item.oil, item.ammo, item.steel, item.al, item.C, item.C_form, item.scale]
+        })
+        widthDistribution = this.data.buildTableWidthDistribution
+        break
+      case 'drop':
+        tableTitle = '详细掉落数据查询表'
+        headerItemList = this.data.dropSimpleTable.headerItemList
+        contentList = this.data.acquireRouteData.drop.detail.map(item => {
+          return [item.nodeName, item.C, item.C_node, item.scale]
+        })
+        widthDistribution = this.data.dropTableWidthDistribution
+        break
+    }
+
+    this.setData({
+      showDetailAccessTable: true,
+      detailTable: Object.assign(this.data.detailTable, {
+        title: tableTitle,
+        headerItemList: headerItemList,
+        contentList: contentList
+      }),
+      detailWidthDistribution: widthDistribution
+    })
+  },
+  closeDetailTable() {
+    this.setData({
+      showDetailAccessTable: false
+    })
+  },
+  clickOnTable() {
+    return
+  },
+  closeSimpleAccessTable(e) {
+    this.setData({
+      showSimpleAccessTable: false
     })
   }
 })

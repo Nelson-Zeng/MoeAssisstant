@@ -3,8 +3,8 @@
 
   <view class="simple-filter">
     <view class="search-area">
-      <input type="text" class="search-key" confirm-type="搜索" bindconfirm="search"></input>
-      <image class="search-icon" catchtap="search" />
+      <input type="text" class="search-key" confirm-type="搜索" bindconfirm="search" id="search"></input>
+      <view class="search-icon" bindtap="searchByIcon"></view>
     </view>
     <view class="sorting-area">
       <view class="sorting-title">请选择用于排序的属性:
@@ -23,7 +23,9 @@
   <view class="ship-list">
     <view class="ship-item" wx:for="{{shipList}}" wx:for-item="ship" wx:key="index" bindtap="checkShipDetail" id="{{ship.dexIndex}}">
       <image src="{{ship.backgroundPicSrc}}" class="background-image" mode="center"></image>
-      <image src="https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/shipDetail_change1.png" class="update-icon" wx:if="{{ship.updated}}"></image>
+      <view class="update-icon" wx:if="{{ship.updated}}">改造
+        <view class="icon"></view>
+      </view>
       <image src="{{ship.url}}" class="ship-icon {{!detailInfo ? 'show-mask' : ''}}" mode="aspectFill"></image>
       <text class="simple-introduce" wx:if="{{!detailInfo}}">{{ship.name}}</text>
       <view class="base-info-container" wx:else>

@@ -12,7 +12,7 @@
         <image src="{{content.src}}" mode="aspectFill" class="picture"></image>
         <image src="{{content.backgroundSrc}}" class="background" mode="center"></image>
         <view class="detail-container">
-          <view wx:for="{{parameterKeys}}" wx:for-item="key" wx:key="index" id="key{{index}}">{{key.title}}: {{content[key.id]}}</view>
+          <view wx:for="{{parameterKeys}}" wx:for-item="key" wx:key="index" id="key{{index}}" wx:if="{{content[key.id]}}">{{key.title}}: {{content[key.id]}}</view>
         </view>
       </view>
     </view>
@@ -22,7 +22,7 @@
     <view class="dialog" catchtap="clickDialog">
       <image src="{{currentEquipment.src}}" class="picture" mode="aspectFit" style="background-image: {{currentEquipment.backgroundSrc ? currentEquipment.backgroundSrc : ''}}"></image>
       <view class="parameter-list">
-        <parameter-pair wx:for="{{currentEquipmentParameters}}" wx:for-item="pair" wx:key="index" title="{{pair.title}}" value="{{pair.value}}" height="50rpx"></parameter-pair>
+        <parameter-pair wx:for="{{currentEquipmentParameters}}" wx:for-item="pair" wx:key="index" title="{{pair.title}}" value="{{pair.value}}"></parameter-pair>
       </view>
     </view>
   </view>
