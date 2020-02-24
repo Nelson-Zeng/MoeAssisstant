@@ -177,6 +177,7 @@ const DETAIL_SHIP_TYPES = [{
 Page({
   data: {
     shipList: [],
+    shipListTotalCount: 0,
     settingIconPostion: {
       top: 'calc(100% - 200px)',
       right: '5px'
@@ -234,13 +235,39 @@ Page({
       page: 1,
       capacity: 15,
       keyWord: ''
-    }
+    },
+
+    reachEnd: true
   },
   onLoad() {
-    this.updateShipList()
+    this.initShipList()
   },
   onReachBottom(e) {
-    app.util.toast.info('Yes, RPG!')
+    const currentLength = Number(this.data.limitationDataContainer.page * this.data.limitationDataContainer.capacity)
+
+    if (currentLength < this.data.shipListTotalCount) {
+      this.setData({
+        reachEnd: false
+      })
+
+      this.data.limitationDataContainer.page += 1
+
+      app.http.get(app.http.GET_SHIP_LIST, {}, this.data.limitationDataContainer, response => {
+        const shipList = response.data.shipList
+        this.data.shipListTotalCount = response.data.total
+        shipList.map(info => {
+          info.url = app.filters.getZJSNShipSmallPicture(info.picId)
+          info.backgroundPicSrc = app.filters.getZJSNShipBackground(info.rarity)
+          info.updated = app.filters.getShipUpdateInfo(info.dexIndex)
+          this.data.shipList.push(info)
+        })
+
+        this.setData({
+          shipList: this.data.shipList,
+          reachEnd: true
+        })
+      })
+    }
   },
   checkShipDetail(e) {
     const shipId = Number(e.currentTarget.id)
@@ -339,7 +366,7 @@ Page({
       showSetting: false
     })
 
-    this.updateShipList()
+    this.initShipList()
   },
   nationalityChanged(e) {
     this.data.tempDataContainer.nationalities = e.detail
@@ -353,7 +380,7 @@ Page({
   search(e) {
     this.data.limitationDataContainer.keyWord = e.detail.value
 
-    this.updateShipList()
+    this.initShipList()
   },
   searchByIcon() {
     console.log(1)
@@ -383,7 +410,7 @@ Page({
       sortingKeys: this.data.sortingKeys
     })
 
-    this.updateShipList()
+    this.initShipList()
   },
   sortingOrientationChanged(e) {
     this.data.limitationDataContainer.sequence = e.detail.value ? 'desc' : 'asc'
@@ -392,7 +419,7 @@ Page({
       sortDesc: e.detail.value
     })
 
-    this.updateShipList()
+    this.initShipList()
   },
   detailInfoStatusChanged(e) {
     this.setData({
@@ -400,10 +427,16 @@ Page({
     })
   },
   settingIgnoreTouchMove: function() {},
+  initShipList() {
+    this.data.limitationDataContainer.page = 1
+
+    this.updateShipList()
+  },
   async updateShipList() {
     const response = await app.http.get(app.http.GET_SHIP_LIST, {}, this.data.limitationDataContainer)
 
     const shipList = response.data.shipList
+    this.data.shipListTotalCount = response.data.total
     const renderedShipInfo = shipList.map(info => {
       info.url = app.filters.getZJSNShipSmallPicture(info.picId)
       info.backgroundPicSrc = app.filters.getZJSNShipBackground(info.rarity)

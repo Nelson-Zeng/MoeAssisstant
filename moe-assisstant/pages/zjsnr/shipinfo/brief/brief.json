@@ -3,5 +3,5 @@
     "custom-filter": "/components/custom-filter/custom-filter"
   },
   "navigationBarTitleText": "舰船列表",
-  "onReachBottomDistance": 300
+  "onReachBottomDistance": 100
 }

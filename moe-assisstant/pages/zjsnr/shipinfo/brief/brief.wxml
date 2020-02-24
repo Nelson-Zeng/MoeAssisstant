@@ -38,6 +38,7 @@
         <label class="ship-speed" wx:if="{{ship.speed}}">航速： {{ship.speed}}节</label>
       </view>
     </view>
+    <view class="reloading">{{reachEnd ? '下面没了' : '正在加载更多'}}</view>
   </view>
 
   <view class="settings" wx:if="{{showSetting}}" catchtouchmove="settingIgnoreTouchMove">
