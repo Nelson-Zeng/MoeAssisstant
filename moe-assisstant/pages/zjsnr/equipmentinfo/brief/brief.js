@@ -4,48 +4,45 @@ const NAVIGATOR_ITEMS = [{
     id: 0,
     name: '主炮',
     secondary: [{
+        id: 1,
+        name: '大型',
+        key: 1,
+        orderType: '火力',
+        orderTypeKey: 'power',
+        parameterType: 0
+      }, {
+        id: 4,
+        name: '中型-重巡+',
+        key: 4,
+        orderType: '火力',
+        orderTypeKey: 'power',
+        parameterType: 0
+      }, {
+        id: 3,
+        name: '中型',
+        key: 3,
+        orderType: '火力',
+        orderTypeKey: 'power',
+        parameterType: 0
+      }, {
         id: 0,
-        name: '驱逐',
+        name: '小型',
         key: 0,
         orderType: '火力',
         orderTypeKey: 'power',
         parameterType: 0
       },
       {
-        id: 1,
-        name: '战列',
-        key: 1,
-        orderType: '火力',
-        orderTypeKey: 'power',
-        parameterType: 0
-      },
-      {
         id: 2,
-        name: '炮潜',
+        name: '炮潜限定',
         key: 2,
         orderType: '火力',
         orderTypeKey: 'power',
         parameterType: 0
       },
       {
-        id: 3,
-        name: '轻巡',
-        key: 3,
-        orderType: '火力',
-        orderTypeKey: 'power',
-        parameterType: 0
-      },
-      {
-        id: 4,
-        name: '重巡',
-        key: 4,
-        orderType: '火力',
-        orderTypeKey: 'power',
-        parameterType: 0
-      },
-      {
         id: 5,
-        name: '日本重巡',
+        name: '日本重巡限定',
         key: 5,
         orderType: '火力',
         orderTypeKey: 'power',
@@ -353,12 +350,41 @@ const NAVIGATOR_ITEMS = [{
         parameterType: 7
       }
     ]
+  },
+  {
+    id: 17,
+    name: '特殊分类',
+    secondary: [{
+        id: 0,
+        name: '等效声呐装备',
+        key: 38,
+        orderType: '图鉴ID',
+        orderTypeKey: 'dexIndex',
+        parameterType: 2
+      },
+      {
+        id: 1,
+        name: '经验强化',
+        key: 39,
+        orderType: '图鉴ID',
+        orderTypeKey: 'dexIndex',
+        parameterType: 2
+      },
+      {
+        id: 2,
+        name: '装备者限定',
+        key: 40,
+        orderType: '图鉴ID',
+        orderTypeKey: 'dexIndex',
+        parameterType: 2
+      }
+    ]
   }
 ]
 
 const CONTENT_MAPPING = [
   [{
-      title: '名称',
+      // title: '名称',
       id: 'name'
     },
     {
@@ -375,7 +401,7 @@ const CONTENT_MAPPING = [
     }
   ],
   [{
-      title: '名称',
+      // title: '名称',
       id: 'name'
     },
     {
@@ -392,7 +418,7 @@ const CONTENT_MAPPING = [
     }
   ],
   [{
-      title: '名称',
+      // title: '名称',
       id: 'name'
     },
     {
@@ -401,7 +427,7 @@ const CONTENT_MAPPING = [
     }
   ],
   [{
-      title: '名称',
+      // title: '名称',
       id: 'name'
     },
     {
@@ -414,7 +440,7 @@ const CONTENT_MAPPING = [
     }
   ],
   [{
-      title: '名称',
+      // title: '名称',
       id: 'name'
     },
     {
@@ -427,7 +453,7 @@ const CONTENT_MAPPING = [
     }
   ],
   [{
-      title: '名称',
+      // title: '名称',
       id: 'name'
     },
     {
@@ -440,7 +466,7 @@ const CONTENT_MAPPING = [
     }
   ],
   [{
-      title: '名称',
+      // title: '名称',
       id: 'name'
     },
     {
@@ -457,7 +483,7 @@ const CONTENT_MAPPING = [
     }
   ],
   [{
-      title: '名称',
+      // title: '名称',
       id: 'name'
     },
     {
@@ -478,15 +504,8 @@ const CONTENT_MAPPING = [
 Page({
   data: {
     navigatorItems: NAVIGATOR_ITEMS,
-    currentItem: {
-      id: 0,
-      name: '驱逐',
-      key: 0,
-      orderType: '火力',
-      orderTypeKey: 'power',
-      parameterType: 0
-    },
-    currentId: 0,
+    currentItem: NAVIGATOR_ITEMS[0].secondary[0],
+    currentId: NAVIGATOR_ITEMS[0].secondary[0].id,
     descRequired: true,
     contents: [],
     parameterKeys: [],
@@ -495,7 +514,7 @@ Page({
     currentEquipmentParameters: [],
 
     dataContainer: {
-      type: 0,
+      type: 1,
       sequence: 'desc'
     }
   },
@@ -523,6 +542,10 @@ Page({
     this.updateList()
   },
   async updateList() {
+    wx.showLoading({
+      title: '数据载入中',
+    })
+
     const response = await app.http.get(app.http.GET_EQUIPMENT_LIST, {}, this.data.dataContainer)
 
     const equipmentData = response.data
@@ -534,6 +557,8 @@ Page({
       }),
       parameterKeys: CONTENT_MAPPING[this.data.currentItem.parameterType]
     })
+
+    wx.hideLoading()
   },
   callEquipmentDetail(e) {
     const equipmentId = parseInt(e.currentTarget.id.split('content')[1])
