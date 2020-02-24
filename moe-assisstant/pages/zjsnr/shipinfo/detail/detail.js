@@ -1,44 +1,5 @@
 const app = getApp()
 
-const originalShipInfo = {
-  "id": 5087,
-  "picId": 97,
-  "cid": 10009711,
-  "dexIndex": 97,
-  "name": "果敢",
-  "nationality": "苏联",
-  "rarity": 4,
-  "type": "驱逐",
-  "shipClass": "7型17号舰",
-  "life": 18,
-  "power": "12/32",
-  "armor": "8/23",
-  "torpedo": "12/62",
-  "antiAircraft": "20/50",
-  "antiSubmarine": "24/57",
-  "tracking": "5/16",
-  "evadeRate": "39/83",
-  "hitRate": "31/88",
-  "luck": 25,
-  "speed": 39,
-  "aircraftCapacity": "0",
-  "fireRange": "短",
-  "dimension": "小型",
-  "equipmentSlot": 2,
-  "originalEquipment": "S国单装130毫米炮/四联533毫米鱼雷",
-  "fuel": "10",
-  "cartridge": "15",
-  "fuelCosting": "0.48",
-  "steelCosting": "0.9",
-  "timeCosting": "0.5",
-  "recyclingIncome": "4/8/6/0",
-  "enhancingIncome": "0/12/8/0",
-  "firstSkillTitle": null,
-  "secondSkillTitle": null,
-  "firstSkill": null,
-  "secondSkill": null
-}
-
 Page({
   data: {
     shipUpdated: false,
