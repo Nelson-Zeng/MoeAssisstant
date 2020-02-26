@@ -141,7 +141,7 @@ const ZJSNR_EQUIPMENT_PARAMETER_MAPPING = [{
 ]
 
 const renderImageSrc = (game, type, status, size, id) => {
-  return `https://www.moeassisstant.com/${game}/illustration/${type}/${size}/${status}/${size}_${status}_${id}.png`
+  return `${constants.DOMAIN}/${game}/illustration/${type}/${size}/${status}/${size}_${status}_${id}.png`
 }
 
 const getZJSNShipSmallPicture = id => {

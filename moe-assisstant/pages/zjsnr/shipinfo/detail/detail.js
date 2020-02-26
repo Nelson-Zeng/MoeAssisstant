@@ -123,7 +123,7 @@ Page({
     }, {}, response => {
       this.setData({
         illustrationList: response.data.map(url => {
-          return `https://www.moeassisstant.com/zjsnr/${url}`
+          return `${app.constants.DOMAIN}/zjsnr/${url}`
         }),
         backgroundPicSrc: `url(${app.filters.getZJSNClearShipBackground(this.data.shipInfo.rarity)})`,
         showIllustration: true

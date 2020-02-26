@@ -1,10 +1,12 @@
+import constants from './constants.js'
+
 const http = {
-  GET_EQUIPMENT_LIST: 'https://www.moeassisstant.com/zjsnr/equipments/info',
-  GET_SHIP_LIST: 'https://www.moeassisstant.com/zjsnr/ships/info',
-  GET_RELATED_SHIP_INFO: 'https://www.moeassisstant.com/zjsnr/ships/:id/related',
-  GET_SHIP_ILLUSTRATIONS: 'https://www.moeassisstant.com/zjsnr/ships/illustrations/:id',
-  GET_SHIP_ACQUIRE_ROUTES: 'https://www.moeassisstant.com/zjsnr/ships/acquireRoute/:cid',
-  GET_FORMULA: 'https://www.moeassisstant.com/zjsnr/gameutil/formula/:type',
+  GET_EQUIPMENT_LIST: `${constants.DOMAIN}/zjsnr/equipments/info`,
+  GET_SHIP_LIST: `${constants.DOMAIN}/zjsnr/ships/info`,
+  GET_RELATED_SHIP_INFO: `${constants.DOMAIN}/zjsnr/ships/:id/related`,
+  GET_SHIP_ILLUSTRATIONS: `${constants.DOMAIN}/zjsnr/ships/illustrations/:id`,
+  GET_SHIP_ACQUIRE_ROUTES: `${constants.DOMAIN}/zjsnr/ships/acquireRoute/:cid`,
+  GET_FORMULA: `${constants.DOMAIN}/zjsnr/gameutil/formula/:type`,
 
   get: (baseUrl, params, queries, onSuccess) => {
     return new Promise((resolve, reject) => {

@@ -25,13 +25,6 @@ Page({
       bgColor: '#c1cbd7'
     }]
   },
-  onLoad() {
-    // wx.loadFontFace({
-    //   family: 'Qing Ning You Yuan',
-    //   source: 'url("https://www.moeassisstant.com/font/qlyy.ttf")',
-    //   complete: () => {}
-    // })
-  },
   startService(event) {
     switch (event.currentTarget.id) {
       case 'formula':
