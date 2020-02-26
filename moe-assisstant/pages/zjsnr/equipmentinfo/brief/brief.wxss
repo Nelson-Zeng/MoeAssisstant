@@ -52,7 +52,7 @@
   height: 100%;
   width: 50%;
   border-radius: 10rpx;
-  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .container .equipment-list-container .equipment-list .equipment .background {

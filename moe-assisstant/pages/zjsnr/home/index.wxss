@@ -29,14 +29,14 @@
   margin: 0 10rpx;
   flex-grow: 1;
   position: relative;
-  border: 3rpx solid #C0C4CC;
+  border: 3rpx solid #c0c4cc;
   border-radius: 10rpx;
-  box-shadow: 0 4rpx 6rpx #C0C4CC;
+  box-shadow: 0 4rpx 6rpx #c0c4cc;
   overflow: hidden;
 }
 
 .bottom-section-title {
-  font-family: 'Qing Ning You Yuan';
+  /* font-family: 'Qing Ning You Yuan'; */
   position: absolute;
   font-size: 48rpx;
   width: 48rpx;

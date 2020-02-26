@@ -1,5 +1,7 @@
+import constants from './constants.js'
+
 const GAME_TYPE = {
-  ZJSN: 'zjsn',
+  ZJSN: 'zjsnr',
   CQHY: 'cqhy',
   SYCJC: 'sycjc'
 }
@@ -139,7 +141,7 @@ const ZJSNR_EQUIPMENT_PARAMETER_MAPPING = [{
 ]
 
 const renderImageSrc = (game, type, status, size, id) => {
-  return `https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/${game}/${type}/${size}/${status}/${size}_${status}_${id}.png`
+  return `https://www.moeassisstant.com/${game}/illustration/${type}/${size}/${status}/${size}_${status}_${id}.png`
 }
 
 const getZJSNShipSmallPicture = id => {
@@ -159,11 +161,15 @@ const getZJSNShipMediumPicture = id => {
 }
 
 const getZJSNEquipmentPicture = id => {
-  return `https://www.moeassisstant.com/zjsnr/illustration/equipments/equip_L_${id}.png`
+  return `${constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/illustration/equipments/equip_L_${id}.png`
 }
 
-const getZJSNShipBackground = rarity => {
-  return `https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/star-background/ship_star_bg${rarity}.png`
+const getZJSNClearShipBackground = rarity => {
+  return `${constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/backgrounds/clear/ship_star_bg${rarity}.png`
+}
+
+const getZJSNSimpleShipBackground = rarity => {
+  return `${constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/backgrounds/simple/ship_star_bg${rarity}_simple.png`
 }
 
 const getShipUpdateInfo = id => {
@@ -184,7 +190,8 @@ export default {
   getZJSNShipLargePicture,
   getZJSNShipXMediumPicture,
   getZJSNShipMediumPicture,
-  getZJSNShipBackground,
+  getZJSNSimpleShipBackground,
+  getZJSNClearShipBackground,
   getShipUpdateInfo,
   getZJSNEquipmentPicture,
   getEquipmentDisplayingItem

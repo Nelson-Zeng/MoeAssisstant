@@ -6,31 +6,31 @@ Page({
     topSection: {
       id: 'formula',
       title: '通用公式查询',
-      src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/zjsn0.jpg'
+      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/title-bar.jpg`
     },
     bottomSectionArr: [{
       id: 'util',
       title: '游戏工具集',
-      src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/left.png',
+      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/left.png`,
       bgColor: '#ead0d1'
     }, {
       id: 'equipment',
       title: '装备查询',
-      src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/middle.png',
+      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/middle.png`,
       bgColor: '#e0e5df'
     }, {
       id: 'shipgirl',
       title: '舰船查询',
-      src: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/right.png',
+      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/right.png`,
       bgColor: '#c1cbd7'
     }]
   },
   onLoad() {
-    wx.loadFontFace({
-      family: 'Qing Ning You Yuan',
-      source: 'url("https://www.moeassisstant.com/font/qlyy.ttf")',
-      complete: () => {}
-    })
+    // wx.loadFontFace({
+    //   family: 'Qing Ning You Yuan',
+    //   source: 'url("https://www.moeassisstant.com/font/qlyy.ttf")',
+    //   complete: () => {}
+    // })
   },
   startService(event) {
     switch (event.currentTarget.id) {

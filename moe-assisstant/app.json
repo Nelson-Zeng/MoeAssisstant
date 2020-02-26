@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/zjsnr/home/index",
+    "pages/zjsnr/shipinfo/brief/brief",
     "pages/zjsnr/equipmentinfo/brief/brief",
     "pages/zjsnr/shipinfo/detail/detail",
     "pages/zjsnr/gameutil/index",
     "pages/zjsnr/gameutil/buildingFormula/buildingformula",
     "pages/zjsnr/gameutil/seaChart/seachart",
-    "pages/zjsnr/shipinfo/brief/brief",
     "pages/index/index",
     "pages/zjsnr/gameutil/damageCaculator/damagecaculator",
     "pages/sycjc/home/index",
@@ -39,7 +39,7 @@
       },
       {
         "pagePath": "pages/index/index",
-        "text": "综合事务"
+        "text": "开发者的话"
       }
     ]
   },
