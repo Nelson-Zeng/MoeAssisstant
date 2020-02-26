@@ -102,12 +102,15 @@ Page({
     })
   },
   statusChange(e) {
+    this.setData({
+      shipUpdated: e.detail.value
+    })
     this.initData(e.detail.value ? this.data.updatedShipInfo : this.data.originalShipInfo)
   },
   initData(shipInfo) {
     const renderedShipInfo = Object.assign(shipInfo, {
       url: app.filters.getZJSNShipXMediumPicture(shipInfo.picId),
-      backgroundPicSrc: app.filters.getZJSNShipBackground(shipInfo.rarity)
+      backgroundPicSrc: app.filters.getZJSNSimpleShipBackground(shipInfo.rarity)
     })
 
     this.setData({
@@ -122,7 +125,7 @@ Page({
         illustrationList: response.data.map(url => {
           return `https://www.moeassisstant.com/zjsnr/${url}`
         }),
-        backgroundPicSrc: `url(https://6d6f-moe-assisstant-hviue-1301021771.tcb.qcloud.la/zjsn/star-background/ship_star_bg${this.data.shipInfo.rarity}.png)`,
+        backgroundPicSrc: `url(${app.filters.getZJSNClearShipBackground(this.data.shipInfo.rarity)})`,
         showIllustration: true
       })
 

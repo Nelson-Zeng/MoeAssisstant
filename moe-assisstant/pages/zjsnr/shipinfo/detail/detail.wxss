@@ -114,14 +114,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 }
 
-.container .illustration-container .illustration-view {
+.container .illustration-container .illustration-view-container {
+  height: 100%;
+  width: 100%;
+}
+
+.container .illustration-container .illustration-view-container .illustration-view {
   width: 70%;
   height: 70%;
 }
 
-.container .illustration-container .illustration-view .illustration {
+.container .illustration-container .illustration-view-container .illustration-view .illustration {
   width: 100%;
   height: 100%;
 }

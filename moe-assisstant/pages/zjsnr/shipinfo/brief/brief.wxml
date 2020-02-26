@@ -9,7 +9,7 @@
     <view class="sorting-area">
       <view class="sorting-title">请选择用于排序的属性:
         <view class="sort-orientation-container">
-          <switch type="checkbox" checked="{{sortDesc}}" bindchange="sortingOrientationChanged" />降序
+          <switch type="checkbox" checked="{{sortDesc}}" bindchange="sortingOrientationChanged" /><label class="sort-label" bindtap="sortList">降序</label>
         </view>
       </view>
       <view class="sorting-container">
