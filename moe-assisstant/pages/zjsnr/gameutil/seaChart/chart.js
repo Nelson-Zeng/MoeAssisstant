@@ -1,3 +1,5 @@
+const app = getApp()
+
 const ID_MAPPING = {
   0: '第一章',
   1: '第二章',
@@ -17,7 +19,7 @@ class chart {
       let tempItem = {}
       tempItem.id = `${index + 1}-${indexS + 1}`
       tempItem.name = `${tempItem.id}/${option}`
-      tempItem.src = `cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/seaChart/${tempItem.id}.png`
+      tempItem.src = `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/seacharts/${tempItem.id}.png`
       return tempItem
     })
   }

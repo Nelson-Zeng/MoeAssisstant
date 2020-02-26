@@ -257,7 +257,7 @@ Page({
         this.data.shipListTotalCount = response.data.total
         shipList.map(info => {
           info.url = app.filters.getZJSNShipSmallPicture(info.picId)
-          info.backgroundPicSrc = app.filters.getZJSNShipBackground(info.rarity)
+          info.backgroundPicSrc = app.filters.getZJSNSimpleShipBackground(info.rarity)
           info.updated = app.filters.getShipUpdateInfo(info.dexIndex)
           this.data.shipList.push(info)
         })
@@ -439,7 +439,7 @@ Page({
     this.data.shipListTotalCount = response.data.total
     const renderedShipInfo = shipList.map(info => {
       info.url = app.filters.getZJSNShipSmallPicture(info.picId)
-      info.backgroundPicSrc = app.filters.getZJSNShipBackground(info.rarity)
+      info.backgroundPicSrc = app.filters.getZJSNSimpleShipBackground(info.rarity)
       info.updated = app.filters.getShipUpdateInfo(info.dexIndex)
       return info
     })

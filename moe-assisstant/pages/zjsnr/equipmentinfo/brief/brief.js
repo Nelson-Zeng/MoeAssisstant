@@ -552,7 +552,7 @@ Page({
     this.setData({
       contents: equipmentData.map(equipment => {
         equipment.src = app.filters.getZJSNEquipmentPicture(equipment.dexIndex)
-        equipment.backgroundSrc = app.filters.getZJSNShipBackground(equipment.rarity)
+        equipment.backgroundSrc = app.filters.getZJSNSimpleShipBackground(equipment.rarity)
         return equipment
       }),
       parameterKeys: CONTENT_MAPPING[this.data.currentItem.parameterType]

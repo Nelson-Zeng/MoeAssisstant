@@ -24,4 +24,6 @@
 .content-container .content-value {
   padding-right: 10rpx;
   color: #79BBFF;
+  overflow: scroll;
+  max-height: 100%;
 }

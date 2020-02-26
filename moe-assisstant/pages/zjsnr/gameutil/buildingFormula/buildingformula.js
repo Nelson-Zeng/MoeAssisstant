@@ -15,37 +15,29 @@ Page({
 
     switch (type) {
       case app.constants.ZJSNR_BUILDING_FORMULA_TYPES.SHIP:
-        wx.cloud.callFunction({
-          name: 'fetchBuildingFormulas',
-          // 成功回调
-          complete: res => {
-            wx.hideLoading()
-            this.setData({
-              loaded: true
-            })
+        app.http.get(app.http.GET_FORMULA, {type: 'building'}, {}, response => {
+          wx.hideLoading()
+          this.setData({
+            loaded: true
+          })
 
-            if (res.result)
-              this.setData({
-                listContent: res.result
-              })
-          }
+          if (response.data)
+            this.setData({
+              listContent: response.data
+            })
         })
         break
       case app.constants.ZJSNR_BUILDING_FORMULA_TYPES.EQUIPMENT:
-        wx.cloud.callFunction({
-          name: 'fetchDevelopmentFormulas',
-          // 成功回调
-          complete: res => {
-            wx.hideLoading()
-            this.setData({
-              loaded: true
-            })
+        app.http.get(app.http.GET_FORMULA, { type: 'development' }, {}, response => {
+          wx.hideLoading()
+          this.setData({
+            loaded: true
+          })
 
-            if (res.result)
-              this.setData({
-                listContent: res.result
-              })
-          }
+          if (response.data)
+            this.setData({
+              listContent: response.data
+            })
         })
         break
     }

@@ -20,7 +20,7 @@ Page({
     selectedChapterArea: {},
 
     showBigMap: false,
-    currentSrc: 'cloud://moe-assisstant-hviue.6d6f-moe-assisstant-hviue-1301021771/zjsn/seaChart/1-1.png'
+    currentSrc: ''
   },
   onLoad() {
     const temp = OPTIONS.map((option, index) => {
