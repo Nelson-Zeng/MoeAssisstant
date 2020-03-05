@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "custom-tab": "/components/custom-tab/custom-tab",
+    "custom-tab-set": "/components/custom-tab-set/custom-tab-set",
     "parameter-pair": "/components/parameter-pair/parameter-pair"
   },
   "navigationBarTitleText": "装备列表"

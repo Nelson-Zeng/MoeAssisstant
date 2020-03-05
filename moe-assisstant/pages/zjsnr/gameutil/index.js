@@ -1,5 +1,7 @@
 const app = getApp()
 
+import icon from './utilIcons.js'
+
 Page({
   data: {
     utilList: [{
@@ -7,23 +9,28 @@ Page({
       title: '建造公式查询',
       path: '/pages/zjsnr/gameutil/buildingFormula/buildingformula',
       type: app.constants.ZJSNR_BUILDING_FORMULA_TYPES.SHIP,
-      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/gameutil/building.png`
+      icon: icon.building
     }, {
       id: 1,
       title: '开发公式查询',
       path: '/pages/zjsnr/gameutil/buildingFormula/buildingformula',
       type: app.constants.ZJSNR_BUILDING_FORMULA_TYPES.EQUIPMENT,
-      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/gameutil/developmenting.png`
+      icon: icon.developing
     }, {
       id: 2,
       title: '海图详情',
       path: '/pages/zjsnr/gameutil/seaChart/seachart',
-      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/gameutil/seachart.png`
+      icon: icon.seacharts
     }, {
       id: 3,
+      title: '远征详情',
+      path: '/pages/zjsnr/gameutil/expedition/expedition',
+      icon: icon.expedition
+    }, {
+      id: 4,
       title: '伤害计算器',
       path: '/pages/zjsnr/gameutil/damageCaculator/damagecaculator',
-      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/gameutil/caculating.jpg`
+      icon: icon.damageCaculator
     }]
   },
   callUtil(e) {

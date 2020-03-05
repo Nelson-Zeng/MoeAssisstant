@@ -1,0 +1,6 @@
+.navigator {
+  width: 40vw;
+  height: 100vh;
+  background-color: #303133;
+  overflow: scroll;
+}

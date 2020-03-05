@@ -519,22 +519,12 @@ Page({
     }
   },
   onLoad() {
-    this.selectComponent(`#tab0`).initSelectionStatus()
-
     this.updateList()
   },
   selectKeyChanged(e) {
     this.setData({
       currentItem: e.detail.currentItem,
       currentId: e.detail.firstClassId
-    })
-
-    this.data.navigatorItems.map(item => {
-      if (item.id !== this.data.currentId) {
-        const component = this.selectComponent(`#tab${item.id}`)
-        component.foldContent()
-        component.clearFirstClassSelection()
-      }
     })
 
     this.data.dataContainer.type = e.detail.currentItem.key
@@ -586,7 +576,7 @@ Page({
 
     if (antiAircraft) params.push({
       title: '对空 * 倍率',
-      value: parseFloat(antiAircraft) * parseFloat(antiAircraftTime)
+      value: (parseFloat(antiAircraft) * parseFloat(antiAircraftTime)).getFixed()
     })
 
     this.setData({

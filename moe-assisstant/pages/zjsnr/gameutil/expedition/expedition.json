@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "custom-tab-set": "/components/custom-tab-set/custom-tab-set",
+    "custom-table": "/components/custom-table/custom-table"
+  },
+  "navigationBarTitleText": "远征详情"
+}

@@ -1,0 +1,3 @@
+<view class="navigator" style="width: {{customWidth}}">
+  <custom-tab wx:for="{{itemSet}}" wx:for-item="item" wx:key="index" source="{{item}}" bindselectKey="selectKeyChanged" id="tab{{item.id}}"></custom-tab>
+</view>

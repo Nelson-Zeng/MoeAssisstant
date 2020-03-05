@@ -1,6 +1,6 @@
 <view class="container">
   <view wx:for="{{utilList}}" wx:for-item="util" wx:key="index" class="util-item" bindtap="callUtil" id="{{util.id}}">
-    <image src="{{util.src}}" mode="aspectFill"></image>
-    <view class="util-title">{{util.title}}</view>
+    <view class="util-icon" style="background-image: {{util.icon}}"></view>
+    <label class="util-title">{{util.title}}</label>
   </view>
 </view>

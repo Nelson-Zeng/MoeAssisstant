@@ -256,3 +256,13 @@
 .container .settings .footer .cancel {
   background-color: #909399;
 }
+
+.toast {
+  position: fixed;
+  top: 0;
+  left: 5vw;
+  right: 5vw;
+  background-color: rgba(48, 49, 51, 0.4);
+  border-radius: 20rpx;
+  z-index: 12;
+}

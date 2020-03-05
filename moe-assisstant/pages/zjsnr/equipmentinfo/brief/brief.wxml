@@ -1,7 +1,5 @@
 <view class="container">
-  <view class="navigator">
-    <custom-tab wx:for="{{navigatorItems}}" wx:for-item="navigator" wx:key="index" source="{{navigator}}" bindselectKey="selectKeyChanged" id="tab{{navigator.id}}"></custom-tab>
-  </view>
+  <custom-tab-set item-set="{{navigatorItems}}" binditemSelected="selectKeyChanged" />
   <view class="equipment-list-container">
     <view class="order-type-switch">
       <label>倒序({{currentItem.orderType}})</label>

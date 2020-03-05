@@ -237,7 +237,8 @@ Page({
       keyWord: ''
     },
 
-    reachEnd: true
+    reachEnd: true,
+    showToast: false
   },
   onLoad() {
     this.initShipList()
@@ -383,7 +384,6 @@ Page({
     this.initShipList()
   },
   searchByIcon() {
-    console.log(1)
     const query = wx.createSelectorQuery()
 
     query.select('#search').fields({
@@ -391,7 +391,6 @@ Page({
       node: true,
       context: true
     }, res => {
-      console.log(res)
     }).exec()
   },
   sortingKeyChanged(e) {
@@ -413,17 +412,17 @@ Page({
     this.initShipList()
   },
   sortingOrientationChanged(e) {
-    this.data.limitationDataContainer.sequence = e.detail.value ? 'desc' : 'asc'
+    this.data.limitationDataContainer.sequence = !this.data.sortDesc ? 'desc' : 'asc'
 
     this.setData({
-      sortDesc: e.detail.value
+      sortDesc: !this.data.sortDesc
     })
 
     this.initShipList()
   },
   detailInfoStatusChanged(e) {
     this.setData({
-      detailInfo: e.detail.value
+      detailInfo: !this.data.detailInfo
     })
   },
   settingIgnoreTouchMove: function() {},

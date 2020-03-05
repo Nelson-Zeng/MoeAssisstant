@@ -1,45 +1,18 @@
 .container {
-  padding: 10vh 10vw;
-  display: flex;
-  flex-direction: column;
+  padding: 40rpx 10rpx;
+  display: block;
 }
 
-.util-item {
-  flex-grow: 1;
-  margin: 40rpx 5vw;
-  border: 1px solid #303133;
-  border-radius: 10rpx;
-  position: relative;
-  overflow: hidden;
-  font-weight: bold;
-  font-style: italic;
-  color: white;
-  z-index: 10;
+.container .util-item {
+  display: inline-block;
+  min-width: calc((100vw - 20rpx) / 3);
+  text-align: center;
+  margin-bottom: 80rpx;
 }
 
-.util-item image {
+.container .util-item .util-icon {
+  height: 100rpx;
   width: 100%;
-  /* 指定高度为100%（继承父元素）时在真机上高度会变成0，原因不明。因此只能手动指定高度。 */
-  height: calc((100vh - 20vh - 30vh) / 3);
-}
-
-.util-item .util-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(48, 48, 51, 0.6);
-  height: 60rpx;
-  line-height: 60rpx;
-  padding: 0 20rpx;
-}
-
-.util-title::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -60rpx;
-  width: 0;
-  height: 0;
-  border-right: 60rpx solid transparent;
-  border-top: 60rpx solid rgba(48, 49, 51, 0.6);
+  background-size: 100% 100rpx;
+  margin-bottom: 30rpx;
 }

@@ -1,0 +1,16 @@
+.container {
+  padding: unset;
+  display: flex;
+}
+
+.container .content-container {
+  padding: 40rpx 20rpx;
+  overflow: scroll;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.container .content-container .explanation-container {
+  font-size: 24rpx;
+  margin-bottom: 30rpx;
+}

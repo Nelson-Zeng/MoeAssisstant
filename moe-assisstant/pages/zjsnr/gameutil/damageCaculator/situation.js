@@ -57,7 +57,7 @@ const caculateFinalDamage = dataContainer => {
     criticalTop: 0
   }
 
-  if (dataContainer.type === 11) {
+  if (dataContainer.type === 12) {
     // 白天导弹战默认破甲，因此需要计算独特的装甲减伤系数
     let armorCoefficient = 1 / Math.sqrt(1 + Math.pow(Number(dataContainer.enemyArmor / (65 * dataContainer.piercingCoefficient)), 5.4))
 

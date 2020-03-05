@@ -137,11 +137,16 @@ const ZJSNR_EQUIPMENT_PARAMETER_MAPPING = [{
     key: 22,
     column: "name",
     value: "名称"
+  },
+  {
+    key: 23,
+    column: "shipType",
+    value: "可装备舰种"
   }
 ]
 
 const renderImageSrc = (game, type, status, size, id) => {
-  return `https://www.moeassisstant.com/${game}/illustration/${type}/${size}/${status}/${size}_${status}_${id}.png`
+  return `${constants.STATIC_RESOURCE_DOMAIN}/jianr/moeassisstant/${game}/illustration/${type}/${size}/${status}/${size}_${status}_${id}.png`
 }
 
 const getZJSNShipSmallPicture = id => {

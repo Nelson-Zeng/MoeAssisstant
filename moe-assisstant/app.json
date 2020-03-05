@@ -1,14 +1,16 @@
 {
   "pages": [
+        "pages/zjsnr/shipinfo/brief/brief",
     "pages/zjsnr/home/index",
-    "pages/zjsnr/shipinfo/brief/brief",
-    "pages/zjsnr/equipmentinfo/brief/brief",
-    "pages/zjsnr/shipinfo/detail/detail",
-    "pages/zjsnr/gameutil/index",
-    "pages/zjsnr/gameutil/buildingFormula/buildingformula",
-    "pages/zjsnr/gameutil/seaChart/seachart",
     "pages/index/index",
     "pages/zjsnr/gameutil/damageCaculator/damagecaculator",
+    "pages/zjsnr/gameutil/expedition/expedition",
+    "pages/zjsnr/equipmentinfo/brief/brief",
+    "pages/zjsnr/gameutil/index",
+
+    "pages/zjsnr/shipinfo/detail/detail",
+    "pages/zjsnr/gameutil/buildingFormula/buildingformula",
+    "pages/zjsnr/gameutil/seaChart/seachart",
     "pages/sycjc/home/index",
     "pages/cqhy/home/index",
     "pages/cqhy/drama/index"
@@ -39,7 +41,7 @@
       },
       {
         "pagePath": "pages/index/index",
-        "text": "开发者的话"
+        "text": "关于"
       }
     ]
   },

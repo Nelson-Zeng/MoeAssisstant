@@ -19,7 +19,7 @@ const caculateCoefficient = title => {
       case '弹药系数':
         result = result * dataContainer.cartridgeCoefficientValue
         break
-      case '舰损系数':
+      case '战损系数':
         result = result * dataContainer.damageCoefficientValue
         break
       case '攻击力系数':

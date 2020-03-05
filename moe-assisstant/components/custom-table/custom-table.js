@@ -8,11 +8,5 @@ Component({
       type: Object,
       value: []
     }
-  },
-  data: {
-
-  },
-  methods: {
-
   }
 })

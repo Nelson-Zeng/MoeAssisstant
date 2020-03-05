@@ -60,9 +60,11 @@ Component({
       })
     },
     initSelectionStatus() {
+      const selectedKey = this.properties.source.secondary ? this.properties.source.secondary[0].key : this.properties.source.key
+
       this.setData({
         expanded: true,
-        selectedKey: this.properties.source.secondary[0].key
+        selectedKey: selectedKey
       })
     }
   }

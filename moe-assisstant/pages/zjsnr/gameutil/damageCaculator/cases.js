@@ -154,6 +154,38 @@ const SITUATION_CASES = [{
     defaultPiercingCoefficient: 1
   },
   {
+    title: '昼战炮击（导弹舰）',
+    baseATKParamsList: [{
+      title: '火力'
+    }, {
+      title: '导弹火力'
+    }, {
+      title: '发射架火力'
+    }],
+    baseATKFormula: {
+      title: '导弹火力 + 发射架火力 + 5',
+      formula: dataContainer => {
+        let result = ''
+
+        if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'] && dataContainer['ATKParam2'])
+          result = dataContainer['ATKParam0'] + dataContainer['ATKParam1'] + dataContainer['ATKParam2'] + 5
+
+        return result
+      }
+    },
+    coefficientObject: {
+      coefficientList: [1, 1, 0, 0, 1, 0, 1, 1, 1, 1],
+      formationValues: [1, 0.8, 0.75, 1, 0.8],
+      directionValues: [1.15, 1, 0.8, 0.65],
+      floatOptions: {
+        floatArea: [0.89, 1.22],
+        overWeightBullet: true
+      }
+    },
+    coefficientFormula: '阵型系数*航向系数*弹药系数*战损系数*攻击力系数',
+    defaultPiercingCoefficient: 0.6
+  },
+  {
     title: '昼战炮击（其他类）',
     baseATKParamsList: [{
       title: '火力'
@@ -320,21 +352,19 @@ const SITUATION_CASES = [{
     defaultPiercingCoefficient: 0.6
   },
   {
-    title: '导弹战',
+    title: '导弹战(开闭幕)',
     baseATKParamsList: [{
       title: '舰船火力'
-    }, {
-      title: '导弹发射器火力'
     }, {
       title: '导弹火力'
     }],
     baseATKFormula: {
-      title: '舰船火力+发射器火力+导弹火力*3（独立计算不叠加）',
+      title: '舰船火力+导弹火力*3（独立计算不叠加）',
       formula: dataContainer => {
         let result = ''
 
-        if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'] && dataContainer['ATKParam2'])
-          result = dataContainer['ATKParam0'] + dataContainer['ATKParam1'] + dataContainer['ATKParam2'] * 3
+        if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'])
+          result = dataContainer['ATKParam0'] + dataContainer['ATKParam1'] * 3
 
         return result
       }
@@ -355,17 +385,15 @@ const SITUATION_CASES = [{
     baseATKParamsList: [{
       title: '舰船火力'
     }, {
-      title: '导弹发射器火力'
-    }, {
       title: '导弹火力'
     }],
     baseATKFormula: {
-      title: '舰船火力+发射器火力+导弹火力*3（独立计算不叠加）',
+      title: '舰船火力+导弹火力*3（独立计算不叠加）',
       formula: dataContainer => {
         let result = ''
 
-        if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'] && dataContainer['ATKParam2'])
-          result = dataContainer['ATKParam0'] + dataContainer['ATKParam1'] + dataContainer['ATKParam2'] * 3
+        if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'])
+          result = dataContainer['ATKParam0'] + dataContainer['ATKParam1'] * 3
 
         return result
       }

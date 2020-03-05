@@ -1,4 +1,6 @@
 <view class="container">
+  <view class="toast" wx:if="{{showToast}}">{{toastContent}}</view>
+
   <view class="setting-icon" style="top: {{settingIconPostion.top}}; right: {{settingIconPostion.right}}" catchtouchstart="startSettingIconTouching" catchtouchmove="moveSettingIconTouching" catchtouchend="finishSettingIconTouching"></view>
 
   <view class="simple-filter">
@@ -9,7 +11,7 @@
     <view class="sorting-area">
       <view class="sorting-title">请选择用于排序的属性:
         <view class="sort-orientation-container">
-          <switch type="checkbox" checked="{{sortDesc}}" bindchange="sortingOrientationChanged" /><label class="sort-label" bindtap="sortList">降序</label>
+          <switch type="checkbox" checked="{{sortDesc}}" bindchange="sortingOrientationChanged" /><label class="sort-label" bindtap="sortingOrientationChanged">降序</label>
         </view>
       </view>
       <view class="sorting-container">
@@ -18,7 +20,7 @@
     </view>
   </view>
   <view class="detail-switch">
-    <switch type="checkbox" checked="{{detailInfo}}" bindchange="detailInfoStatusChanged" />显示基础数据
+    <switch type="checkbox" checked="{{detailInfo}}" bindchange="detailInfoStatusChanged" /><label bindtap="detailInfoStatusChanged">显示基础数据</label>
   </view>
   <view class="ship-list">
     <view class="ship-item" wx:for="{{shipList}}" wx:for-item="ship" wx:key="index" bindtap="checkShipDetail" id="{{ship.dexIndex}}">

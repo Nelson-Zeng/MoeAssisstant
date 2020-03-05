@@ -8,6 +8,7 @@
   width: 100%;
   border: 1rpx solid #303133;
   box-sizing: border-box;
+  margin-bottom: inherit;
 }
 
 .list-container .list-header {
@@ -23,7 +24,21 @@
   font-size: 30rpx;
 }
 
+.list-container .list-header-container .list-header-item {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .list-container .list-content-item-container .list-content {
   display: flex;
   font-size: 24rpx;
+}
+
+.list-container .list-content-item-container .list-content .list-content-item {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
