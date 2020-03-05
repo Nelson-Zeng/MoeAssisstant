@@ -1,13 +1,12 @@
 {
   "pages": [
-        "pages/zjsnr/shipinfo/brief/brief",
     "pages/zjsnr/home/index",
+    "pages/zjsnr/shipinfo/brief/brief",
     "pages/index/index",
     "pages/zjsnr/gameutil/damageCaculator/damagecaculator",
     "pages/zjsnr/gameutil/expedition/expedition",
     "pages/zjsnr/equipmentinfo/brief/brief",
     "pages/zjsnr/gameutil/index",
-
     "pages/zjsnr/shipinfo/detail/detail",
     "pages/zjsnr/gameutil/buildingFormula/buildingformula",
     "pages/zjsnr/gameutil/seaChart/seachart",
