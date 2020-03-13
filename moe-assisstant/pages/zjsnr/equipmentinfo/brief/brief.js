@@ -360,7 +360,15 @@ const NAVIGATOR_ITEMS = [{
         key: 38,
         orderType: '图鉴ID',
         orderTypeKey: 'dexIndex',
-        parameterType: 2
+        parameterType: [{
+          id: 'name'
+        }, {
+          title: '编号',
+          id: 'dexIndex'
+        }, {
+          title: '反潜',
+          id: 'antiSubmarine'
+        }]
       },
       {
         id: 1,
@@ -368,7 +376,15 @@ const NAVIGATOR_ITEMS = [{
         key: 39,
         orderType: '图鉴ID',
         orderTypeKey: 'dexIndex',
-        parameterType: 2
+        parameterType: [{
+          id: 'name'
+        }, {
+          title: '编号',
+          id: 'dexIndex'
+        }, {
+          title: '特殊效果',
+          id: 'specialEffect'
+        }]
       },
       {
         id: 2,
@@ -376,7 +392,47 @@ const NAVIGATOR_ITEMS = [{
         key: 40,
         orderType: '图鉴ID',
         orderTypeKey: 'dexIndex',
-        parameterType: 2
+        parameterType: [{
+          id: 'name'
+        }, {
+          title: '编号',
+          id: 'dexIndex'
+        }, {
+          title: '特殊效果',
+          id: 'specialEffect'
+        }]
+      },
+      {
+        id: 3,
+        name: '血量调整',
+        key: 41,
+        orderType: '图鉴ID',
+        orderTypeKey: 'dexIndex',
+        parameterType: [{
+          id: 'name'
+        }, {
+          title: '编号',
+          id: 'dexIndex'
+        }, {
+          title: '耐久',
+          id: 'life'
+        }]
+      },
+      {
+        id: 4,
+        name: '特殊效果',
+        key: 42,
+        orderType: '编号',
+        orderTypeKey: 'dexIndex',
+        parameterType: [{
+          id: 'name'
+        }, {
+          title: '编号',
+          id: 'dexIndex'
+        }, {
+          title: '特殊效果',
+          id: 'specialEffect'
+        }]
       }
     ]
   }
@@ -545,7 +601,7 @@ Page({
         equipment.backgroundSrc = app.filters.getZJSNSimpleShipBackground(equipment.rarity)
         return equipment
       }),
-      parameterKeys: CONTENT_MAPPING[this.data.currentItem.parameterType]
+      parameterKeys: typeof this.data.currentItem.parameterType === 'number' ? CONTENT_MAPPING[this.data.currentItem.parameterType] : this.data.currentItem.parameterType
     })
 
     wx.hideLoading()

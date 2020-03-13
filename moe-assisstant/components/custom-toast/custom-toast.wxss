@@ -1,0 +1,13 @@
+.toast {
+  position: fixed;
+  top: 20rpx;
+  left: 10vw;
+  right: 10vw;
+  margin: auto;
+  text-align: center;
+  padding: 10rpx 20rpx;
+  background-color: rgba(48, 49, 51, 0.8);
+  border-radius: 20rpx;
+  color: white;
+  z-index: 100;
+}

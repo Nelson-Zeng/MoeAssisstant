@@ -12,12 +12,16 @@ class FilterSet {
     if (fastSelections) {
       this.fastSelections = []
       fastSelections.map((selectionSet, index) => {
+        let content
+        if (index === 0) content = selectAllContent
+        else if (index === 1) content = []
+        else content = selectionSet.content
         let temp = {
           id: index,
           title: selectionSet.title,
-          content: index === 0 ? selectAllContent : selectionSet.content,
+          content: content,
         }
-        temp.selected = currentSelections ? currentSelections.sort().toString() === temp.content.sort().toString() : index === 0
+        temp.selected = currentSelections ? currentSelections.equals(temp.content) : index === 0
         this.fastSelections.push(temp)
       })
     }

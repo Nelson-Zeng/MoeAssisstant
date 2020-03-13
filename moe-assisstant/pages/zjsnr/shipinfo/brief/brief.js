@@ -4,6 +4,8 @@ const app = getApp()
 
 const SHIP_DIMENSION_FAST_SELECTIONS = [{
   title: '我全都要'
+}, {
+  title: '但是，我拒绝'
 }]
 
 const DETAIL_SHIP_DIMENSIONS = [{
@@ -19,6 +21,8 @@ const DETAIL_SHIP_DIMENSIONS = [{
 
 const SHIP_NATIONALITY_FAST_SELECTIONS = [{
     title: '我全都要'
+  }, {
+    title: '但是，我拒绝'
   },
   {
     title: '同盟国',
@@ -70,6 +74,8 @@ const DETAIL_SHIP_NATIONS = [{
 
 const SHIP_TYPE_FAST_SELECTIONS = [{
     title: '我全都要'
+  }, {
+    title: '但是，我拒绝'
   },
   {
     title: '天降正义',
@@ -93,11 +99,11 @@ const SHIP_TYPE_FAST_SELECTIONS = [{
   },
   {
     title: '主力披挂',
-    content: [0, 1, 2, 3, 4, 5, 15, 16, 17]
+    content: [0, 2, 3, 4, 5, 15, 17]
   },
   {
     title: '护卫上阵',
-    content: [6, 7, 8, 9, 10, 11, 14]
+    content: [1, 6, 7, 8, 9, 10, 11, 14, 16]
   }
 ]
 const DETAIL_SHIP_TYPES = [{
@@ -238,7 +244,8 @@ Page({
     },
 
     reachEnd: true,
-    showToast: false
+
+    toast: ''
   },
   onLoad() {
     this.initShipList()
@@ -370,9 +377,21 @@ Page({
     this.initShipList()
   },
   nationalityChanged(e) {
+    if (e.detail.equals([0, 1, 2, 4, 6, 7]) || e.detail.equals([2, 3, 4, 5])) this.setData({
+      toast: '法国二战时分裂成了维希法国（德国的傀儡，轴心）以及自由法国（戴高乐将军领导的流亡政府，同盟）。而意大利则先是轴心国起家，后投降盟军反攻纳粹德国。因此此二者同时从属于两方阵营。'
+    })
+
     this.data.tempDataContainer.nationalities = e.detail
   },
   typeChanged(e) {
+    if (e.detail.equals([1, 7, 9, 11])) this.setData({
+      toast: '除了这四种可以全阶段反潜以外，雷巡可以进行首次轮，航战可以进行次轮反潜（携带攻击机且未中破）。'
+    })
+
+    if (e.detail.equals([0, 2, 3, 4, 5, 15, 17]) || e.detail.equals([1, 6, 7, 8, 9, 10, 11, 14, 16])) this.setData({
+      toast: '轻母和导驱分类属于护卫舰，但是在计算迂回率时与主力舰一起计算。'
+    })
+
     this.data.tempDataContainer.types = e.detail
   },
   dimensionChanged(e) {
@@ -390,8 +409,7 @@ Page({
       dataset: true,
       node: true,
       context: true
-    }, res => {
-    }).exec()
+    }, res => {}).exec()
   },
   sortingKeyChanged(e) {
     const id = Number(e.currentTarget.id.match(new RegExp(/\d+/)))

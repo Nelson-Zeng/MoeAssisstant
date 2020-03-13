@@ -1,0 +1,10 @@
+.container {
+  padding: unset;
+  display: flex;
+}
+
+.container .content-container {
+  width: 75vw;
+  height: 100%;
+  padding: 20rpx 40rpx;
+}

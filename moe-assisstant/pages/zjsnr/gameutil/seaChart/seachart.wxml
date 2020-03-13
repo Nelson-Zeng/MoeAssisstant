@@ -8,10 +8,52 @@
     <view class="map-content-item" wx:for="{{selectedChapterArea.secondaryMenu}}" wx:for-item="area" wx:key="index">
       <text class="map-title">{{area.name}}</text>
       <image src="{{area.src}}" mode="aspectFit" bindtap="showDetail" id="image{{area.src}}"></image>
+      <view class="detail-area">
+        <view class="detail-table" wx:if="{{area.expanded}}">
+          <view class="first-type">
+            <label class="first-type-title">关卡简介</label>
+            <view class="first-type-content">{{area.settingData.description}}</view>
+          </view>
+          <view class="first-type">
+            <label class="first-type-title">相关任务</label>
+            <text class="first-type-content">{{area.settingData.mission}}</text>
+          </view>
+          <view class="second-type" wx:for="{{area.settingData.enemy}}" wx:for-item="point" wx:key="index">
+            <view class="second-type-left">
+              <view class="second-type-point">{{point.point}}</view>
+            </view>
+            <view class="second-type-middle">
+              <view class="second-type-item">
+                <view class="second-type-title">配置1</view>
+                <view class="second-type-setting">{{point.setting}}</view>
+              </view>
+              <view class="second-type-item">
+                <view class="second-type-title">配置2</view>
+                <view class="second-type-setting">{{point.setting2}}</view>
+              </view>
+              <view class="second-type-item">
+                <view class="second-type-title">配置3</view>
+                <view class="second-type-setting">{{point.setting3}}</view>
+              </view>
+            </view>
+            <view class="second-type-right" bindtap="checkDrop" data-node="{{area.id}} {{point.point}}">
+              掉落
+            </view>
+          </view>
+        </view>
+        <view class="detail-switch" data-area="{{area}}" bindtap="clickDetail">{{area.expanded ? '收起' : '展开详情'}}</view>
+      </view>
     </view>
   </view>
 
   <view class="detail-map" wx:if="{{showBigMap}}" bindtap="clickOutside">
     <image class="map-in-big-size" src="{{currentSrc}}" mode="widthFix" catchtap="clickInside"></image>
+  </view>
+
+  <view class="drop-dialog-mask" wx:if="{{showDrop}}" bindtap="clickOutside">
+    <view class="dialog" catchtap="clickInside">
+      <text class="description">数据来源于魔盒。\n\n已过滤掉了未出货的数据，所以概率和可能不为1。</text>
+      <custom-table class="drop-list-container" table-content="{{dropListTable}}" width-distribution="{{dropListTable.columnWidth}}"/>
+    </view>
   </view>
 </view>

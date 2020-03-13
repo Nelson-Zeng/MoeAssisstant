@@ -1,4 +1,5 @@
 <view class="container">
+  <custom-toast content="{{toast}}" />
   <picker bindchange="selectSituation" value="{{index}}" range="{{situations}}" range-key="title">
     <view class="picker">
       当前模拟类型(点击更换)：

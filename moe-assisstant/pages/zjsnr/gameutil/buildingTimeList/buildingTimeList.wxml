@@ -1,0 +1,6 @@
+<view class="container">
+  <custom-tab-set item-set="{{timeList}}" custom-width="25vw" binditemSelected="selectedTimeChanged" wx:if="{{dataLoaded}}" />
+  <view class="content-container">
+    <custom-table class="time-list-container" table-content="{{currentContent}}" width-distribution="{{currentContent.columnWidth}}" class="time-item" />
+  </view>
+</view>

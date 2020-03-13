@@ -20,12 +20,18 @@ Page({
     selectedChapterArea: {},
 
     showBigMap: false,
-    currentSrc: ''
+    currentSrc: '',
+
+    showDrop: false,
+    dropListTable: {}
   },
-  onLoad() {
+  async onLoad() {
+    const settingData = await app.http.get(app.http.GET_SEA_CHART_INFO, {}, {})
+
     const temp = OPTIONS.map((option, index) => {
-      return new seachart(index, option)
+      return new seachart(index, option, settingData.data)
     })
+
     this.setData({
       seaAreas: temp,
       selectedChapterArea: temp[0]
@@ -33,7 +39,7 @@ Page({
   },
   selectAreaChapter(e) {
     const id = Number(e.currentTarget.id.split('areaChapter')[1])
-  
+
     this.setData({
       selectedArea: id,
       selectedChapterArea: this.data.seaAreas.find(area => {
@@ -49,10 +55,51 @@ Page({
   },
   clickOutside(e) {
     this.setData({
-      showBigMap: false
+      showBigMap: false,
+      showDrop: false
     })
   },
   clickInside() {
     return
+  },
+  clickDetail(e) {
+    let currentMap = this.data.selectedChapterArea.secondaryMenu.find(area => {
+      return area.id === e.currentTarget.dataset.area.id
+    })
+
+    currentMap.expanded = !currentMap.expanded
+
+    this.setData({
+      selectedChapterArea: this.data.selectedChapterArea
+    })
+  },
+  async checkDrop(e) {
+    wx.showLoading({
+      title: '正在请求数据'
+    })
+
+    const nodes = e.currentTarget.dataset.node.split(' ')
+    const result = await app.http.get(app.http.GET_NODE_DROP_INFO, {}, {
+      map: nodes[0],
+      point: nodes[1]
+    })
+
+    this.data.dropListTable = {
+      title: `${nodes[0]}${nodes[1]}点掉落记录`,
+      headerItemList: ['名称', '掉落数', '攻略数', '出货概率'],
+      columnWidth: ['25%', '25%', '25%', '25%'],
+      contentList: result.data.map(item => {
+        let temp = []
+        temp.push(item.name, item.C, item.C_node, (item.C / item.C_node).getFixed())
+        return temp
+      })
+    }
+
+    wx.hideLoading()
+
+    this.setData({
+      dropListTable: this.data.dropListTable,
+      showDrop: true
+    })
   }
 })

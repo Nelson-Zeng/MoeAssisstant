@@ -1,0 +1,75 @@
+.container {
+  overflow: scroll;
+}
+
+.explanation {
+  font-size: 36rpx;
+}
+
+.condition-input {
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+  padding-left: 20rpx;
+  font-size: 32rpx;
+}
+
+.condition-input .cannonry-condition {
+  display: flex;
+  padding: 20rpx 0;
+  align-items: center;
+}
+
+.condition-input .cannonry-condition .condition-title {
+  font-size: 34rpx;
+  margin-right: 20rpx;
+}
+
+.condition-input .cannonry-condition .condition-container {
+  display: flex;
+  align-items: center;
+}
+
+.condition-input .cannonry-condition .condition-container .cannonry-range {
+  width: 100rpx;
+  padding: 10rpx 0;
+  border: 1px solid #C0C4CC;
+  border-radius: 10rpx;
+  margin: 0 20rpx;
+  text-align: center;
+}
+
+.condition-input .cannonry-condition .condition-container .selected {
+  background-color: #409EFF;
+  color: white;
+  border: 1px solid #409EFF;
+}
+
+.confirm-button {
+  font-size: 40rpx;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  border-radius: 10rpx;
+  padding: 10rpx 0;
+  background-color: #409EFF;
+  color: white;
+  border: 1px solid #409EFF;
+}
+
+.dividing-line {
+  width: 100%;
+  border-bottom: 1px solid #606266;
+  margin: 40rpx 0;
+}
+
+.cannonry-result text {
+  font-size: 40rpx;
+}
+
+.cannonry-result .result-area {
+  font-size: 50rpx;
+  color: #F56C6C;
+  text-align: center;
+  width: 100%;
+  margin-top: 20rpx;
+}

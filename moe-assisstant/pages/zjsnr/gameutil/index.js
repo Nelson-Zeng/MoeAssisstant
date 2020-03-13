@@ -28,9 +28,26 @@ Page({
       icon: icon.expedition
     }, {
       id: 4,
+      title: '炮序模拟器',
+      path: '/pages/zjsnr/gameutil/cannonry/cannonry',
+      icon: icon.cannonry
+    }, {
+      id: 5,
       title: '伤害计算器',
       path: '/pages/zjsnr/gameutil/damageCaculator/damagecaculator',
       icon: icon.damageCaculator
+    }, {
+      id: 6,
+      title: '建造时间对照表',
+      path: '/pages/zjsnr/gameutil/buildingTimeList/buildingTimeList',
+      type: app.constants.ZJSNR_BUILDING_TIME_TYPES.SHIP,
+      icon: icon.buildingTime
+    }, {
+      id: 7,
+      title: '开发时间对照表',
+      path: '/pages/zjsnr/gameutil/buildingTimeList/buildingTimeList',
+      type: app.constants.ZJSNR_BUILDING_TIME_TYPES.EQUIPMENT,
+      icon: icon.developingTime
     }]
   },
   callUtil(e) {
@@ -40,10 +57,10 @@ Page({
 
     let path = item.path
     let data = {}
-    if (item.type) data = {
+    if (typeof item.type === 'number') data = {
       type: item.type
     }
-
+    
     app.util.navigateTo(path, data)
   }
 })

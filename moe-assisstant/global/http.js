@@ -8,6 +8,10 @@ const http = {
   GET_SHIP_ACQUIRE_ROUTES: `${constants.DOMAIN}/zjsnr/ships/acquireRoute/:cid`,
   GET_FORMULA: `${constants.DOMAIN}/zjsnr/gameutil/formula/:type`,
   GET_EXPEDITIONS: `${constants.DOMAIN}/zjsnr/gameutil/expeditions`,
+  GET_CANNONRY_ORDER: `${constants.DOMAIN}/zjsnr/gameutil/cannonryorder`,
+  GET_BUILDING_TIME: `${constants.DOMAIN}/zjsnr/gameutil/buildtime/:id`,
+  GET_SEA_CHART_INFO: `${constants.DOMAIN}/zjsnr/gameutil/seachart/info`,
+  GET_NODE_DROP_INFO: `${constants.DOMAIN}/zjsnr/gameutil/seachart/drop`,
 
   get: (baseUrl, params, queries, onSuccess) => {
     return new Promise((resolve, reject) => {

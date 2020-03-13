@@ -1,0 +1,21 @@
+<view class="container">
+  <text class="explanation">注：炮序目前没有发现真正的计算公式，现阶段是通过穷举进行的匹配。因此可能无法涵盖所有情况。</text>
+
+  <view class="condition-input">
+    <view wx:for="{{cannonryList}}" wx:for-item="cannonryItem" wx:key="index" class="cannonry-condition">
+      <label class="condition-title">{{cannonryItem.title}}</label>
+      <view class="condition-container">
+        <view wx:for="{{cannonryItem.ranges}}" wx:for-item="range" wx:key="index" class="cannonry-range {{cannonryItem.selected === range.id ? 'selected' : ''}}" bindtap="selectRange" id="cannonry{{cannonryItem.id}}range{{range.id}}">{{range.title}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="confirm-button" bindtap="getOrder">获取炮序</view>
+
+  <view class="dividing-line"></view>
+
+  <view class="cannonry-result">
+    <text>根据当前情况确定下来的炮序为:</text>
+    <view class="result-area">{{order}}</view>
+  </view>
+</view>

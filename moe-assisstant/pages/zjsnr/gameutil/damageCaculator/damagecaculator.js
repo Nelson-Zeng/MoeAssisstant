@@ -57,7 +57,8 @@ Page({
 
     ATKResult: 0,
     coefficientResult: 0,
-    sonarCoefficientResult: 0
+    sonarCoefficientResult: 0,
+    toast: ''
   },
   onLoad() {
     this.setData({
@@ -134,7 +135,7 @@ Page({
       return item
     })
 
-    const baseATK = this.data.currentSituation.baseATKFormula.formula(dataContainer)
+    const baseATK = Number(this.data.currentSituation.baseATKFormula.formula(dataContainer)).getFixed()
     dataContainer.baseATK = baseATK
 
     this.setData({
@@ -266,6 +267,12 @@ Page({
   additionalParamInput(e) {
     const value = Number(e.detail.value)
     const id = Number(e.target.id.split('additionalParam')[1])
+
+    // 导弹开闭幕且输入敌方护甲过高时需提供提示信息
+    if (id === 0 && this.data.currentSituation.id === 12 && value > 140)
+      this.setData({
+        toast: '对导弹开闭幕战来说，当敌方护甲大于145时存在护甲进行反向加成的bug，因此实际伤害会比理论伤害高很多。'
+      })
 
     let additionalItem = this.data.currentSituation.additionalParams.find(item => {
       return item.id === id

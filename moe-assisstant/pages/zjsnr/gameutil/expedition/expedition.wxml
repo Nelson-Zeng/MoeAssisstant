@@ -1,3 +1,13 @@
+<wxs module="filterExpeditionALias">
+var setExpeditionAlias = function(expeditionTableContent, key, index) {
+  expeditionTableContent.explaination = '代号： ' + key + ' - ' + index
+  return expeditionTableContent
+}
+module.exports = {
+  setExpeditionAlias : setExpeditionAlias,
+}
+</wxs>
+
 <view class="container">
   <custom-tab-set item-set="{{expeditionChapter}}" custom-width="20vw" binditemSelected="selectedCharpterChanged" />
   <view class="content-container">
@@ -13,7 +23,7 @@
 
     <view class="expedition-by-chapter">
       <view wx:for="{{currentExpeditionList}}" wx:for-item="expedition" wx:key="index">
-        <custom-table class="list-container" table-content="{{expedition.tableContent}}" width-distribution="{{tableWidthDistribution}}" class="expedition-item"/>
+        <custom-table class="list-container" table-content="{{filterExpeditionALias.setExpeditionAlias(expedition.tableContent, currentExpeditionChapter.key, index + 1)}}" width-distribution="{{tableWidthDistribution}}" class="expedition-item"/>
         <custom-table class="list-container" style="margin-bottom: 40rpx;" table-content="{{expedition.tableContentTwo}}" width-distribution="{{tableWidthDistribution}}" class="expedition-item"/>
       </view>
     </view>

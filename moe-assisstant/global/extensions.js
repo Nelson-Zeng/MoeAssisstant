@@ -14,3 +14,7 @@ Array.prototype.findAll = function(condition) {
 
   return temp
 }
+
+Array.prototype.equals = function(array) {
+  return this.sort().toString() === array.sort().toString()
+}

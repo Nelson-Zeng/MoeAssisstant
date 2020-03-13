@@ -147,11 +147,11 @@ Page({
         return item.episode === this.data.currentExpeditionChapter.name
       })
     })
-
-    console.log(this.data.currentExpeditionList)
   },
   selectedCharpterChanged(e) {
-    this.data.currentExpeditionChapter = e.detail.currentItem
+    this.setData({
+      currentExpeditionChapter: e.detail.currentItem
+    })
 
     this.filterData()
   }

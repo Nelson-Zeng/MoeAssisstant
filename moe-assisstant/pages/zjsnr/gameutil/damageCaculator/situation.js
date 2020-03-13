@@ -69,7 +69,7 @@ const caculateFinalDamage = dataContainer => {
     for (let key in finalDamage) {
       const tempDamage = Math.ceil(dataContainer.attackRange[key] * (1 - dataContainer.enemyArmor / (Number(0.5 * dataContainer.enemyArmor) + Number(dataContainer.piercingCoefficient * dataContainer.attackRange[key]))) * dataContainer.finalDamageCoefficient)
 
-      finalDamage[key] = tempDamage > 0 ? tempDamage : Math.ceil(Math.min(Number(dataContainer.baseATK.split('~')[0]), dataContainer.enemyLife) * 0.1)
+      finalDamage[key] = tempDamage > 0 ? tempDamage : Math.ceil(Math.min(dataContainer.baseATK, dataContainer.enemyLife) * 0.1)
     }
   }
 
