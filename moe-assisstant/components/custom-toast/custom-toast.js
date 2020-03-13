@@ -6,7 +6,7 @@ Component({
     },
     duration: {
       type: Number,
-      value: 2000
+      value: 5000
     }
   },
   data: {
