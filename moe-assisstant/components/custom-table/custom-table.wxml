@@ -1,13 +1,13 @@
 <view class="list-container">
-  <view class="list-header border-text" wx:if="{{tableContent.title}}">{{tableContent.title}}</view>
-  <view class="list-explaination border-text" wx:if="{{tableContent.explaination}}">{{tableContent.explaination}}</view>
+  <view class="list-header border-text" wx:if="{{displayedTableContent.title}}">{{displayedTableContent.title}}</view>
+  <view class="list-explaination border-text" wx:if="{{displayedTableContent.explaination}}">{{displayedTableContent.explaination}}</view>
   <view class="list-header-container">
-    <view class="list-header-item border-text" wx:for="{{tableContent.headerItemList}}" wx:for-item="headerItem" wx:key="index" style="width: {{widthDistribution[index]}}">{{headerItem}}</view>
+    <view class="list-header-item border-text" wx:for="{{displayedTableContent.headerItemList}}" wx:for-item="headerItem" wx:key="index" style="width: {{widthDistribution[index]}}">{{headerItem}}</view>
   </view>
   <view class="list-content-container">
-    <view class="list-content-item-container" wx:for="{{tableContent.contentList}}" wx:for-item="contentListItem" wx:key="index">
+    <view class="list-content-item-container" wx:for="{{displayedTableContent.contentList}}" wx:for-item="contentListItem" wx:key="index" style="color: {{contentListItem.color}}" catchtap="onRowClick" data-dex-index="{{contentListItem.id}}">
       <view class="list-content">
-        <view class="list-content-item border-text" wx:for="{{contentListItem}}" wx:for-item="contentItem" wx:key="contentIndex" style="width: {{widthDistribution[index]}}; color: {{tableContent.contentColorSet ? tableContent.contentColorSet[index] : 'black'}}">{{contentItem}}
+        <view class="list-content-item border-text" wx:for="{{contentListItem.content}}" wx:for-item="contentItem" wx:key="contentIndex" style="width: {{widthDistribution[index]}}; color: {{displayedTableContent.contentColorSet ? displayedTableContent.contentColorSet[index] : 'inherit'}}">{{contentItem}}
         </view>
       </view>
     </view>

@@ -34,7 +34,7 @@
   content: '';
   position: absolute;
   right: -26rpx;
-  top: 0;
+  top: 1px;
   width: 0;
   height: 0;
   border-left: 26rpx solid #606266;
@@ -115,11 +115,9 @@
   margin: 20rpx 0;
 }
 
-.container .content-body .map-content-item .detail-area {
-}
-
 .container .content-body .map-content-item .detail-area .detail-table {
   border: 1rpx solid #606266;
+  box-sizing: border-box;
 }
 
 .container .content-body .map-content-item .detail-area .detail-table .first-type {
@@ -127,23 +125,47 @@
   align-items: center;
   min-height: 100%;
   border-bottom: 1px solid #606266;
+  box-sizing: border-box;
 }
 
 .container .content-body .map-content-item .detail-area .detail-table .first-type .first-type-title {
-  width: 25%;
+  width: 30%;
   text-align: center;
 }
 
 .container .content-body .map-content-item .detail-area .detail-table .first-type .first-type-content {
   border-left: 1rpx solid #606266;
-  width: 75%;
+  width: 70%;
   padding: 6rpx 10rpx;
+  box-sizing: border-box;
 }
 
 .container .content-body .map-content-item .detail-area .detail-table .second-type {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #606266;
+  box-sizing: border-box;
+}
+
+.container .content-body .map-content-item .detail-area .detail-table .second-type-header {
+  display: flex;
+}
+
+.container .content-body .map-content-item .detail-area .detail-table .second-type-header .second-type-header-item {
+  width: 10%;
+  box-sizing: border-box;
+  border-left: 1px solid #606266;
+  border-bottom: 1px solid #606266;
+  display: flex;
+  justify-content: center;
+}
+
+.container .content-body .map-content-item .detail-area .detail-table .second-type-header .second-type-header-item:first-of-type {
+  border-left: none;
+}
+
+.container .content-body .map-content-item .detail-area .detail-table .second-type-header .second-type-display {
+  width: 30%;
 }
 
 .container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-left {
@@ -152,9 +174,10 @@
 }
 
 .container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-middle {
-  width: 80%;
+  width: calc(80% + 1px);
   border-left: 1px solid #606266;
   border-right: 1px solid #606266;
+  box-sizing: border-box;
 }
 
 .container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-middle .second-type-item {
@@ -168,20 +191,56 @@
 }
 
 .container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-middle .second-type-item .second-type-title {
-  width: calc(100% / 16 * 3);
+  width: calc(12.5% - 1px);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-middle .second-type-item .second-type-param {
+  width: 10%;
   text-align: center;
+  border-left: 1px solid #606266;
+}
+
+.container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-middle .second-type-item .second-type-param:first-of-type {
+  border-left: none;
 }
 
 .container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-middle .second-type-item .second-type-setting {
-  width: calc(100% / 16 * 13);
-  padding: 6rpx 20rpx;
+  width: calc(90% - 1px);
   border-left: 1px solid #606266;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-middle .second-type-item .second-type-setting .second-type-setting-param {
+  width: calc(100% / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-middle .second-type-item .second-type-setting .second-type-setting-tracking {
+  border-left: 1px solid #606266;
+}
+
+.container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-middle .second-type-item .second-type-setting .second-type-setting-antiAircraft {
+  border-left: 1px solid #606266;
+}
+
+.container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-middle .second-type-item .second-type-setting .second-type-setting-display {
+  min-width: calc(100% / 7 * 3 - 1px);
+  border-left: 1px solid #606266;
+  border-right: 1px solid #606266;
+  flex-direction: column;
 }
 
 .container .content-body .map-content-item .detail-area .detail-table .second-type .second-type-right {
   color: #409eff;
   text-align: center;
-  width: 10%;
+  width: calc(10% - 1px);
 }
 
 .container .content-body .map-content-item .detail-area .detail-switch {
@@ -224,7 +283,7 @@
 }
 
 .drop-dialog-mask .dialog {
-  background: #F2F6FC;
+  background: #f2f6fc;
   width: 70vw;
   height: 80vh;
   border-radius: 20rpx;

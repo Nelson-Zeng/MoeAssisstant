@@ -12,6 +12,7 @@ const http = {
   GET_BUILDING_TIME: `${constants.DOMAIN}/zjsnr/gameutil/buildtime/:id`,
   GET_SEA_CHART_INFO: `${constants.DOMAIN}/zjsnr/gameutil/seachart/info`,
   GET_NODE_DROP_INFO: `${constants.DOMAIN}/zjsnr/gameutil/seachart/drop`,
+  GET_SHIP_INFO: `${constants.DOMAIN}/zjsnr/ships/:dexIndex/info`,
 
   get: (baseUrl, params, queries, onSuccess) => {
     return new Promise((resolve, reject) => {

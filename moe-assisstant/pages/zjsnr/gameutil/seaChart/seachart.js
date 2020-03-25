@@ -10,7 +10,7 @@ const OPTIONS = [
   ['塞浦路斯附近海域', '克里特附近海域', '马耳他附近海域', '直布罗陀东部海域', '直布罗陀要塞'],
   ['洛里昂南部海域', '英吉利海峡', '斯卡帕湾', '丹麦海峡'],
   ['比斯开湾', '马德拉海域', '亚速尔海域', '百慕大三角附近海域', '百慕大三角防波提'],
-  ['百慕大中心海域', '百慕大南群岛']
+  ['百慕大中心海域', '百慕大南群岛', '北加勒比海域']
 ]
 
 Page({
@@ -23,9 +23,14 @@ Page({
     currentSrc: '',
 
     showDrop: false,
-    dropListTable: {}
+    dropListTable: {},
+
+    toast: ''
   },
   async onLoad() {
+    wx.showLoading({
+      title: '读取敌方数据',
+    })
     const settingData = await app.http.get(app.http.GET_SEA_CHART_INFO, {}, {})
 
     const temp = OPTIONS.map((option, index) => {
@@ -36,6 +41,8 @@ Page({
       seaAreas: temp,
       selectedChapterArea: temp[0]
     })
+
+    wx.hideLoading()
   },
   selectAreaChapter(e) {
     const id = Number(e.currentTarget.id.split('areaChapter')[1])
@@ -74,6 +81,31 @@ Page({
     })
   },
   async checkDrop(e) {
+    const renderColorSet = setting => {
+      let color
+      switch (Number(setting.rarity)) {
+        case 1:
+          color = '#666666'
+          break
+        case 2:
+          color = '#339933'
+          break
+        case 3:
+          color = '#3399FF'
+          break
+        case 4:
+          color = '#CC00FF'
+          break
+        case 5:
+          color = '#FF9900'
+          break
+        case 6:
+          color = '#FF0000'
+          break
+      }
+      return color
+    }
+
     wx.showLoading({
       title: '正在请求数据'
     })
@@ -91,15 +123,29 @@ Page({
       contentList: result.data.map(item => {
         let temp = []
         temp.push(item.name, item.C, item.C_node, (item.C / item.C_node).getFixed())
-        return temp
-      })
+        return {
+          content: temp,
+          color: renderColorSet(item),
+          id: item.dexIndex
+        }
+      }),
+      async onRowClick(id) {
+        const result = await app.http.get(app.http.GET_SHIP_INFO, {
+          dexIndex: Number(id)
+        }, {})
+
+        app.currentShipInfo = result.data[0]
+
+        app.util.navigateTo('/pages/zjsnr/shipinfo/detail/detail')
+      }
     }
 
     wx.hideLoading()
 
     this.setData({
       dropListTable: this.data.dropListTable,
-      showDrop: true
+      showDrop: true,
+      toast: '点击单个舰船栏可进入对应详情页。'
     })
   }
 })

@@ -10,7 +10,7 @@ const ID_MAPPING = {
   6: '第七章',
   7: '第八章'
 }
-
+ 
 class chart {
   constructor(index, optionNames, settingData) {
     this.id = index
@@ -19,11 +19,12 @@ class chart {
       let tempItem = {}
       tempItem.id = `${index + 1}-${indexS + 1}`
       tempItem.name = `${tempItem.id}/${option}`
-      tempItem.src = `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/seacharts/${tempItem.id}.png`
+      tempItem.src = `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/seacharts/${tempItem.id}.jpg`
+      tempItem.detailSrc = `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/seacharts/${tempItem.id}-detail.jpg`
       let tempSetting = settingData.find(item => {
         return item.map === tempItem.id
       })
-      tempSetting.enemy = JSON.parse(tempSetting.enemy)
+      tempSetting.enemyInfo = tempSetting.enemyInfo
       tempItem.settingData = tempSetting
       tempItem.expanded = false
       return tempItem

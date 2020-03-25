@@ -15,7 +15,7 @@
       <view class="base-info-content content">
         <view class="portrait-container">
           <image class="portrait-background" src="{{shipInfo.backgroundPicSrc}}" mode="center"></image>
-          <image class="portrait-image" src="{{shipInfo.url}}" mode="aspectFill"></image>
+          <image class="portrait-image" src="{{shipInfo.url}}" mode="widthFix"></image>
         </view>
         <view class="base-info-description">
           <parameter-pair title="舰名" value="{{shipInfo.name}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>

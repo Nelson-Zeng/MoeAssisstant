@@ -109,7 +109,7 @@ Page({
   },
   initData(shipInfo) {
     const renderedShipInfo = Object.assign(shipInfo, {
-      url: app.filters.getZJSNShipXMediumPicture(shipInfo.picId),
+      url: app.filters.getZJSNShipMediumPicture(shipInfo.picId),
       backgroundPicSrc: app.filters.getZJSNSimpleShipBackground(shipInfo.rarity)
     })
 
