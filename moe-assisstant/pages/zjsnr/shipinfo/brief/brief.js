@@ -227,6 +227,11 @@ Page({
       title: '航速',
       value: 5,
       selected: false
+    }, {
+      id: 5,
+      title: '星级',
+      value: 5,
+      selected: false
     }],
     sortDesc: false,
 

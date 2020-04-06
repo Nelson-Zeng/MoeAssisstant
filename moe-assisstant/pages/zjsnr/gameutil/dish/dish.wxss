@@ -1,0 +1,15 @@
+.container {
+  padding: 0;
+  display: flex;
+}
+
+.container .body {
+  padding: 30rpx;
+  overflow: scroll;
+  height: calc(100% - 60rpx);
+}
+
+.container .body .divider {
+  height: 30rpx;
+  width: 100%;
+}

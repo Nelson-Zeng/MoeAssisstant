@@ -48,6 +48,16 @@ Page({
       path: '/pages/zjsnr/gameutil/buildingTimeList/buildingTimeList',
       type: app.constants.ZJSNR_BUILDING_TIME_TYPES.EQUIPMENT,
       icon: icon.developingTime
+    }, {
+      id: 8,
+      title: '学院技能查询',
+      path: '/pages/zjsnr/gameutil/academy/academy',
+      icon: icon.academy
+    }, {
+      id: 9,
+      title: '餐厅菜单查询',
+      path: '/pages/zjsnr/gameutil/dish/dish',
+      icon: icon.menu
     }]
   },
   callUtil(e) {
@@ -60,7 +70,7 @@ Page({
     if (typeof item.type === 'number') data = {
       type: item.type
     }
-    
+
     app.util.navigateTo(path, data)
   }
 })

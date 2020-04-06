@@ -13,6 +13,8 @@ const http = {
   GET_SEA_CHART_INFO: `${constants.DOMAIN}/zjsnr/gameutil/seachart/info`,
   GET_NODE_DROP_INFO: `${constants.DOMAIN}/zjsnr/gameutil/seachart/drop`,
   GET_SHIP_INFO: `${constants.DOMAIN}/zjsnr/ships/:dexIndex/info`,
+  GET_ACADEMY_INFO: `${constants.DOMAIN}/zjsnr/academy`,
+  GET_MENU_INFO: `${constants.DOMAIN}/zjsnr/menu`,
 
   get: (baseUrl, params, queries, onSuccess) => {
     return new Promise((resolve, reject) => {

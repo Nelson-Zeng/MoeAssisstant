@@ -1,9 +1,6 @@
 <view class="container">
   <custom-toast content="{{toast}}" />
-  <view class="navigator">
-    <view class="first-grade-item {{selectedArea === seaArea.id ? 'selected' : ''}}" wx:for="{{seaAreas}}" wx:for-item="seaArea" wx:key="index" style="left: calc(100vw / 8  * {{index}} {{index ? ' - 30rpx' : ''}}); z-index: 8 - {{index}}" bindtap="selectAreaChapter"
-      id="areaChapter{{seaArea.id}}">{{seaArea.name}}</view>
-  </view>
+  <custom-header-tab tabs="{{seaAreas}}" peaces="8" bindTabClick="selectAreaChapter"></custom-header-tab>
   <view class="content-body">
     <text class="hint">点击图片查看大图</text>
     <view class="map-content-item" wx:for="{{selectedChapterArea.secondaryMenu}}" wx:for-item="area" wx:key="index">

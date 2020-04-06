@@ -19,12 +19,13 @@
         </view>
         <view class="base-info-description">
           <parameter-pair title="舰名" value="{{shipInfo.name}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="图鉴ID" value="{{shipInfo.dexIndex}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
           <parameter-pair title="舰种" value="{{shipInfo.type}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
           <parameter-pair title="国籍" value="{{shipInfo.nationality}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
           <parameter-pair title="舷号" value="{{shipInfo.shipClass}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
           <parameter-pair title="船型" value="{{shipInfo.dimension}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
           <parameter-pair title="射程" value="{{shipInfo.fireRange}}" height="calc(100% * 0.1)" class="parameter-pair"></parameter-pair>
-          <parameter-pair title="初始装备" value="{{shipInfo.originalEquipment}}" height="calc(100% * 0.4)" hide-bottom-line="true" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="初始装备" value="{{shipInfo.originalEquipment}}" height="calc(100% * 0.3)" hide-bottom-line="true" class="parameter-pair"></parameter-pair>
         </view>
       </view>
     </view>

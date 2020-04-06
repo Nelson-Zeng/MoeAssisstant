@@ -26,6 +26,11 @@ Component({
           displayedTableContent: this.data.tableContent
         })
       }
+    },
+    'tableContent.htmlContentList': function(newVal) {
+      this.setData({
+        displayedTableContent: this.data.tableContent
+      })
     }
   },
   methods: {

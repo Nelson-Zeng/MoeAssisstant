@@ -1,0 +1,8 @@
+<view class="container">
+  <custom-tab-set item-set="{{tabList}}" custom-width="25vw" binditemSelected="selectedNationalityChanged" wx:if="{{tabList.length > 0}}" />
+  <view class="body">
+    <text>1.初始只有一种菜“海军烘豆子”。菜谱可通过箱子(大胃王、糖果惊喜)概率获得，也可以通过皮肤附赠、任务奖励、功勋兑换获得\n2.熟练度低会容易烹饪失败而减少25%效果持续时间，熟练度高会容易烹饪大成功而提升25%效果持续时间。去好友家蹭饭只有一半的时间\n3.从箱子中获得一次新的“菜谱”后该菜谱将从箱子的可获得内容中移除。</text>
+    <view class="divider"></view>
+    <custom-table class="list-container" table-content="{{dishList}}" width-distribution="{{dishList.columnWidth}}" />
+  </view>
+</view>

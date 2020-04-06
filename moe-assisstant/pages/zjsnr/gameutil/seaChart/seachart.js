@@ -16,7 +16,6 @@ const OPTIONS = [
 Page({
   data: {
     seaAreas: [],
-    selectedArea: 0,
     selectedChapterArea: {},
 
     showBigMap: false,
@@ -45,10 +44,9 @@ Page({
     wx.hideLoading()
   },
   selectAreaChapter(e) {
-    const id = Number(e.currentTarget.id.split('areaChapter')[1])
+    const id = e.detail.itemId
 
     this.setData({
-      selectedArea: id,
       selectedChapterArea: this.data.seaAreas.find(area => {
         return area.id === id
       })

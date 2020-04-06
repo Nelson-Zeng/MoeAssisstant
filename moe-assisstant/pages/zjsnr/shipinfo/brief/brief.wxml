@@ -35,6 +35,7 @@
       <text class="simple-introduce" wx:if="{{!detailInfo}}">{{ship.name}}</text>
       <view class="base-info-container" wx:else>
         <label class="ship-name">名称： {{ship.name}}</label>
+        <label class="ship-dex-index">图鉴ID： {{ship.dexIndex}}</label>
         <label class="ship-nationality">国籍： {{ship.nationality}}</label>
         <label class="ship-type">舰种： {{ship.type}}</label>
         <label class="ship-power" wx:if="{{ship.power}}">火力： {{ship.power}}</label>

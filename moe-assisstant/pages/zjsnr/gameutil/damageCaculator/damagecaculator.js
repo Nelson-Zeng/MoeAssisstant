@@ -135,7 +135,16 @@ Page({
       return item
     })
 
-    const baseATK = Number(this.data.currentSituation.baseATKFormula.formula(dataContainer)).getFixed()
+    let baseATK = this.data.currentSituation.baseATKFormula.formula(dataContainer)
+    switch (typeof baseATK) {
+      case 'string':
+        break
+      case 'number':
+        baseATK = Number(baseATK).getFixed()
+        break
+      default:
+        return
+    }
     dataContainer.baseATK = baseATK
 
     this.setData({

@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/zjsnr/home/index",
+    "pages/zjsnr/gameutil/dish/dish",
+    "pages/zjsnr/gameutil/academy/academy",
     "pages/zjsnr/gameutil/seaChart/seachart",
     "pages/zjsnr/gameutil/index",
-    "pages/zjsnr/gameutil/buildingTimeList/buildingTimeList",
     "pages/zjsnr/gameutil/damageCaculator/damagecaculator",
-    "pages/zjsnr/gameutil/cannonry/cannonry",
     "pages/zjsnr/shipinfo/brief/brief",
+    "pages/zjsnr/gameutil/buildingTimeList/buildingTimeList",
+    "pages/zjsnr/gameutil/cannonry/cannonry",
     "pages/index/index",
     "pages/zjsnr/gameutil/expedition/expedition",
     "pages/zjsnr/equipmentinfo/brief/brief",

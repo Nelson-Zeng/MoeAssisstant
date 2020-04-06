@@ -1,6 +1,6 @@
 <view class="container">
   <view class="current-version">当前版本：
-    <label style="color: #409EFF;">0.75</label>
+    <label style="color: #409EFF;">0.78</label>
   </view>
   <view class="current-game-version">对应游戏版本：
     <label style="color: #409EFF;">4.90</label>

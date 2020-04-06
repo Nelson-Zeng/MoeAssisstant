@@ -1,0 +1,8 @@
+<view class="container">
+  <custom-header-tab tabs="{{teachers}}" peaces="3" bindTabClick="selectAcademyTeacher"></custom-header-tab>
+  <view class="body">
+    <view class="table" wx:for="{{currentLessons}}" wx:for-item="lessonPhase" wx:key="index">
+      <custom-table class="academy-lesson-list" table-content="{{lessonPhase}}" width-distribution="{{lessonPhase.columnWidth}}" />
+    </view>
+  </view>
+</view>

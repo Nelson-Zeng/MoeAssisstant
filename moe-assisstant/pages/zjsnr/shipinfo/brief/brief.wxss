@@ -83,12 +83,13 @@
 }
 
 .container .simple-filter .sorting-area .sorting-container .sorting-item {
-  width: 18%;
+  flex-grow: 1;
   border-radius: 10rpx;
   border: 1px solid #303133;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 10rpx;
 }
 
 .container .simple-filter .sorting-area .sorting-container .selected {
@@ -113,7 +114,7 @@
 }
 
 .container .ship-list .ship-item {
-  height: 300rpx;
+  height: 340rpx;
   border: 1px solid black;
   border-radius: 5px;
   position: relative;

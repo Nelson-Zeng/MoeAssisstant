@@ -1,0 +1,4 @@
+<view class="navigator" wx:if="{{tabs.length !== 0}}">
+  <view class="first-grade-item {{selectedTab === tab.id ? 'selected' : ''}}" wx:for="{{tabs}}" wx:for-item="tab" wx:key="index" style="left: calc(100vw / {{peaces}}  * {{index}} {{index ? ' - 30rpx' : ''}}); z-index: {{peaces}} - {{index}}; width: calc(100vw / {{peaces}});"
+    bindtap="selectTab" id="{{tab.id}}">{{tab.name}}</view>
+</view>
