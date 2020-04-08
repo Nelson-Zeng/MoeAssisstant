@@ -44,7 +44,7 @@ Page({
     showBuild: false,
     showDrop: false
   },
-  onLoad() {
+  async onLoad() {
     let queryPromise
     const shipInfo = app.currentShipInfo
     // 图鉴ID大于1000说明是改造船，需要获取原始数据；反之需要判断该船是否可以改造，如果可以的话获取改造数据
@@ -117,23 +117,24 @@ Page({
       shipInfo: renderedShipInfo
     })
   },
-  checkIllustration() {
-    app.http.get(app.http.GET_SHIP_ILLUSTRATIONS, {
-      id: this.data.shipInfo.dexIndex
-    }, {}, response => {
-      this.setData({
-        illustrationList: response.data.map(url => {
-          return `${app.constants.STATIC_RESOURCE_DOMAIN}/jianr/moeassisstant/zjsnr/${url}`
-        }),
-        backgroundPicSrc: `url(${app.filters.getZJSNClearShipBackground(this.data.shipInfo.rarity)})`,
-        showIllustration: true
+  async checkIllustration() {
+    const response =
+      await app.http.get(app.http.GET_SHIP_ILLUSTRATIONS, {
+        id: this.data.shipInfo.dexIndex
       })
 
-      wx.showToast({
-        title: '点击按钮切换立绘，点击界面其他部分退出，双指可放大立绘',
-        icon: 'none',
-        duration: 1000
-      })
+    this.setData({
+      illustrationList: response.data.map(url => {
+        return `${app.constants.STATIC_RESOURCE_DOMAIN}/jianr/moeassisstant/zjsnr/${url}`
+      }),
+      backgroundPicSrc: `url(${app.filters.getZJSNClearShipBackground(this.data.shipInfo.rarity)})`,
+      showIllustration: true
+    })
+
+    wx.showToast({
+      title: '点击按钮切换立绘，点击界面其他部分退出，双指可放大立绘',
+      icon: 'none',
+      duration: 1000
     })
   },
   checkDialogue() {
@@ -201,17 +202,20 @@ Page({
       showIllustration: false
     })
   },
-  checkAccess() {
+  async checkAccess() {
     wx.showLoading({
       title: '正在获取数据',
     })
     let tempCid = Number(this.data.shipInfo.cid)
     if (tempCid > 10100000) tempCid = tempCid - 100000
-    app.http.get(app.http.GET_SHIP_ACQUIRE_ROUTES, { cid: tempCid}, {}, response => {
-      wx.hideLoading()
-      this.data.acquireRouteData = response.data
-      this.setData2SimpleTable()
+
+    const response = await app.http.get(app.http.GET_SHIP_ACQUIRE_ROUTES, {
+      cid: tempCid
     })
+
+    wx.hideLoading()
+    this.data.acquireRouteData = response.data
+    this.setData2SimpleTable()
   },
   setData2SimpleTable() {
     const simpleBuildContent = this.data.acquireRouteData.build.simple.map(item => {

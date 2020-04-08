@@ -284,7 +284,7 @@ class Situation {
     }, {
       id: 2,
       title: '最终伤害加成',
-      calculating: function(value) {
+      calculating(value) {
         return 1 + Number((Number(value) / 100).getFixed())
       },
       value: ''
@@ -292,7 +292,7 @@ class Situation {
       id: 3,
       title: '穿甲系数',
       defaultValue: defaultPiercingCoefficient,
-      calculating: function(value) {
+      calculating(value) {
         return this.defaultValue + Number((Number(value) / 100).getFixed())
       },
       value: ''

@@ -255,7 +255,7 @@ Page({
   onLoad() {
     this.initShipList()
   },
-  onReachBottom(e) {
+  async onReachBottom(e) {
     const currentLength = Number(this.data.limitationDataContainer.page * this.data.limitationDataContainer.capacity)
 
     if (currentLength < this.data.shipListTotalCount) {
@@ -265,20 +265,20 @@ Page({
 
       this.data.limitationDataContainer.page += 1
 
-      app.http.get(app.http.GET_SHIP_LIST, {}, this.data.limitationDataContainer, response => {
-        const shipList = response.data.shipList
-        this.data.shipListTotalCount = response.data.total
-        shipList.map(info => {
-          info.url = app.filters.getZJSNShipSmallPicture(info.picId)
-          info.backgroundPicSrc = app.filters.getZJSNSimpleShipBackground(info.rarity)
-          info.updated = app.filters.getShipUpdateInfo(info.dexIndex)
-          this.data.shipList.push(info)
-        })
+      const response = await app.http.get(app.http.GET_SHIP_LIST, {}, this.data.limitationDataContainer)
 
-        this.setData({
-          shipList: this.data.shipList,
-          reachEnd: true
-        })
+      const shipList = response.data.shipList
+      this.data.shipListTotalCount = response.data.total
+      shipList.map(info => {
+        info.url = app.filters.getZJSNShipSmallPicture(info.picId)
+        info.backgroundPicSrc = app.filters.getZJSNSimpleShipBackground(info.rarity)
+        info.updated = app.filters.getShipUpdateInfo(info.dexIndex)
+        this.data.shipList.push(info)
+      })
+
+      this.setData({
+        shipList: this.data.shipList,
+        reachEnd: true
       })
     }
   },
@@ -448,7 +448,7 @@ Page({
       detailInfo: !this.data.detailInfo
     })
   },
-  settingIgnoreTouchMove: function() {},
+  settingIgnoreTouchMove() {},
   initShipList() {
     this.data.limitationDataContainer.page = 1
 

@@ -27,12 +27,12 @@ Component({
   },
 
   observers: {
-    title: function(newVal) {
+    title(newVal) {
       if (!newVal) this.setData({
         title: '无数据'
       })
     },
-    value: function (newVal) {
+    value(newVal) {
       if (!newVal) this.setData({
         value: '无数据'
       })

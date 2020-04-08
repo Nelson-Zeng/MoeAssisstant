@@ -16,28 +16,34 @@ const http = {
   GET_ACADEMY_INFO: `${constants.DOMAIN}/zjsnr/academy`,
   GET_MENU_INFO: `${constants.DOMAIN}/zjsnr/menu`,
 
-  get: (baseUrl, params, queries, onSuccess) => {
+  get: function() {
     return new Promise((resolve, reject) => {
-      let url = baseUrl
+      const args = Array.prototype.slice.call(arguments)
+      // 第一个参数为基础url
+      let url = args[0]
 
-      if (Object.keys(params).length > 0)
-        for (let key in params) {
-          url = baseUrl.replace(`:${key}`, params[key])
+      // 第二个参数为url parameter。
+      if (args[1] && Object.keys(args[1]).length > 0) 
+        for (let key in args[1]) {
+            url = url.replace(`:${key}`, args[1][key])
+          }
+      
+      // 第三个参数为query string
+      if (args[2] && Object.keys(args[2]).length > 0)
+        if (Object.keys(args[2]).length > 0) {
+          let temp = []
+          for (let key in args[2]) {
+            temp.push(`${key}=${args[2][key]}`)
+          }
+          url = `${url}?${temp.join('&')}`
         }
-
-      if (Object.keys(queries).length > 0) {
-        let temp = []
-        for (let key in queries) {
-          temp.push(`${key}=${queries[key]}`)
-        }
-        url = `${baseUrl}?${temp.join('&')}`
-      }
-
+      
       wx.request({
         url: url,
         success: res => {
           resolve(res)
-          if (typeof onSuccess === 'function') onSuccess(res)
+          // 第四个参数为回调函数（尽量不要使用）
+          typeof args[3] === 'function' && args[3](res)
         }
       })
     })

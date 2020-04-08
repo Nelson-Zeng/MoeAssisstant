@@ -7,7 +7,7 @@ Page({
     currentContent: [],
     tableStaticData: {}
   },
-  onLoad(options) {
+  async onLoad(options) {
     const type = options.type ? Number(options.type) : 0
     switch (type) {
       case 0:
@@ -26,55 +26,55 @@ Page({
         break
     }
 
-    app.http.get(app.http.GET_BUILDING_TIME, {
+    const response = await app.http.get(app.http.GET_BUILDING_TIME, {
       id: type
-    }, {}).then(result => {
-      this.data.timeList = []
+    })
 
-      const data = result.data
+    this.data.timeList = []
 
-      data.sort((a, b) => {
-        return b.numbericTime - a.numbericTime
+    const data = response.data
+
+    data.sort((a, b) => {
+      return b.numbericTime - a.numbericTime
+    })
+
+    data.map(item => {
+      let tempContent = []
+      switch (type) {
+        case 0:
+          tempContent.push(item.dexIndex)
+          tempContent.push(item.name)
+          tempContent.push(item.shipClass)
+          tempContent.push(item.stringifiedTime)
+          break
+        case 1:
+          tempContent.push(item.name)
+          tempContent.push(item.stringifiedTime)
+          break
+      }
+
+      const temp = this.data.timeList.find(a => {
+        return a.key === item.numbericTime
       })
 
-      data.map(item => {
-        let tempContent = []
-        switch (type) {
-          case 0:
-            tempContent.push(item.dexIndex)
-            tempContent.push(item.name)
-            tempContent.push(item.shipClass)
-            tempContent.push(item.stringifiedTime)
-            break
-          case 1:
-            tempContent.push(item.name)
-            tempContent.push(item.stringifiedTime)
-            break
-        }
-
-        const temp = this.data.timeList.find(a => {
-          return a.key === item.numbericTime
-        })
-
-        if (!temp) this.data.timeList.push({
-          name: item.stringifiedTime,
-          key: item.numbericTime,
-          content: [
-            tempContent
-          ]
-        })
-        else temp.content.push(tempContent)
+      if (!temp) this.data.timeList.push({
+        name: item.stringifiedTime,
+        key: item.numbericTime,
+        content: [
+          tempContent
+        ]
       })
+      else temp.content.push(tempContent)
+    })
 
-      this.setData({
-        timeList: this.data.timeList.map((item, index) => {
-          item.id = index
-          return item
-        }),
-        dataLoaded: true,
-        currentContent: Object.assign(this.data.tableStaticData, {
-          contentList: this.data.timeList[0].content
-        })
+    this.setData({
+      timeList: this.data.timeList.map((item, index) => {
+        item.id = index
+        return item
+      }),
+      dataLoaded: true,
+      currentContent: Object.assign(this.data.tableStaticData, {
+        contentList: this.data.timeList[0].content
       })
     })
   },

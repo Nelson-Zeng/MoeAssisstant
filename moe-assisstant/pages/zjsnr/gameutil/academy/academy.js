@@ -7,8 +7,8 @@ Page({
 
     dataContainer: []
   },
-  onLoad: async function(options) {
-    const response = await app.http.get(app.http.GET_ACADEMY_INFO, {}, {})
+  async onLoad(options) {
+    const response = await app.http.get(app.http.GET_ACADEMY_INFO)
 
     this.data.dataContainer = response.data
 

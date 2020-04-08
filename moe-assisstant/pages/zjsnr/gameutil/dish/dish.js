@@ -7,8 +7,8 @@ Page({
 
     dishList: []
   },
-  onLoad: async function(options) {
-    const response = await app.http.get(app.http.GET_MENU_INFO, {}, {})
+  async onLoad(options) {
+    const response = await app.http.get(app.http.GET_MENU_INFO)
 
     this.data.fullList = response.data
 
@@ -40,7 +40,7 @@ Page({
     this.setData({
       dishList: this.generateDishList(selectedNation, this.data.fullList.findAll(item => {
         return item.nationality === selectedNation
-      }))
+      }) || this.data.fullList)
     })
   },
   generateDishList(header, dataList) {

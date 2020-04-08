@@ -14,7 +14,7 @@ Component({
     toastTimeout: 0
   },
   observers: {
-    'content': function(content) {
+    'content'(content) {
       if (!content) return
 
       if (!this.data.showToast) {

@@ -30,7 +30,7 @@ Page({
     wx.showLoading({
       title: '读取敌方数据',
     })
-    const settingData = await app.http.get(app.http.GET_SEA_CHART_INFO, {}, {})
+    const settingData = await app.http.get(app.http.GET_SEA_CHART_INFO)
 
     const temp = OPTIONS.map((option, index) => {
       return new seachart(index, option, settingData.data)

@@ -10,7 +10,7 @@ Component({
     }
   },
   observers: {
-    'tableContent.contentList': function(newVal) {
+    'tableContent.contentList'(newVal) {
       if (!newVal) {}
       else {
         this.data.tableContent.contentList = this.data.tableContent.contentList.map(content => {
@@ -27,7 +27,7 @@ Component({
         })
       }
     },
-    'tableContent.htmlContentList': function(newVal) {
+    'tableContent.htmlContentList'(newVal) {
       this.setData({
         displayedTableContent: this.data.tableContent
       })
