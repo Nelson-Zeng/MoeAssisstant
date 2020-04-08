@@ -58,6 +58,11 @@ Page({
       title: '餐厅菜单查询',
       path: '/pages/zjsnr/gameutil/dish/dish',
       icon: icon.menu
+    }, {
+      id: 10,
+      title: '航向计算器',
+      path: '/pages/zjsnr/gameutil/directionTrack/direction',
+      icon: icon.direction
     }]
   },
   callUtil(e) {

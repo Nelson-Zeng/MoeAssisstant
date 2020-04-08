@@ -1,0 +1,39 @@
+.area {
+  font-size: 50rpx;
+}
+
+.input-area .input-line {
+  font-size: 36rpx;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}
+
+.input-area .input-line:last-of-type {
+  margin-bottom: 40rpx;
+}
+
+.input-area .input-line .title {
+  width: 50%;
+}
+
+.input-area .input-line .input-container {
+  width: 50%;
+  border: 1px solid #606266;
+  border-radius: 10rpx;
+  padding-left: 10rpx;
+}
+
+.container .dividing-line {
+  width: 100%;
+  border-top: 2px solid #606266;
+}
+
+.container .output-area {
+  margin-top: 40rpx;
+}
+
+.container .output-area .place-holder {
+  height: 20rpx;
+}

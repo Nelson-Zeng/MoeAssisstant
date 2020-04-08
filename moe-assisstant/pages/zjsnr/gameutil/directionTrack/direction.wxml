@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="input-area area">输入信息
+    <view class="input-line" wx:for="{{inputContentList}}" wx:for-item="input" wx:key="index">
+      <view class="title">{{input.name}}</view>
+      <input value="{{input.value}}" type="number" class="input-container" bindinput="inputTracking" id="{{input.name}}" placeholder="{{input.placeHolder}}"></input>
+    </view>
+  </view>
+  <view class="dividing-line"></view>
+  <view class="output-area area">显示结果
+    <view class="place-holder"></view>
+    <custom-table class="list-container" table-content="{{trackingSuccessList}}" width-distribution="{{trackingSuccessList.columnWidth}}" wx:if="{{caculateFlag}}" />
+    <view class="place-holder"></view>
+    <custom-table class="list-container" table-content="{{trackingFailList}}" width-distribution="{{trackingFailList.columnWidth}}" wx:if="{{caculateFlag}}" />
+  </view>
+</view>

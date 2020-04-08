@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/zjsnr/home/index",
+    "pages/zjsnr/gameutil/directionTrack/direction",
     "pages/zjsnr/gameutil/dish/dish",
     "pages/zjsnr/gameutil/academy/academy",
     "pages/zjsnr/gameutil/seaChart/seachart",

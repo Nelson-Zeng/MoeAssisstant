@@ -102,9 +102,21 @@ const getImageSwipperIndex = (currentIndex, fullLength) => {
   return index
 }
 
+function judgeFlagStatus() {
+  const args = Array.prototype.slice.call(arguments)
+
+  let flagCount = 0
+  args.map(item => {
+    flagCount += Number(Boolean(item))
+  })
+
+  return flagCount
+}
+
 export default Object.assign({
   drawPolygon,
   drawTexts,
   checkPointInWhichPolygon,
-  getImageSwipperIndex
+  getImageSwipperIndex,
+  judgeFlagStatus
 }, convertOverrideMethodsToUtilMethods())

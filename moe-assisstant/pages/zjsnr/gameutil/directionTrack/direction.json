@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "航向计算器",
+  "usingComponents": {
+    "custom-table": "/components/custom-table/custom-table"
+  }
+}
