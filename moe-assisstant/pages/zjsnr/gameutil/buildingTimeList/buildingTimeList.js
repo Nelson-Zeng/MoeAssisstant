@@ -13,7 +13,7 @@ Page({
       case 0:
         this.data.tableStaticData = {
           title: '建造时间对照表',
-          headerItemList: ['图鉴ID', '名称', '舰级', '需要时间'],
+          headerItemList: ['图鉴ID', '名称', '舰种', '需要时间'],
           columnWidth: ['20%', '20%', '25%', '35%'],
         }
         break
