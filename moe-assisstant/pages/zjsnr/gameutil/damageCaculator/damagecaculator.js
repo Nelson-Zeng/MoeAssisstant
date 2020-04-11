@@ -6,7 +6,7 @@ const app = getApp()
 
 let dataContainer = {}
 
-const defaultAdditionalParams = [0, 10, 0, 0]
+const defaultAdditionalParams = [0, 10, 0, 0, 0, 0, 0, 0]
 
 const caculateCoefficient = title => {
   let result = 1
@@ -58,7 +58,8 @@ Page({
     ATKResult: 0,
     coefficientResult: 0,
     sonarCoefficientResult: 0,
-    toast: ''
+    toast: '',
+    toastDuration: 5000
   },
   onLoad() {
     this.setData({
@@ -84,12 +85,16 @@ Page({
       damageCoefficientValue: 1,
       cartridgeCoefficientValue: 1,
       cartridgePercentage: '100%',
-      formationTitle: '',
+      formationTitle: '单纵阵',
       directionTitle: 'T有利',
       floatBottom: this.data.currentSituation.floatBottom,
       floatTop: this.data.currentSituation.floatTop,
       torpedoBottom: this.data.currentSituation.torpedoBottom,
       torpedoTop: this.data.currentSituation.torpedoTop,
+      damegeReducingCoefficient: 1,
+      trueDamege: 0,
+      attackStrategyCoefficient: 1,
+      defenceStrategyCoefficient: 1
     }
 
     this.setData({
@@ -280,7 +285,8 @@ Page({
     // 导弹开闭幕且输入敌方护甲过高时需提供提示信息
     if (id === 0 && this.data.currentSituation.id === 12 && value > 140)
       this.setData({
-        toast: '对导弹开闭幕战来说，当敌方护甲大于145时存在护甲进行反向加成的bug，因此实际伤害会比理论伤害高很多。'
+        toast: '对导弹开闭幕战来说，当敌方护甲大于145时存在护甲进行反向加成的bug，因此实际伤害会比理论伤害高很多。',
+        toastDuration: 8000
       })
 
     let additionalItem = this.data.currentSituation.additionalParams.find(item => {
@@ -289,20 +295,7 @@ Page({
 
     additionalItem.value = value
 
-    switch (additionalItem.id) {
-      case 0:
-        dataContainer.enemyArmor = value
-        break
-      case 1:
-        dataContainer.enemyLife = value
-        break
-      case 2:
-        dataContainer.finalDamageCoefficient = additionalItem.calculating(value)
-        break
-      case 3:
-        dataContainer.piercingCoefficient = additionalItem.calculating(value)
-        break
-    }
+    dataContainer[additionalItem.name] = additionalItem.calculating(value)
 
     this.validateDataModels()
   },
@@ -343,5 +336,19 @@ Page({
   // 该方法仅用来屏蔽点击内容的冒泡，实现clickOutSide
   clickDialog() {
     return
+  },
+  additionalParamFocus(e) {
+    const id = Number(e.currentTarget.id.split('additionalParam')[1])
+
+    if (Array.prototype.includes.call([2, 4], id))
+      this.setData({
+        toast: '当存在多个终伤或减伤加成时，请自行算出最终数值并填入。\n计算方式为乘算：\n如两次终伤加成（减伤加成）为别为20%和35%时，\n最终加成为1.2 * 1.35 = 1.62，\n即填入62',
+        toastDuration: 10000
+      })
+  },
+  additionalParamBlur() {
+    this.setData({
+      toast: ''
+    })
   }
 })

@@ -3,6 +3,7 @@ const app = getApp()
 Page({
   data: {
     fontLoaded: false,
+    topBannerHeight: '112px',
     topSection: {
       id: 'formula',
       title: '通用公式查询',
@@ -41,5 +42,14 @@ Page({
       default:
         return
     }
+  },
+  adLoad() {
+    wx.createSelectorQuery().select('#ad-banner').fields({
+      size: true
+    }, res => {
+      this.setData({
+        topBannerHeight: `${res.height}px`
+      })
+    }).exec()
   }
 })

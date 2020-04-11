@@ -1,5 +1,5 @@
-<view class="container">
-  <custom-toast content="{{toast}}" />
+<view class="container" id="container">
+  <custom-toast content="{{toast}}" duration="{{toastDuration}}" />
   <picker bindchange="selectSituation" value="{{index}}" range="{{situations}}" range-key="title">
     <view class="picker">
       当前模拟类型(点击更换)：
@@ -127,10 +127,14 @@
               <label style="font-weight: normal; font-size: 24rpx;">(基础值：{{param.defaultValue}})</label>
             </label>
           </view>
-          <view class="additional-param-input-area {{param.id === 3 || param.id === 2 ? 'column' : ''}}">
+          <view class="additional-param-input-area {{param.id !== 0 && param.id !== 1 ? 'column' : ''}}">
             <label wx:if="{{param.id === 2}}">填入额外的最终伤害加成百分数(如15%则填入15，无则填0)</label>
             <label wx:if="{{param.id === 3}}">填入额外的穿甲加成百分数(如15%则填入15，无则填0)</label>
-            <input class="additional-param-input" value="{{param.value}}" id="additionalParam{{param.id}}" bindinput="additionalParamInput" type="number" />
+            <label wx:if="{{param.id === 4}}">填入额外的减伤系数(如15%则填入15，无则填0)</label>
+            <label wx:if="{{param.id === 5}}">填入额外的固定伤害值(如固定伤害15则填入15，无则填0)</label>
+            <label wx:if="{{param.id === 6}}">填入额外的攻击战术加成百分数(如15%则填入15，无则填0)</label>
+            <label wx:if="{{param.id === 7}}">填入额外的防御战术减伤百分数(如15%则填入15，无则填0)</label>
+            <input class="additional-param-input" value="{{param.value}}" id="additionalParam{{param.id}}" bindinput="additionalParamInput" type="number" bindfocus="additionalParamFocus" bindblur="additionalParamBlur" adjust-position="{{false}}"/>
           </view>
         </view>
       </view>

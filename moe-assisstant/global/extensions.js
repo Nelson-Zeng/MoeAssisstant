@@ -7,8 +7,11 @@ if (!Number.prototype.floor)
 else console.error('自定义Number.floor方法与原生方法冲突，已失效')
 
 if (!Number.prototype.getFixed)
-  Number.prototype.getFixed = function() {
-    return Number(this.toFixed(3))
+  Number.prototype.getFixed = function(dot = 3) {
+    let temp = Number(this.toFixed(dot))
+
+    if (!temp && dot < 10) return this.getFixed(dot += 1)
+    else return temp
   }
 else console.error('自定义Number.getFixed方法与原生方法冲突，已失效')
 

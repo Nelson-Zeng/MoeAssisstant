@@ -1,1 +1,1 @@
-<view class="toast" wx:if="{{showToast}}">{{content}}</view>
+<text class="toast" wx:if="{{showToast}}">{{content}}</text>

@@ -15,7 +15,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'])
           result = Math.log(Number(dataContainer['ATKParam0']) + 1) * 2 * dataContainer['ATKParam1'] + 25
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -44,7 +44,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'])
           result = Math.log(dataContainer['ATKParam0'] + 1) * 2 * dataContainer['ATKParam1'] + 25
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -69,7 +69,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'])
           result = dataContainer['ATKParam0'] / 3 + 30
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -101,7 +101,7 @@ const SITUATION_CASES = [{
           else result = dataContainer['ATKParam0'] / 3
         }
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -137,7 +137,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'] && (dataContainer['ATKParam1'] || dataContainer['ATKParam1'] === 0) && (dataContainer['ATKParam2'] || dataContainer['ATKParam2'] === 0) && dataContainer['ATKParam3']) {
           const bottom = (dataContainer['ATKParam0'] + dataContainer['ATKParam1'] * 2 + dataContainer['ATKParam2']) * Math.max(0, 1 - dataContainer['ATKParam3'] * 1 / 150) + 35
           const top = (dataContainer['ATKParam0'] + dataContainer['ATKParam1'] * 2 + dataContainer['ATKParam2']) * Math.max(0, 1 - dataContainer['ATKParam3'] * 0 / 150) + 35
-          result = `${bottom.getFixed()}~${top.getFixed()}`
+          result = `${Math.ceil(bottom.getFixed())}~${Math.ceil(top.getFixed())}`
         }
 
         return result
@@ -170,7 +170,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'] && dataContainer['ATKParam2'])
           result = dataContainer['ATKParam0'] + dataContainer['ATKParam1'] + dataContainer['ATKParam2'] + 5
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -198,7 +198,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'])
           result = dataContainer['ATKParam0'] + 5
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -254,7 +254,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'])
           result = dataContainer['ATKParam0'] + 10
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -283,7 +283,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'])
           result = dataContainer['ATKParam0'] + dataContainer['ATKParam1'] + 10
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -310,7 +310,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'])
           result = dataContainer['ATKParam0'] + 10
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -337,7 +337,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'])
           result = dataContainer['ATKParam0'] + 10
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -366,7 +366,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'])
           result = dataContainer['ATKParam0'] + dataContainer['ATKParam1'] * 3
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {
@@ -395,7 +395,7 @@ const SITUATION_CASES = [{
         if (dataContainer['ATKParam0'] && dataContainer['ATKParam1'])
           result = dataContainer['ATKParam0'] + dataContainer['ATKParam1'] * 3
 
-        return result
+        return Math.ceil(result)
       }
     },
     coefficientObject: {

@@ -14,8 +14,13 @@ Component({
     toastTimeout: 0
   },
   observers: {
-    'content'(content) {
-      if (!content) return
+    'content' (content) {
+      if (!content) {
+        this.setData({
+          showToast: false
+        })
+        return
+      }
 
       if (!this.data.showToast) {
         this.setData({

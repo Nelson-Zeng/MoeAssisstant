@@ -62,6 +62,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 1,
@@ -99,6 +111,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 2,
@@ -130,6 +154,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 3,
@@ -167,6 +203,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 4,
@@ -213,6 +261,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 5,
@@ -256,6 +316,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 6,
@@ -293,6 +365,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 7,
@@ -330,6 +414,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 8,
@@ -364,6 +460,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 9,
@@ -401,6 +509,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 10,
@@ -435,6 +555,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 11,
@@ -469,6 +601,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 12,
@@ -506,6 +650,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }, {
   type: 13,
@@ -543,6 +699,18 @@ const TYPE_TITLE_MAPPING = [{
   }, {
     title: '穿甲系数',
     key: 'piercingCoefficient'
+  }, {
+    title: '减伤系数',
+    key: 'damegeReducingCoefficient'
+  }, {
+    title: '固定伤害',
+    key: 'trueDamege'
+  }, {
+    title: '攻击战术系数',
+    key: 'attackStrategyCoefficient'
+  }, {
+    title: '防御战术系数',
+    key: 'defenceStrategyCoefficient'
   }]
 }]
 
