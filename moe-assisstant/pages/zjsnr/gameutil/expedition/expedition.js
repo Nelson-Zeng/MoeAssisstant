@@ -44,6 +44,8 @@ Page({
     tableWidthDistribution: ['16%', '16%', '16%', '16%', '16%', '20%']
   },
   async onLoad() {
+    wx.showShareMenu({})
+
     const response = await app.http.get(app.http.GET_EXPEDITIONS)
 
     let oilList = [],

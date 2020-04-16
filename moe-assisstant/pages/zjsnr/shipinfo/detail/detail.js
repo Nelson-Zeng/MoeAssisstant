@@ -45,6 +45,8 @@ Page({
     showDrop: false
   },
   async onLoad() {
+    wx.showShareMenu({})
+
     let queryPromise
     const shipInfo = app.currentShipInfo
     // 图鉴ID大于1000说明是改造船，需要获取原始数据；反之需要判断该船是否可以改造，如果可以的话获取改造数据

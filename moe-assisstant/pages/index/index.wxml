@@ -5,9 +5,6 @@
   <view class="current-game-version">对应游戏版本：
     <label style="color: #409EFF;">4.90</label>
   </view>
-  <view class="QR-code-2-support">
-    <image src="https://www.moeassisstant.com/QR_code.png" mode="aspectFit"></image>
-  </view>
   <view class="additional-items">
     <view class="additional-item" wx:for="{{additionalItems}}" wx:for-item="additionalItem" wx:key="index" bindtap="expandItem" id="{{additionalItem.id}}">
       <view class="additional-item-title">
@@ -15,7 +12,8 @@
         <label>{{additionalItem.title}}</label>
       </view>
       <view class="additional-item-content">
-        <text wx:if="{{additionalItem.expanded}}">{{additionalItem.content}}</text>
+        <text wx:if="{{additionalItem.expanded && additionalItem.content}}">{{additionalItem.content}}</text>
+        <rich-text wx:if="{{additionalItem.expanded && additionalItem.richContent}}" nodes="{{additionalItem.richContent}}"></rich-text>
       </view>
     </view>
   </view>

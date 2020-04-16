@@ -40,6 +40,9 @@ Page({
       columnWidth: ['25%', '25%', '25%', '25%']
     }
   },
+  onLoad() {
+    wx.showShareMenu({})
+  },
   inputTracking(e) {
     this.data.dataContainer[e.currentTarget.id] = Number(e.detail.value)
 

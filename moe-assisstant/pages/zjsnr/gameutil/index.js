@@ -77,5 +77,8 @@ Page({
     }
 
     app.util.navigateTo(path, data)
+  },
+  onLoad() {
+    wx.showShareMenu({})
   }
 })

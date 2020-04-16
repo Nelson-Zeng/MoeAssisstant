@@ -575,6 +575,8 @@ Page({
     }
   },
   onLoad() {
+    wx.showShareMenu({})
+
     this.updateList()
   },
   selectKeyChanged(e) {

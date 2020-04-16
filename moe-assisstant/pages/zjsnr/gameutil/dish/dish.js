@@ -8,6 +8,8 @@ Page({
     dishList: []
   },
   async onLoad(options) {
+    wx.showShareMenu({})
+
     const response = await app.http.get(app.http.GET_MENU_INFO)
 
     this.data.fullList = response.data
