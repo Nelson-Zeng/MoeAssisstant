@@ -42,10 +42,15 @@ Page({
     acquireRouteData: {},
 
     showBuild: false,
-    showDrop: false
+    showDrop: false,
+    toast: ''
   },
   async onLoad() {
     wx.showShareMenu({})
+
+    this.setData({
+      toast: 'COST字段为4.90版本新增字段。目前还不知道该字段的作用。'
+    })
 
     let queryPromise
     const shipInfo = app.currentShipInfo

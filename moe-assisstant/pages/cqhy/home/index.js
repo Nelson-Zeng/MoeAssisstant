@@ -4,20 +4,14 @@ Page({
   data: {
     polygons: []
   },
-  onShow() {
-    wx.showToast({
-      title: '该模块相关内容暂未开放',
-      icon: 'none',
-      duration: 1000
-    })
-    setTimeout(() => {
-      wx.switchTab({
-        url: '/pages/zjsnr/home/index',
-        success: response => {
-
-        }
+  adLoad() {
+    wx.createSelectorQuery().select('#ad-banner').fields({
+      size: true
+    }, res => {
+      this.setData({
+        topBannerHeight: `${res.height}px`
       })
-    }, 1000)
+    }).exec()
   },
   // onLoad() {
   //   const ctx = wx.createCanvasContext('cqhyHome')

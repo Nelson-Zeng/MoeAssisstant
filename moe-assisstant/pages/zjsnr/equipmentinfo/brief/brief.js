@@ -652,13 +652,17 @@ Page({
   clickDialog() {
     return
   },
-  refreshList(e) {
-    this.data.dataContainer.sequence = e.detail.value ? 'desc' : 'asc'
+  refreshList() {
+    this.setData({
+      descRequired: !this.data.descRequired
+    })
+
+    this.data.dataContainer.sequence = this.data.descRequired ? 'desc' : 'asc'
 
     this.setData({
       contents: this.data.contents.sort((a, b) => {
         const sortKey = this.data.currentItem.orderTypeKey
-        return e.detail.value ? Number(b[sortKey]) - Number(a[sortKey]) : Number(a[sortKey]) - Number(b[sortKey])
+        return this.data.descRequired ? Number(b[sortKey]) - Number(a[sortKey]) : Number(a[sortKey]) - Number(b[sortKey])
       })
     })
   }

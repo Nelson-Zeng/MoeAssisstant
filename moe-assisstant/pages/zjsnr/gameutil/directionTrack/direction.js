@@ -31,12 +31,12 @@ Page({
     trackingFailList: {},
     baseTrackingSuccessList: {
       title: '索敌成功',
-      headerItemList: ['T优', '同航', '返航', 'T劣'],
+      headerItemList: ['T优', '同航', '反航', 'T劣'],
       columnWidth: ['25%', '25%', '25%', '25%']
     },
     baseTrackingFailList: {
       title: '索敌失败',
-      headerItemList: ['T优', '同航', '返航', 'T劣'],
+      headerItemList: ['T优', '同航', '反航', 'T劣'],
       columnWidth: ['25%', '25%', '25%', '25%']
     }
   },

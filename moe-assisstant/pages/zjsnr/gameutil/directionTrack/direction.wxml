@@ -2,7 +2,7 @@
   <view class="input-area area">输入信息
     <view class="input-line" wx:for="{{inputContentList}}" wx:for-item="input" wx:key="index">
       <view class="title">{{input.name}}</view>
-      <input value="{{input.value}}" type="number" class="input-container" bindinput="inputTracking" id="{{input.name}}" placeholder="{{input.placeHolder}}"></input>
+      <input value="{{input.value}}" type="digit" class="input-container" bindinput="inputTracking" id="{{input.name}}" placeholder="{{input.placeHolder}}"></input>
     </view>
   </view>
   <view class="dividing-line"></view>

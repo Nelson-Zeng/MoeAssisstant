@@ -1,22 +1,22 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/zjsnr/home/index",
+    "pages/zjsnr/shipinfo/detail/detail",
+    "pages/zjsnr/shipinfo/brief/brief",
+    "pages/cqhy/home/index",
+    "pages/index/index",
     "pages/zjsnr/gameutil/damageCaculator/damagecaculator",
-    "pages/zjsnr/gameutil/seaChart/seachart",
+    "pages/zjsnr/seaChart/seachart",
     "pages/zjsnr/gameutil/directionTrack/direction",
     "pages/zjsnr/gameutil/dish/dish",
     "pages/zjsnr/gameutil/academy/academy",
     "pages/zjsnr/gameutil/index",
-    "pages/zjsnr/shipinfo/brief/brief",
     "pages/zjsnr/gameutil/buildingTimeList/buildingTimeList",
     "pages/zjsnr/gameutil/cannonry/cannonry",
     "pages/zjsnr/gameutil/expedition/expedition",
     "pages/zjsnr/equipmentinfo/brief/brief",
-    "pages/zjsnr/shipinfo/detail/detail",
     "pages/zjsnr/gameutil/buildingFormula/buildingformula",
     "pages/sycjc/home/index",
-    "pages/cqhy/home/index",
     "pages/cqhy/drama/index"
   ],
   "window": {
@@ -34,6 +34,10 @@
       {
         "pagePath": "pages/zjsnr/home/index",
         "text": "战舰少女R"
+      },
+      {
+        "pagePath": "pages/cqhy/home/index",
+        "text": "苍青幻影"
       },
       {
         "pagePath": "pages/index/index",

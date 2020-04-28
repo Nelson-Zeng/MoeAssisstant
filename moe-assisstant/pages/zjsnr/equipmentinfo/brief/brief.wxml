@@ -2,7 +2,7 @@
   <custom-tab-set item-set="{{navigatorItems}}" binditemSelected="selectKeyChanged" />
   <view class="equipment-list-container">
     <view class="order-type-switch">
-      <label>倒序({{currentItem.orderType}})</label>
+      <label bindtap="refreshList">倒序({{currentItem.orderType}})</label>
       <switch type="checkbox" checked="{{descRequired}}" bindchange="refreshList" class="switch" />
     </view>
     <view class="equipment-list">
