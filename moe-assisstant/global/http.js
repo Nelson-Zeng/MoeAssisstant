@@ -15,6 +15,7 @@ const http = {
   GET_SHIP_INFO: `${constants.DOMAIN}/zjsnr/ships/:dexIndex/info`,
   GET_ACADEMY_INFO: `${constants.DOMAIN}/zjsnr/academy`,
   GET_MENU_INFO: `${constants.DOMAIN}/zjsnr/menu`,
+  GET_CQHY_SHIP_SCRIPT: `${constants.DOMAIN}/cqhy/script/:id`,
 
   get: function() {
     return new Promise((resolve, reject) => {

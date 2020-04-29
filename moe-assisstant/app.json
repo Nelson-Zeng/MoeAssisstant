@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/cqhy/dialogue/detail/detail",
     "pages/zjsnr/home/index",
     "pages/zjsnr/shipinfo/detail/detail",
     "pages/zjsnr/shipinfo/brief/brief",
@@ -30,8 +31,7 @@
     "color": "#696969",
     "selectedColor": "#66CCFF",
     "backgroundColor": "#EBEEF5",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/zjsnr/home/index",
         "text": "战舰少女R"
       },

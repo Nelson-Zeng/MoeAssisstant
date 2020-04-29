@@ -1,0 +1,22 @@
+<view class="container">
+	<custom-header-tab tabs="{{scriptTypes}}" peaces="{{scriptTypes.length}}" bindTabClick="selectScript"></custom-header-tab>
+	<view class="content">
+		<view class="header">
+			<view class="header-left"></view>
+			<view class="header-right">
+				<view class="header-item"><label class="header-item-title">{{baseInfo.dexIndexTitle}}</label><label class="header-item-content">{{baseInfo.dexIndex}}</label></view>
+				<view class="header-item"><label class="header-item-title">{{baseInfo.nameTitle}}</label><label class="header-item-content">{{baseInfo.name}}</label></view>
+				<view class="header-item" wx:if="{{currentScriptType === 1}}"><label class="header-item-title">{{baseInfo.skinTitle}}</label><label class="header-item-content">{{baseInfo.skinName}}</label></view>
+				<view class="header-item" wx:if="{{currentScriptType === 1}}"><label class="header-item-title">{{baseInfo.skinDescTitle}}</label><label class="header-item-content">{{baseInfo.skinDesc}}</label></view>
+				<view class="header-item"><label class="header-item-title">{{baseInfo.languageTitle}}</label>
+					<view class="language-switch-container header-item-content">日本語
+						<switch checked="{{showChinese}}" bindchange="changeLanguage" />中文</view>
+				</view>
+			</view>
+		</view>
+		<view class="body">
+			<view class="reaction-scripts" wx:if="{{currentScriptType === 2}}"></view>
+			<custom-table wx:if="{{currentScriptType !== 2}}" class="base-script-list" table-content="{{scriptContent}}" width-distribution="{{scriptContent.columnWidth}}" />
+		</view>
+	</view>
+</view>

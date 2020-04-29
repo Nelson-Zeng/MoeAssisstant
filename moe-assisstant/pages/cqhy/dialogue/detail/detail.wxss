@@ -1,0 +1,75 @@
+.container {
+  padding: 0;
+}
+
+.container .content {
+  padding: 20rpx 40rpx;
+  height: calc(100vh - 80px);
+  overflow: scroll;
+}
+
+.container .content .header {
+  height: 300rpx;
+  border: 1px solid #303133;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  display: flex;
+}
+
+.container .content .header .header-left {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  box-sizing: border-box;
+  border-right: 1px solid #303133;
+  height: inherit;
+}
+
+.container .content .header .header-right {
+  width: 70%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .content .header .header-right .header-item {
+  box-sizing: border-box;
+  border-bottom: 1px solid #303133;
+  height: initial;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20rpx;
+  font-size: 26rpx;
+}
+
+.container .content .header .header-right .header-item:last-of-type {
+  border-bottom: unset;
+}
+
+.container .content .header .header-right .header-item .header-item-title {
+  width: 50%;
+  box-sizing: border-box;
+  border-right: 1px solid #303133;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container .content .header .header-right .header-item .header-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 24rpx;
+}
+
+.container .content .header .header-right .header-item .language-switch-container switch {
+  margin-left: 10rpx;
+  transform: scale(0.7);
+}
+
+.container .content .body {
+  margin-top: 40rpx;
+}
