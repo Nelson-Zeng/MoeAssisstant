@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/cqhy/dialogue/detail/detail",
     "pages/zjsnr/home/index",
+    "pages/cqhy/dialogue/detail/detail",
     "pages/zjsnr/shipinfo/detail/detail",
     "pages/zjsnr/shipinfo/brief/brief",
     "pages/cqhy/home/index",
