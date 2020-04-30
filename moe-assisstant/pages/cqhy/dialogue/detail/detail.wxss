@@ -80,6 +80,124 @@
   margin-top: 40rpx;
 }
 
+.container .content .body .reaction-scripts {
+  border: 1px solid #909999;
+  border-radius: 10rpx;
+  padding: 20rpx 0;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 160rpx;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container:last-of-type {
+  margin-bottom: unset;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-script-group-title {
+  font-size: 60rpx;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item {
+  width: 100%;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .thumbnail {
+  min-width: 300rpx;
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 100%;
+  transform: scale(0.8);
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-text {
+  margin-left: 20rpx;
+  margin-right: 40rpx;
+  box-shadow: 1px 1px 1px #909999;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-text::before {
+  content: '';
+  position: absolute;
+  left: 300rpx;
+  top: 43%;
+  width: 0;
+  height: 0;
+  border-top: 20rpx solid transparent;
+  border-right: 20rpx solid #909999;
+  border-bottom: 20rpx solid transparent;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-text::after {
+  content: '';
+  position: absolute;
+  left: 302rpx;
+  top: 43%;
+  width: 0;
+  height: 0;
+  border-top: 20rpx solid transparent;
+  border-right: 20rpx solid #f2f6fc;
+  border-bottom: 20rpx solid transparent;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-text::before {
+  content: '';
+  position: absolute;
+  right: 300rpx;
+  top: 43%;
+  width: 0;
+  height: 0;
+  border-top: 20rpx solid transparent;
+  border-left: 20rpx solid #909999;
+  border-bottom: 20rpx solid transparent;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-text::after {
+  content: '';
+  position: absolute;
+  right: 302rpx;
+  top: 43%;
+  width: 0;
+  height: 0;
+  border-top: 20rpx solid transparent;
+  border-left: 20rpx solid #f2f6fc;
+  border-bottom: 20rpx solid transparent;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-text {
+  margin-right: 20rpx;
+  margin-left: 40rpx;
+  box-shadow: -1px 1px 1px #909999;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .script-content {
+  flex-grow: 1;
+  border: 1px solid #909999;
+  border-radius: 20rpx;
+  padding: 20rpx 40rpx;
+  font-size: 32rpx;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .script-content {
+  height: 100%;
+}
+
 .container .switch-icon {
   position: fixed;
   left: 0;

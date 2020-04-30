@@ -16,7 +16,8 @@ Page({
     showFullIllustration: false,
     fullHDSrcs: [],
     currentIllustrationSrc: '',
-    currentPicId: 0
+    currentPicId: 0,
+    reactionScriptContent: []
   },
   onLoad(options) {
     options && options.id && (this.data.id = Number(options.id))
@@ -129,6 +130,19 @@ Page({
         })
         break
       case 2:
+        let reactionScripts = []
+        reactionScripts = data.reactionScriptGroups.map((item, index) => {
+          const tempItem = item.map(script => {
+            script.src = app.filters.getMISTThumbnail(script.speakerId)
+            return script
+          })
+          return {
+            title: `${item[0].speakerName} => ${item[1].speakerName}`,
+            group: tempItem
+          }
+        })
+        this.data.scriptContent = reactionScripts
+        console.log(reactionScripts)
         break
       default:
         break
@@ -157,7 +171,7 @@ Page({
   },
   prevImage() {
     let currentIndex
-    this.data.fullHDSrcs.map((item , index)=> {
+    this.data.fullHDSrcs.map((item, index) => {
       item === this.data.currentIllustrationSrc && (currentIndex = index)
     })
     const newIndex = Math.abs((currentIndex - 1) % 2)
@@ -168,7 +182,7 @@ Page({
   },
   nextImage() {
     let currentIndex
-    this.data.fullHDSrcs.map((item , index)=> {
+    this.data.fullHDSrcs.map((item, index) => {
       item === this.data.currentIllustrationSrc && (currentIndex = index)
     })
     const newIndex = Math.abs((currentIndex + 1) % 2)
