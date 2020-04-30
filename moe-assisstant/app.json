@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/zjsnr/home/index",
     "pages/cqhy/dialogue/detail/detail",
+    "pages/cqhy/dialogue/brief/brief",
+    "pages/cqhy/home/index",
+    "pages/zjsnr/home/index",
     "pages/zjsnr/shipinfo/detail/detail",
     "pages/zjsnr/shipinfo/brief/brief",
-    "pages/cqhy/home/index",
     "pages/index/index",
     "pages/zjsnr/gameutil/damageCaculator/damagecaculator",
     "pages/zjsnr/seaChart/seachart",

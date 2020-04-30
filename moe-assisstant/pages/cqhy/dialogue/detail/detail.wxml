@@ -1,8 +1,10 @@
 <view class="container">
-	<custom-header-tab tabs="{{scriptTypes}}" peaces="{{scriptTypes.length}}" bindTabClick="selectScript"></custom-header-tab>
+	<custom-header-tab tabs="{{scriptTypes}}" peaces="{{scriptTypes.length}}" bindTabClick="selectScript" wx:if="{{scriptTypes.length > 1}}"></custom-header-tab>
 	<view class="content">
 		<view class="header">
-			<view class="header-left"></view>
+			<view class="header-left">
+				<image src="{{baseInfo.currentSrc}}" mode="aspectFill" class="thumbnail" bindtap="checkDetailIllustration"></image>
+			</view>
 			<view class="header-right">
 				<view class="header-item"><label class="header-item-title">{{baseInfo.dexIndexTitle}}</label><label class="header-item-content">{{baseInfo.dexIndex}}</label></view>
 				<view class="header-item"><label class="header-item-title">{{baseInfo.nameTitle}}</label><label class="header-item-content">{{baseInfo.name}}</label></view>
@@ -17,6 +19,17 @@
 		<view class="body">
 			<view class="reaction-scripts" wx:if="{{currentScriptType === 2}}"></view>
 			<custom-table wx:if="{{currentScriptType !== 2}}" class="base-script-list" table-content="{{scriptContent}}" width-distribution="{{scriptContent.columnWidth}}" />
+		</view>
+	</view>
+	<view class="switch-icon">
+		<view class="pre"></view>
+		<view class="after"></view>
+	</view>
+	<view class="illustration-container" wx:if="{{showFullIllustration}}" bindtap="closeIllustrationContainer">
+		<view class="illustration-panel">
+			<image src="{{currentIllustrationSrc}}" class="illustration" mode="aspectFit" catchtap="emptyFunc"></image>
+			<view class="go-pre button" catchtap="prevImage"></view>
+			<view class="go-next button" catchtap="nextImage"></view>
 		</view>
 	</view>
 </view>

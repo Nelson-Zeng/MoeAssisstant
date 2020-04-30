@@ -9,12 +9,19 @@ Page({
     scriptTypes: [],
     currentScriptType: 0,
     toast: '',
-    showChinese: true,
+    showChinese: app.globalData.showChinese,
 
     baseInfo: {},
-    scriptContent: {}
+    scriptContent: {},
+    showFullIllustration: false,
+    fullHDSrcs: [],
+    currentIllustrationSrc: ''
   },
   onLoad(options) {
+    options && options.id && (this.data.id = Number(options.id))
+
+    wx.showShareMenu({})
+
     this.initData()
     this.setData({
       toast: '点击简介栏中的头像图可以查看完整立绘。'
@@ -63,6 +70,7 @@ Page({
   },
   changeLanguage(e) {
     this.data.showChinese = e.detail.value
+    app.globalData.showChinese = e.detail.value
 
     this.initPageInfo()
   },
@@ -85,9 +93,16 @@ Page({
 
     this.data.baseInfo.dexIndex = data.id
     this.data.baseInfo.name = data.name
+    this.data.baseInfo.currentSrc = app.filters.getMISTMiddlePicture(data.id)
     if (this.data.currentScriptType === 1) {
       this.data.baseInfo.skinName = this.data.showChinese ? MIST_SKINS[data.id].name.cn : MIST_SKINS[data.id].name.jp
       this.data.baseInfo.skinDesc = this.data.showChinese ? MIST_SKINS[data.id].desc.cn : MIST_SKINS[data.id].desc.jp
+
+      let tumbnailId = String(data.id)
+      if (tumbnailId.length < 2) tumbnailId = `10000${tumbnailId}`
+      else if (tumbnailId.length < 3) tumbnailId = `1000${tumbnailId}`
+      else tumbnailId = `100${tumbnailId}`
+      this.data.baseInfo.currentSrc = app.filters.getMISTMiddlePicture(Number(tumbnailId))
     }
 
     let baseTable
@@ -119,6 +134,44 @@ Page({
     this.setData({
       baseInfo: this.data.baseInfo,
       scriptContent: this.data.scriptContent
+    })
+  },
+  checkDetailIllustration() {
+    this.data.fullHDSrcs = app.filters.getMISTFullHDPictures(this.data.id)
+
+    this.setData({
+      showFullIllustration: true,
+      currentIllustrationSrc: this.data.fullHDSrcs[0]
+    })
+  },
+  closeIllustrationContainer() {
+    this.setData({
+      showFullIllustration: false
+    })
+  },
+  emptyFunc() {
+    return
+  },
+  prevImage() {
+    let currentIndex
+    this.data.fullHDSrcs.map((item , index)=> {
+      item === this.data.currentIllustrationSrc && (currentIndex = index)
+    })
+    const newIndex = Math.abs((currentIndex - 1) % 2)
+
+    this.setData({
+      currentIllustrationSrc: this.data.fullHDSrcs[newIndex]
+    })
+  },
+  nextImage() {
+    let currentIndex
+    this.data.fullHDSrcs.map((item , index)=> {
+      item === this.data.currentIllustrationSrc && (currentIndex = index)
+    })
+    const newIndex = Math.abs((currentIndex + 1) % 2)
+
+    this.setData({
+      currentIllustrationSrc: this.data.fullHDSrcs[newIndex]
     })
   }
 })

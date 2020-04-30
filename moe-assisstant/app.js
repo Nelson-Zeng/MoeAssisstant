@@ -15,7 +15,9 @@ App({
         traceUser: true,
       })
     }
-    this.globalData = {}
+    this.globalData = {
+      showChinese: true
+    }
     this.util = util
     this.filters = filters
     this.constants = constants
