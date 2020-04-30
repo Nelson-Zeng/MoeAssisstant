@@ -15,6 +15,7 @@
   justify-content: center;
   box-sizing: border-box;
   padding: 20rpx;
+  max-height: 300rpx;
 }
 
 .member-container .neoforce-member image {
@@ -35,10 +36,23 @@
   line-height: 40rpx;
 }
 
-.language-switch-container {
+.footer {
   position: absolute;
   bottom: 30rpx;
   right: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100vw - 40rpx);
+}
+
+.footer .filter {
+  height: 60rpx;
+  border: 1px solid #909399;
+  border-radius: 10rpx;
+  padding-left: 10rpx;
+}
+
+.footer .language-switch-container {
   font-size: 34rpx;
   display: flex;
   align-items: center;

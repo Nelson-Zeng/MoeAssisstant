@@ -18,16 +18,20 @@ Page({
     fullHDSrcs: [],
     currentIllustrationSrc: '',
     currentPicId: 0,
-    reactionScriptContent: []
+    reactionScriptContent: [],
+
+    dataError: false
   },
   onLoad(options) {
     options && options.id && (this.data.id = Number(options.id))
+    this.data.showChinese = app.globalData.showChinese
 
     wx.showShareMenu({})
 
     this.initData()
     this.setData({
-      toast: '点击简介栏中的头像图可以查看完整立绘。'
+      toast: '点击简介栏中的头像图可以查看完整立绘。',
+      showChinese: this.data.showChinese
     })
   },
   async initData() {
@@ -38,6 +42,13 @@ Page({
     })
 
     const data = response.data
+
+    if (data.errCode == 999) {
+      this.setData({
+        dataError: true
+      })
+      return
+    }
     this.data.dataBackup = Object.assign({}, response.data)
 
     data.cn.personalScripts.length > 0 && this.data.scriptTypes.push({
@@ -201,6 +212,36 @@ Page({
     })
 
     this.data.id = MIST_MEMBERS[currentIndex + 1].id
+
+    this.selectComponent('#headerTap') && this.selectComponent('#headerTap').selectTab({
+      currentTarget: {
+        id: 0
+      }
+    })
+    this.setData({
+      currentScriptType: 0,
+      dataError: false
+    })
+
+    this.initData()
+  },
+  goPre() {
+    let currentIndex = 0
+    MIST_MEMBERS.map((member, index) => {
+      if (member.id === Number(this.data.id)) currentIndex = index
+    })
+
+    this.data.id = MIST_MEMBERS[currentIndex - 1].id
+
+    this.selectComponent('#headerTap').selectTab({
+      currentTarget: {
+        id: 0
+      }
+    })
+    this.setData({
+      currentScriptType: 0,
+      dataError: false
+    })
 
     this.initData()
   }
