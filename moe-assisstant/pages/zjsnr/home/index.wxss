@@ -23,7 +23,6 @@
 }
 
 .bottom-sections {
-  height: calc(70% - 4px);
   display: flex;
   margin-top: 4px;
   justify-content: space-between;
@@ -57,4 +56,24 @@
   width: 100%;
   height: 100%;
   background-image: linear-gradient(30deg, rgba(96, 98, 130, 0.08) 15%, transparent 25%, transparent 75%, rgba(96, 98, 130, 0.08) 85%);
+}
+
+.sea-chart-detail {
+  width: 100%;
+  height: 180px;
+  margin-top: 15px;
+  border-radius: 10rpx;
+  box-shadow: 0 4rpx 6rpx #c0c4cc;
+  position: relative;
+}
+
+.sea-chart-detail .sea-chart-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20rpx 40rpx;
+  color: white;
+  font-size: 48rpx;
+  background-color: rgba(48, 48, 51, 0.6);
+  border-bottom-right-radius: 10rpx;
 }

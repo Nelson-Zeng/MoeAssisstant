@@ -190,6 +190,18 @@ const getEquipmentDisplayingItem = (key, value) => {
   }
 }
 
+const getMISTMiddlePicture = id => {
+  return `${constants.STATIC_RESOURCE_DOMAIN}/cqhy/illustration/${id}/icon_l.png`
+}
+
+const getMISTThumbnail = id => {
+  return `${constants.STATIC_RESOURCE_DOMAIN}/cqhy/illustration/${id}/face00.png`
+}
+
+const getMISTFullHDPictures = id => {
+  return [`${constants.STATIC_RESOURCE_DOMAIN}/cqhy/illustration/${id}/chara00.png`, `${constants.STATIC_RESOURCE_DOMAIN}/cqhy/illustration/${id}/chara01.png`]
+}
+
 export default {
   getZJSNShipSmallPicture,
   getZJSNShipLargePicture,
@@ -199,5 +211,8 @@ export default {
   getZJSNClearShipBackground,
   getShipUpdateInfo,
   getZJSNEquipmentPicture,
-  getEquipmentDisplayingItem
+  getEquipmentDisplayingItem,
+  getMISTMiddlePicture,
+  getMISTThumbnail,
+  getMISTFullHDPictures
 }

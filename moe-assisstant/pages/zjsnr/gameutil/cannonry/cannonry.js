@@ -57,6 +57,9 @@ Page({
     cannonryList: CANNONRY_LIST,
     order: ''
   },
+  onLoad() {
+    wx.showShareMenu({})
+  },
   selectRange(e) {
     const id = e.currentTarget.id
 

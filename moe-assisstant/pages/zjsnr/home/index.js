@@ -24,7 +24,22 @@ Page({
       title: '舰船查询',
       src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/right.png`,
       bgColor: '#c1cbd7'
-    }]
+    }],
+    seaChartSection: {
+      id: 'seachart',
+      title: '海图详情',
+      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/BattleSeaBg.png`,
+      bgColor: '#c1cbd7'
+    }
+  },
+  onLoad() {
+    wx.showShareMenu({})
+  },
+  onShareAppMessage() {
+    return {
+      title: '幼胡资料库',
+      imageUrl: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/left.png`
+    }
   },
   startService(event) {
     switch (event.currentTarget.id) {
@@ -42,6 +57,9 @@ Page({
       default:
         return
     }
+  },
+  onSeaChartClick() {
+    app.util.navigateTo('/pages/zjsnr/seaChart/seachart')
   },
   adLoad() {
     wx.createSelectorQuery().select('#ad-banner').fields({

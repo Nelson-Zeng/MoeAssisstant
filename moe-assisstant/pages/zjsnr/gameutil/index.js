@@ -18,48 +18,43 @@ Page({
       icon: icon.developing
     }, {
       id: 2,
-      title: '海图详情',
-      path: '/pages/zjsnr/gameutil/seaChart/seachart',
-      icon: icon.seacharts
-    }, {
-      id: 3,
       title: '远征详情',
       path: '/pages/zjsnr/gameutil/expedition/expedition',
       icon: icon.expedition
     }, {
-      id: 4,
+      id: 3,
       title: '炮序模拟器',
       path: '/pages/zjsnr/gameutil/cannonry/cannonry',
       icon: icon.cannonry
     }, {
-      id: 5,
+      id: 4,
       title: '伤害计算器',
       path: '/pages/zjsnr/gameutil/damageCaculator/damagecaculator',
       icon: icon.damageCaculator
     }, {
-      id: 6,
+      id: 5,
       title: '建造时间对照表',
       path: '/pages/zjsnr/gameutil/buildingTimeList/buildingTimeList',
       type: app.constants.ZJSNR_BUILDING_TIME_TYPES.SHIP,
       icon: icon.buildingTime
     }, {
-      id: 7,
+      id: 6,
       title: '开发时间对照表',
       path: '/pages/zjsnr/gameutil/buildingTimeList/buildingTimeList',
       type: app.constants.ZJSNR_BUILDING_TIME_TYPES.EQUIPMENT,
       icon: icon.developingTime
     }, {
-      id: 8,
+      id: 7,
       title: '学院技能查询',
       path: '/pages/zjsnr/gameutil/academy/academy',
       icon: icon.academy
     }, {
-      id: 9,
+      id: 8,
       title: '餐厅菜单查询',
       path: '/pages/zjsnr/gameutil/dish/dish',
       icon: icon.menu
     }, {
-      id: 10,
+      id: 9,
       title: '航向计算器',
       path: '/pages/zjsnr/gameutil/directionTrack/direction',
       icon: icon.direction
@@ -77,5 +72,8 @@ Page({
     }
 
     app.util.navigateTo(path, data)
+  },
+  onLoad() {
+    wx.showShareMenu({})
   }
 })

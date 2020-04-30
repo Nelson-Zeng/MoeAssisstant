@@ -2,7 +2,7 @@
   <custom-toast content="{{toast}}" />
   <view class="toast" wx:if="{{showToast}}">{{toastContent}}</view>
 
-  <view class="setting-icon" style="top: {{settingIconPostion.top}}; right: {{settingIconPostion.right}}" catchtouchstart="startSettingIconTouching" catchtouchmove="moveSettingIconTouching" catchtouchend="finishSettingIconTouching"></view>
+  <view class="setting-icon" style="top: {{settingIconPostion.top}}; right: {{settingIconPostion.right}}" catchtouchstart="startSettingIconTouching" catchtouchmove="moveSettingIconTouching" catchtouchend="finishSettingIconTouching"><label class="filter">筛选</label></view>
 
   <view class="simple-filter">
     <view class="search-area">

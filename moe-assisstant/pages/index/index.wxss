@@ -11,18 +11,8 @@
   font-size: 40rpx;
 }
 
-.QR-code-2-support {
-  margin: 40rpx 0;
-  display: flex;
-  justify-content: center;
-}
-
-.QR-code-2-support image {
-  width: 80vw;
-}
-
 .additional-items .additional-item {
-  margin-bottom: 20rpx;
+  margin: 20rpx 0 ;
 }
 
 .additional-items .additional-item .additional-item-title {

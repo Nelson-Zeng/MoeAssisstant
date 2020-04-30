@@ -8,6 +8,8 @@ Page({
     tableStaticData: {}
   },
   async onLoad(options) {
+    wx.showShareMenu({})
+
     const type = options.type ? Number(options.type) : 0
     switch (type) {
       case 0:

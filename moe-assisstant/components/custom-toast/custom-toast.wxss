@@ -1,6 +1,6 @@
 .toast {
   position: fixed;
-  top: 20rpx;
+  top: 80rpx;
   left: 10vw;
   right: 10vw;
   margin: auto;

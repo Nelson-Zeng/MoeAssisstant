@@ -253,6 +253,8 @@ Page({
     toast: ''
   },
   onLoad() {
+    wx.showShareMenu({})
+
     this.initShipList()
   },
   async onReachBottom(e) {

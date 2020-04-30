@@ -7,6 +7,8 @@ Page({
     loaded: false
   },
   async onLoad(options) {
+    wx.showShareMenu({})
+
     const _this = this
     wx.showLoading({
       title: '正在加载数据',

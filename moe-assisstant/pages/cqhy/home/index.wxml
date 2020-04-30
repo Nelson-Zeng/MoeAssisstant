@@ -1,3 +1,13 @@
 <view class="container">
-  <canvas canvas-id="cqhyHome" id="cqhyHome" bindtap="clickOnCanvas"></canvas>
+	<view class="ad-banner">
+		<ad unit-id="adunit-55a6b1d2fc9255e0" id="ad-banner" bindload="adLoad" bindclose="adClosed"></ad>
+	</view>
+	<view class="entrances" style="top: {{topBannerHeight}}">
+		<image src="{{backgroundSrc}}" class="pic left-pic" bindtap="clickLeft" bindload="onLeftImageLoaded">
+			<text class="story-title title" wx:if="{{leftImageLoaded}}">前\n尘\n忆\n梦</text>
+		</image>
+		<image src="{{backgroundSrc}}" class="pic right-pic" bindtap="clickRight" bindload="onRightImageLoaded">
+			<text class="script-title title" wx:if="{{rightImageLoaded}}">旧\n的\n回\n忆</text>
+		</image>
+	</view>
 </view>

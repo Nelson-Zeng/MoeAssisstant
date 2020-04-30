@@ -8,6 +8,8 @@ Page({
     dataContainer: []
   },
   async onLoad(options) {
+    wx.showShareMenu({})
+
     const response = await app.http.get(app.http.GET_ACADEMY_INFO)
 
     this.data.dataContainer = response.data

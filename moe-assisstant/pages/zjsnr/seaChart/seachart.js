@@ -27,6 +27,8 @@ Page({
     toast: ''
   },
   async onLoad() {
+    wx.showShareMenu({})
+
     wx.showLoading({
       title: '读取敌方数据',
     })

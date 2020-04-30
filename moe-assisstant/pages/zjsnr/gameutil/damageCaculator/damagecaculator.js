@@ -62,6 +62,8 @@ Page({
     toastDuration: 5000
   },
   onLoad() {
+    wx.showShareMenu({})
+
     this.setData({
       situations: SITUATION_CASES.map((situation, index) => {
         return new Situation(index, situation.title, situation.baseATKParamsList, situation.baseATKFormula, situation.coefficientObject, situation.coefficientFormula, situation.defaultPiercingCoefficient, situation.antiSubmarineCoefficient)

@@ -1,4 +1,49 @@
-.container #cqhyHome {
-  width: calc(100vw - .2rem);
-  height: calc(100vh - .2rem);
+.entrances {
+  position: fixed;
+  bottom: 20rpx;
+  left: 20rpx;
+  right: 20rpx;
+}
+
+.entrances .pic {
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100vw - 40rpx);
+  height: 100%;
+}
+
+.entrances .left-pic {
+  clip-path: polygon(0 0, 50% 0, 60% 100%, 0 100%);
+}
+
+.entrances .right-pic {
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 60% 100%);
+}
+
+.entrances .pic .title {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333333;
+  padding: 30rpx;
+  font-size: 40rpx;
+  font-weight: bolder;
+  border-radius: 20rpx;
+  border: 1px solid #999999;
+  box-shadow: 0 2px 5px #333333;
+}
+
+.entrances .left-pic .story-title {
+  top: 13%;
+  left: 12%;
+}
+
+.entrances .left-pic .story-title::after {
+
+}
+
+.entrances .right-pic .script-title {
+  top: 12%;
+  right: 20%;
 }

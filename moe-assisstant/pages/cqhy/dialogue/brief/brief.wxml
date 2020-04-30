@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="member-container">
+    <view wx:for="{{memberList}}" wx:key="index" wx:for-item="member" class="neoforce-member">
+      <image src="{{member.src}}" mode="aspectFit" style="height: {{thumbnailRadius}}" id="member{{member.id}}" bindtap="checkForDetail"></image>
+      <text style="font-size: {{showChinese ? '' : '26rpx'}}">{{showChinese ? member.cn : member.jp}}</text>
+    </view>
+  </view>
+  <view class="footer">
+    <input class="filter" type="text" bindconfirm="filterMembers" placeholder="通过名称或ID进行搜索"></input>
+    <view class="language-switch-container">日本語
+      <switch checked="{{showChinese}}" bindchange="changeLanguage" />中文</view>
+  </view>
+</view>

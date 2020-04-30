@@ -4,12 +4,17 @@
       <image class="top-section-image" src="{{topSection.src}}"></image>
       <view class="top-section-title">{{topSection.text}}</view>
     </view>
-    <view class="ad-banner"><ad unit-id="adunit-477cad452235726c" id="ad-banner" bindload="adLoad"></ad></view>
-    <view class="bottom-sections" style="height: calc(100% - {{topBannerHeight}} - 4px)">
+    <view class="ad-banner">
+      <ad unit-id="adunit-477cad452235726c" id="ad-banner" bindload="adLoad"></ad>
+    </view>
+    <view class="bottom-sections" style="height: calc(100% - {{topBannerHeight}} - 4px - 200px)">
       <view class="bottom-section" wx:for="{{bottomSectionArr}}" wx:for-item="section" wx:key="index" bindtap="startService" id="{{section.id}}">
         <view class="bottom-section-title">{{section.title}}</view>
         <image class="bottom-section-image" src="{{section.src}}" mode="aspectFill" style="background-color: {{section.bgColor}}"></image>
       </view>
     </view>
+    <image class="sea-chart-detail" src="{{seaChartSection.src}}" mode="scaleToFill" bindtap="onSeaChartClick">
+      <label class="sea-chart-title">{{seaChartSection.title}}</label>
+    </image>
   </view>
 </view>

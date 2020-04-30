@@ -26,7 +26,7 @@
 
 .container .equipment-list-container .order-type-switch switch {
   margin-left: 10rpx;
-  transform: scale(0.6);
+  transform: scale(0.8);
   line-height: 60rpx;
 }
 

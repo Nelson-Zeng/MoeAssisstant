@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "custom-table": "/components/custom-table/custom-table",
+    "custom-header-tab": "/components/custom-header-tab/custom-header-tab",
+    "custom-toast": "/components/custom-toast/custom-toast"
+  },
+  "navigationBarTitleText": "台词详情"
+}
