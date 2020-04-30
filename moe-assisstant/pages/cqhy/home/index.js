@@ -3,7 +3,9 @@ const app = getApp()
 Page({
   data: {
     backgroundSrc: `${app.constants.STATIC_RESOURCE_DOMAIN}/cqhy/home/home.jpg`,
-    topBannerHeight: '112px'
+    topBannerHeight: '112px',
+    leftImageLoaded: false,
+    rightImageLoaded: false
   },
   adLoad() {
     wx.showShareMenu({})
@@ -30,5 +32,15 @@ Page({
   },
   clickRight() {
     app.util.navigateTo('/pages/cqhy/dialogue/brief/brief')
+  },
+  onLeftImageLoaded() {
+    this.setData({
+      leftImageLoaded: true
+    })
+  },
+  onRightImageLoaded() {
+    this.setData({
+      rightImageLoaded: true
+    })
   }
 })

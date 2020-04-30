@@ -1,6 +1,7 @@
 const app = getApp()
 
 import MIST_SKINS from '../../../../global/mistSkin'
+import MIST_MEMBERS from '../../../../global/mistCharacters'
 
 Page({
   data: {
@@ -30,6 +31,8 @@ Page({
     })
   },
   async initData() {
+    this.data.scriptTypes = []
+
     const response = await app.http.get(app.http.GET_CQHY_SHIP_SCRIPT, {
       id: this.data.id
     })
@@ -190,5 +193,15 @@ Page({
     this.setData({
       currentIllustrationSrc: this.data.fullHDSrcs[newIndex]
     })
+  },
+  goNext() {
+    let currentIndex = 0
+    MIST_MEMBERS.map((member, index) => {
+      if (member.id === Number(this.data.id)) currentIndex = index
+    })
+
+    this.data.id = MIST_MEMBERS[currentIndex + 1].id
+
+    this.initData()
   }
 })

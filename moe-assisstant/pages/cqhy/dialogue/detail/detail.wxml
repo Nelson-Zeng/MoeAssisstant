@@ -48,4 +48,5 @@
 			<view class="go-next button" catchtap="nextImage"></view>
 		</view>
 	</view>
+	<view style="position: fixed; right: 0; top: 45vh; background-color: red" bindtap="goNext">AA</view>
 </view>
