@@ -15,7 +15,8 @@ Page({
     scriptContent: {},
     showFullIllustration: false,
     fullHDSrcs: [],
-    currentIllustrationSrc: ''
+    currentIllustrationSrc: '',
+    currentPicId: 0
   },
   onLoad(options) {
     options && options.id && (this.data.id = Number(options.id))
@@ -94,6 +95,7 @@ Page({
     this.data.baseInfo.dexIndex = data.id
     this.data.baseInfo.name = data.name
     this.data.baseInfo.currentSrc = app.filters.getMISTMiddlePicture(data.id)
+    this.data.currentPicId = data.id
     if (this.data.currentScriptType === 1) {
       this.data.baseInfo.skinName = this.data.showChinese ? MIST_SKINS[data.id].name.cn : MIST_SKINS[data.id].name.jp
       this.data.baseInfo.skinDesc = this.data.showChinese ? MIST_SKINS[data.id].desc.cn : MIST_SKINS[data.id].desc.jp
@@ -102,6 +104,7 @@ Page({
       if (tumbnailId.length < 2) tumbnailId = `10000${tumbnailId}`
       else if (tumbnailId.length < 3) tumbnailId = `1000${tumbnailId}`
       else tumbnailId = `100${tumbnailId}`
+      this.data.currentPicId = Number(tumbnailId)
       this.data.baseInfo.currentSrc = app.filters.getMISTMiddlePicture(Number(tumbnailId))
     }
 
@@ -137,7 +140,7 @@ Page({
     })
   },
   checkDetailIllustration() {
-    this.data.fullHDSrcs = app.filters.getMISTFullHDPictures(this.data.id)
+    this.data.fullHDSrcs = app.filters.getMISTFullHDPictures(this.data.currentPicId)
 
     this.setData({
       showFullIllustration: true,
