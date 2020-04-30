@@ -1,5 +1,5 @@
-const DOMAIN = 'https://dev.moeassisstant.com'
-// const DOMAIN = 'https://www.moeassisstant.com'
+// const DOMAIN = 'https://dev.moeassisstant.com'
+const DOMAIN = 'https://www.moeassisstant.com'
 const STATIC_RESOURCE_DOMAIN = 'https://jianr.jianrmod.cn'
 
 const ZJSNR_IMAGE_RESOURCES_PREFIX = `${STATIC_RESOURCE_DOMAIN}/jianr/moeassisstant/zjsnr`
