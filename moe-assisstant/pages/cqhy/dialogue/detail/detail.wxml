@@ -1,73 +1,77 @@
-<view class="container">
-  <custom-toast content="{{toast}}"></custom-toast>
-  <custom-header-tab tabs="{{scriptTypes}}" peaces="{{scriptTypes.length}}" bindTabClick="selectScript" wx:if="{{scriptTypes.length > 1}}" id="headerTap"></custom-header-tab>
-  <view class="content" wx:if="{{!dataError}}">
-    <view class="header">
-      <view class="header-left">
-        <image src="{{baseInfo.currentSrc}}" mode="aspectFill" class="thumbnail" bindtap="checkDetailIllustration"></image>
-      </view>
-      <view class="header-right">
-        <view class="header-item">
-          <label class="header-item-title">{{baseInfo.dexIndexTitle}}</label>
-          <view class="dividing-line"></view>
-          <label class="header-item-content">{{baseInfo.dexIndex}}</label>
-        </view>
-        <view class="header-item">
-          <label class="header-item-title">{{baseInfo.nameTitle}}</label>
-          <view class="dividing-line"></view>
-          <label class="header-item-content">{{baseInfo.name}}</label>
-        </view>
-        <view class="header-item" wx:if="{{currentScriptType === 1}}">
-          <label class="header-item-title">{{baseInfo.skinTitle}}</label>
-          <view class="dividing-line"></view>
-          <label class="header-item-content">{{baseInfo.skinName}}</label>
-        </view>
-        <view class="header-item" wx:if="{{currentScriptType === 1}}">
-          <label class="header-item-title">{{baseInfo.skinDescTitle}}</label>
-          <view class="dividing-line"></view>
-          <label class="header-item-content">{{baseInfo.skinDesc}}</label>
-        </view>
-        <view class="header-item">
-          <label class="header-item-title">{{baseInfo.languageTitle}}</label>
-          <view class="dividing-line"></view>
-          <view class="language-switch-container header-item-content">日本語
-            <switch checked="{{showChinese}}" bindchange="changeLanguage" />中文</view>
-        </view>
-      </view>
-    </view>
-    <view class="body">
-      <view class="reaction-scripts" wx:if="{{currentScriptType === 2}}">
-        <view wx:for="{{scriptContent}}" wx:for-item="scripts" wx:key="index" class="reaction-script-group-container">
-          <text class="reaction-script-group-title">{{scripts.title}}</text>
-          <view class="reaction-container">
-            <view class="reaction-item" wx:for="{{scripts.group}}" wx:for-item="script" wx:key="index">
-              <view class="reaction" wx:if="{{index % 2 === 0}}">
-                <image src="{{script.src}}" mode="center" class="thumbnail"></image>
-                <div class="script-content right-text">{{script.content}}</div>
-              </view>
-              <view class="reaction" wx:if="{{index % 2 === 1}}">
-                <div class="script-content left-text">{{script.content}}</div>
-                <image src="{{script.src}}" mode="center" class="thumbnail"></image>
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-      <custom-table wx:if="{{currentScriptType !== 2}}" class="base-script-list" table-content="{{scriptContent}}" width-distribution="{{scriptContent.columnWidth}}" />
-    </view>
-  </view>
-  <view class="content" style="font-size: 80rpx;" wx:if="{{dataError}}">
-    当前队员数据可能存在异常，请等待管理员修复。
-  </view>
-  <view class="switch-icon">
-    <view class="pre"><text decode="{{true}}" bindtap="goPre">&lt;&lt;</text></view>
-    <view class="next"><text decode="{{true}}" bindtap="goNext">&gt;&gt;</text></view>
-  </view>
-  <view class="illustration-container" wx:if="{{showFullIllustration}}" bindtap="closeIllustrationContainer">
-    <view class="illustration-panel">
-      <image src="{{currentIllustrationSrc}}" class="illustration" mode="aspectFit" catchtap="emptyFunc"></image>
-      <view class="go-pre button" catchtap="prevImage"></view>
-      <view class="go-next button" catchtap="nextImage"></view>
-    </view>
-  </view>
+<view class="container" bindtouchend="stopTouch" bindlongpress="startLongPress" bindtouchmove="touchMoving">
+	<custom-toast content="{{toast}}"></custom-toast>
+	<custom-header-tab tabs="{{scriptTypes}}" peaces="{{scriptTypes.length}}" bindTabClick="selectScript" wx:if="{{scriptTypes.length > 1}}" id="headerTap"></custom-header-tab>
+	<view class="content" wx:if="{{!dataError}}">
+		<view class="header">
+			<view class="header-left">
+				<image src="{{baseInfo.currentSrc}}" mode="aspectFill" class="thumbnail" bindtap="checkDetailIllustration"></image>
+			</view>
+			<view class="header-right">
+				<view class="header-item">
+					<label class="header-item-title">{{baseInfo.dexIndexTitle}}</label>
+					<view class="dividing-line"></view>
+					<label class="header-item-content">{{baseInfo.dexIndex}}</label>
+				</view>
+				<view class="header-item">
+					<label class="header-item-title">{{baseInfo.nameTitle}}</label>
+					<view class="dividing-line"></view>
+					<label class="header-item-content">{{baseInfo.name}}</label>
+				</view>
+				<view class="header-item" wx:if="{{currentScriptType === 1}}">
+					<label class="header-item-title">{{baseInfo.skinTitle}}</label>
+					<view class="dividing-line"></view>
+					<label class="header-item-content">{{baseInfo.skinName}}</label>
+				</view>
+				<view class="header-item" wx:if="{{currentScriptType === 1}}">
+					<label class="header-item-title">{{baseInfo.skinDescTitle}}</label>
+					<view class="dividing-line"></view>
+					<label class="header-item-content unalign">{{baseInfo.skinDesc}}</label>
+				</view>
+				<view class="header-item">
+					<label class="header-item-title">{{baseInfo.languageTitle}}</label>
+					<view class="dividing-line"></view>
+					<view class="language-switch-container header-item-content">日本語
+						<switch checked="{{showChinese}}" catchchange="changeLanguage" />中文</view>
+				</view>
+			</view>
+		</view>
+		<view class="body">
+			<view class="reaction-scripts" wx:if="{{currentScriptType === 2}}">
+				<view wx:for="{{scriptContent}}" wx:for-item="scripts" wx:key="index" class="reaction-script-group-container">
+					<text class="reaction-script-group-title">{{scripts.title}}</text>
+					<view class="reaction-container">
+						<view class="reaction-item" wx:for="{{scripts.group}}" wx:for-item="script" wx:key="index">
+							<view class="reaction" wx:if="{{index % 2 === 0}}">
+								<image src="{{script.src}}" mode="center" class="thumbnail left-thumbnail"></image>
+								<view class="script-content right-text">{{script.content}}</view>
+							</view>
+							<view class="reaction" wx:if="{{index % 2 === 1}}">
+								<view class="script-content left-text">{{script.content}}</view>
+								<image src="{{script.src}}" mode="center" class="thumbnail right-thumbnail"></image>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<custom-table wx:if="{{currentScriptType !== 2}}" class="base-script-list" table-content="{{scriptContent}}" width-distribution="{{scriptContent.columnWidth}}" />
+		</view>
+	</view>
+
+	<view class="content" style="font-size: 80rpx;" wx:if="{{dataError}}">
+		当前队员数据可能存在异常，请等待管理员修复。
+	</view>
+
+	<view class="illustration-container" wx:if="{{showFullIllustration}}" bindtap="closeIllustrationContainer">
+		<view class="illustration-panel">
+			<image src="{{currentIllustrationSrc}}" class="illustration" mode="aspectFit" catchtap="emptyFunc"></image>
+			<view class="go-pre button" catchtap="prevImage"></view>
+			<view class="go-next button" catchtap="nextImage"></view>
+		</view>
+	</view>
+
+	<view class="gesture-container">
+		<image src="{{gestureSrc}}" class="gesture-icon" style="top: {{gesturePosition.top}}; left: {{gesturePosition.left}}" wx:if="{{showGesture}}"></image>
+		<text class="arrow" decode="{{true}}" wx:if="{{showLeftPointingArrow}}" style="top: {{arrowPosition.top}}; left: {{arrowPosition.left}}">&lt;&lt;</text>
+		<text class="arrow" decode="{{true}}" wx:if="{{showRightPointingArrow}}" style="top: {{arrowPosition.top}}; left: {{arrowPosition.left}}">&gt;&gt;</text>
+	</view>
 </view>

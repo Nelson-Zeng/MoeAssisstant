@@ -11,7 +11,6 @@
 .container .content .header {
   height: 300rpx;
   border: 1px solid #303133;
-  box-sizing: border-box;
   border-radius: 10rpx;
   display: flex;
 }
@@ -28,7 +27,7 @@
 
 .container .content .header .header-left .thumbnail {
   width: 100%;
-  height: calc(100% - 2px);
+  height: 100%;
 }
 
 .container .content .header .header-right {
@@ -48,7 +47,7 @@
   align-items: center;
   padding-left: 20rpx;
   font-size: 26rpx;
-  overflow: scroll;
+  height: 100%;
 }
 
 .container .content .header .header-right .header-item:last-of-type {
@@ -56,17 +55,13 @@
 }
 
 .container .content .header .header-right .header-item .header-item-title {
-  width: 30%;
+  min-width: 30%;
   box-sizing: border-box;
   height: 100%;
   display: flex;
   align-items: center;
-}
-
-.container .content .header .header-right .header-item .dividing-line {
-  height: 100%;
-  width: 1px;
-  background-color: #303133;
+  max-width: 30%;
+  border-right: 1px solid #303133;
 }
 
 .container .content .header .header-right .header-item .header-item-content {
@@ -75,6 +70,14 @@
   justify-content: center;
   flex-grow: 1;
   font-size: 24rpx;
+  margin: 20rpx 0;
+  padding: 0 20rpx;
+  overflow: scroll;
+  height: 100%;
+}
+
+.container .content .header .header-right .header-item .unalign {
+  align-items: baseline;
 }
 
 .container .content .header .header-right .header-item .language-switch-container switch {
@@ -106,6 +109,7 @@
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-script-group-title {
   font-size: 60rpx;
+  margin-bottom: 40rpx;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container {
@@ -122,124 +126,94 @@
   display: flex;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
+  height: 144px;
+  margin-bottom: 20rpx;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction:last-of-type {
+  margin-bottom: unset;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .thumbnail {
-  min-width: 300rpx;
-  width: 300rpx;
-  height: 300rpx;
+  min-width: 240px;
+  min-height: 240px;
   border-radius: 100%;
-  transform: scale(0.8);
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-thumbnail {
+  transform: scale(0.6) translate(-80px, 0);
+  margin-left: 10px;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-thumbnail {
+  transform: scale(0.6) translate(-28px, 0);
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-text {
-  margin-left: 20rpx;
-  margin-right: 40rpx;
   box-shadow: 1px 1px 1px #909999;
+  transform: translate(-76px, 0);
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-text::before {
   content: '';
   position: absolute;
-  left: 300rpx;
-  top: 43%;
+  left: -11px;
+  top: 30%;
   width: 0;
   height: 0;
-  border-top: 20rpx solid transparent;
-  border-right: 20rpx solid #909999;
-  border-bottom: 20rpx solid transparent;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #909999;
+  border-bottom: 10px solid transparent;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-text::after {
   content: '';
   position: absolute;
-  left: 302rpx;
-  top: 43%;
+  left: -9px;
+  top: 30%;
   width: 0;
   height: 0;
-  border-top: 20rpx solid transparent;
-  border-right: 20rpx solid #f2f6fc;
-  border-bottom: 20rpx solid transparent;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #f2f6fc;
+  border-bottom: 10px solid transparent;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-text::before {
   content: '';
   position: absolute;
-  right: 300rpx;
-  top: 43%;
+  right: -11px;
+  top: 30%;
   width: 0;
   height: 0;
-  border-top: 20rpx solid transparent;
-  border-left: 20rpx solid #909999;
-  border-bottom: 20rpx solid transparent;
+  border-top: 10px solid transparent;
+  border-left: 10px solid #909999;
+  border-bottom: 10px solid transparent;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-text::after {
   content: '';
   position: absolute;
-  right: 302rpx;
-  top: 43%;
+  right: -9px;
+  top: 30%;
   width: 0;
   height: 0;
-  border-top: 20rpx solid transparent;
-  border-left: 20rpx solid #f2f6fc;
-  border-bottom: 20rpx solid transparent;
+  border-top: 10px solid transparent;
+  border-left: 10px solid #f2f6fc;
+  border-bottom: 10px solid transparent;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-text {
-  margin-right: 20rpx;
-  margin-left: 40rpx;
   box-shadow: -1px 1px 1px #909999;
+  transform: translate(10px, 0);
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .script-content {
-  flex-grow: 1;
   border: 1px solid #909999;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   padding: 20rpx 40rpx;
   font-size: 32rpx;
-}
-
-.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .script-content {
-  height: 100%;
-}
-
-.container .switch-icon {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 80rpx;
-  display: flex;
-  justify-content: space-between;
-}
-
-.container .switch-icon .pre {
-  width: 0;
-  height: 0;
-  border-left: 80rpx solid #909999;
-  border-top: 80rpx solid transparent;
-}
-
-.container .switch-icon .pre text {
-  position: absolute;
-  left: 0;
-  bottom: 10rpx;
-  color: white;
-}
-
-.container .switch-icon .next {
-  width: 0;
-  height: 0;
-  border-right: 80rpx solid #909999;
-  border-top: 80rpx solid transparent;
-}
-
-.container .switch-icon .next text {
-  position: absolute;
-  right: 0;
-  bottom: 10rpx;
-  color: white;
+  min-width: calc(100% - 144px - 10px - 48px - 10px - 48px + 30px);
 }
 
 .container .illustration-container {
@@ -286,4 +260,31 @@
 .container .illustration-container .illustration-panel .go-next {
   right: 10rpx;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTgyNTMzMDMyMjk4IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQyMTIiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNDk5LjIgOTUxLjQ2NjY2N2MtMjM0LjY2NjY2NyAwLTQyNi42NjY2NjctMTkyLTQyNi42NjY2NjctNDI2LjY2NjY2NyAwLTE3LjA2NjY2NyAwLTM4LjQgNC4yNjY2NjctNTUuNDY2NjY3IDQuMjY2NjY3LTEyLjggMTIuOC0xNy4wNjY2NjcgMjUuNi0xNy4wNjY2NjYgMTIuOCA0LjI2NjY2NyAxNy4wNjY2NjcgMTIuOCAxNy4wNjY2NjcgMjUuNi00LjI2NjY2NyAxMi44LTQuMjY2NjY3IDI5Ljg2NjY2Ny00LjI2NjY2NyA0Ni45MzMzMzMgMCAyMTMuMzMzMzMzIDE3MC42NjY2NjcgMzg0IDM4NCAzODRzMzg0LTE3MC42NjY2NjcgMzg0LTM4NC0xNzAuNjY2NjY3LTM4NC0zODQtMzg0Yy0yNS42IDAtNDYuOTMzMzMzIDQuMjY2NjY3LTcyLjUzMzMzMyA4LjUzMzMzMy0xMi44IDAtMjEuMzMzMzMzLTQuMjY2NjY3LTI1LjYtMTcuMDY2NjY2IDAtMTIuOCA0LjI2NjY2Ny0yMS4zMzMzMzMgMTcuMDY2NjY2LTI1LjYgMjUuNi00LjI2NjY2NyA1MS4yLTguNTMzMzMzIDgxLjA2NjY2Ny04LjUzMzMzNCAyMzQuNjY2NjY3IDAgNDI2LjY2NjY2NyAxOTIgNDI2LjY2NjY2NyA0MjYuNjY2NjY3cy0xOTIgNDI2LjY2NjY2Ny00MjYuNjY2NjY3IDQyNi42NjY2Njd6IiBmaWxsPSIjNzE2MkFEIiBwLWlkPSI0MjEzIj48L3BhdGg+PHBhdGggZD0iTTExOS40NjY2NjcgNDE4LjEzMzMzM2gtOC41MzMzMzRjLTguNTMzMzMzLTQuMjY2NjY3LTE3LjA2NjY2Ny0xNy4wNjY2NjctMTIuOC0yOS44NjY2NjYgNDIuNjY2NjY3LTExOS40NjY2NjcgMTI4LTIxMy4zMzMzMzMgMjM4LjkzMzMzNC0yNTYgMTIuOC00LjI2NjY2NyAyMS4zMzMzMzMgMCAyNS42IDEyLjggNC4yNjY2NjcgMTIuOCAwIDIxLjMzMzMzMy0xMi44IDI1LjZDMjU2IDIxMy4zMzMzMzMgMTc0LjkzMzMzMyAyOTguNjY2NjY3IDE0MC44IDQwNS4zMzMzMzNjLTQuMjY2NjY3IDguNTMzMzMzLTEyLjggMTIuOC0yMS4zMzMzMzMgMTIuOHoiIGZpbGw9IiNBNDk1RkMiIHAtaWQ9IjQyMTQiPjwvcGF0aD48cGF0aCBkPSJNNjA1Ljg2NjY2NyA1NTguOTMzMzMzYy00LjI2NjY2NyAwLTEyLjggMC0xNy4wNjY2NjctNC4yNjY2NjZsLTEyOC0xMjhjLTguNTMzMzMzLTguNTMzMzMzLTguNTMzMzMzLTIxLjMzMzMzMyAwLTI5Ljg2NjY2N3MyMS4zMzMzMzMtOC41MzMzMzMgMjkuODY2NjY3IDBsMTI4IDEyOGM4LjUzMzMzMyA4LjUzMzMzMyA4LjUzMzMzMyAyMS4zMzMzMzMgMCAyOS44NjY2NjcgMCA0LjI2NjY2Ny04LjUzMzMzMyA0LjI2NjY2Ny0xMi44IDQuMjY2NjY2eiIgZmlsbD0iIzcxNjJBRCIgcC1pZD0iNDIxNSI+PC9wYXRoPjxwYXRoIGQ9Ik00NzMuNiA2OTEuMmMtNC4yNjY2NjcgMC0xMi44IDAtMTcuMDY2NjY3LTQuMjY2NjY3LTguNTMzMzMzLTguNTMzMzMzLTguNTMzMzMzLTIxLjMzMzMzMyAwLTI5Ljg2NjY2NmwxMjgtMTI4YzguNTMzMzMzLTguNTMzMzMzIDIxLjMzMzMzMy04LjUzMzMzMyAyOS44NjY2NjcgMHM4LjUzMzMzMyAyMS4zMzMzMzMgMCAyOS44NjY2NjZsLTEyOCAxMjhjMCA0LjI2NjY2Ny04LjUzMzMzMyA0LjI2NjY2Ny0xMi44IDQuMjY2NjY3eiIgZmlsbD0iIzcxNjJBRCIgcC1pZD0iNDIxNiI+PC9wYXRoPjwvc3ZnPg==');
+}
+
+.container .gesture-container .gesture-icon {
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  transform: rotate(180deg);
+}
+
+.container .gesture-container .start-point {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #409EFF;
+  position: fixed;
+}
+
+.container .gesture-container .touch-line {
+  position: fixed;
+  background-color: #409EFF;
+  height: 10px;
+}
+
+.container .gesture-container .arrow {
+  position: fixed;
+  font-size: 80px;
+  color: #409EFF;
 }
