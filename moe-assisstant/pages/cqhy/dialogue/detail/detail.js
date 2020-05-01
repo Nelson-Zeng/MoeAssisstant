@@ -8,7 +8,7 @@ Page({
     id: 2,
     dataBackup: {},
     scriptTypes: [],
-    currentScriptType: 0,
+    currentScriptType: 2,
     toast: '',
     showChinese: app.globalData.showChinese,
 

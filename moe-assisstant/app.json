@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/zjsnr/home/index",
-    "pages/cqhy/dialogue/brief/brief",
     "pages/cqhy/dialogue/detail/detail",
+    "pages/cqhy/dialogue/brief/brief",
+    "pages/zjsnr/home/index",
     "pages/cqhy/home/index",
     "pages/zjsnr/shipinfo/detail/detail",
     "pages/zjsnr/shipinfo/brief/brief",

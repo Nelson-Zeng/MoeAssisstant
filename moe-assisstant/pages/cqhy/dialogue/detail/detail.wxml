@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" bindtouchstart="startTouch" bindtouchend="stopTouch">
   <custom-toast content="{{toast}}"></custom-toast>
   <custom-header-tab tabs="{{scriptTypes}}" peaces="{{scriptTypes.length}}" bindTabClick="selectScript" wx:if="{{scriptTypes.length > 1}}" id="headerTap"></custom-header-tab>
   <view class="content" wx:if="{{!dataError}}">
@@ -42,12 +42,12 @@
           <view class="reaction-container">
             <view class="reaction-item" wx:for="{{scripts.group}}" wx:for-item="script" wx:key="index">
               <view class="reaction" wx:if="{{index % 2 === 0}}">
-                <image src="{{script.src}}" mode="center" class="thumbnail"></image>
-                <div class="script-content right-text">{{script.content}}</div>
+                <image src="{{script.src}}" mode="center" class="thumbnail left-thumbnail"></image>
+                <view class="script-content right-text">{{script.content}}</view>
               </view>
               <view class="reaction" wx:if="{{index % 2 === 1}}">
-                <div class="script-content left-text">{{script.content}}</div>
-                <image src="{{script.src}}" mode="center" class="thumbnail"></image>
+                <view class="script-content left-text">{{script.content}}</view>
+                <image src="{{script.src}}" mode="center" class="thumbnail right-thumbnail"></image>
               </view>
             </view>
           </view>
@@ -60,7 +60,7 @@
     当前队员数据可能存在异常，请等待管理员修复。
   </view>
   <view class="switch-icon">
-    <view class="pre"><text decode="{{true}}" bindtap="goPre">&lt;&lt;</text></view>
+    <view class="pre "><text decode="{{true}}" bindtap="goPre">&lt;&lt;</text></view>
     <view class="next"><text decode="{{true}}" bindtap="goNext">&gt;&gt;</text></view>
   </view>
   <view class="illustration-container" wx:if="{{showFullIllustration}}" bindtap="closeIllustrationContainer">

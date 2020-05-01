@@ -106,6 +106,7 @@
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-script-group-title {
   font-size: 60rpx;
+  margin-bottom: 40rpx;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container {
@@ -122,86 +123,94 @@
   display: flex;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
+  height: 144px;
+  margin-bottom: 20rpx;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction:last-of-type {
+  margin-bottom: unset;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .thumbnail {
-  min-width: 300rpx;
-  width: 300rpx;
-  height: 300rpx;
+  min-width: 240px;
+  min-height: 240px;
   border-radius: 100%;
-  transform: scale(0.8);
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-thumbnail {
+  transform: scale(0.6) translate(-80px, 0);
+  margin-left: 10px;
+}
+
+.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-thumbnail {
+  transform: scale(0.6) translate(-28px, 0);
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-text {
-  margin-left: 20rpx;
-  margin-right: 40rpx;
   box-shadow: 1px 1px 1px #909999;
+  transform: translate(-76px, 0);
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-text::before {
   content: '';
   position: absolute;
-  left: 300rpx;
-  top: 43%;
+  left: -11px;
+  top: 30%;
   width: 0;
   height: 0;
-  border-top: 20rpx solid transparent;
-  border-right: 20rpx solid #909999;
-  border-bottom: 20rpx solid transparent;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #909999;
+  border-bottom: 10px solid transparent;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .right-text::after {
   content: '';
   position: absolute;
-  left: 302rpx;
-  top: 43%;
+  left: -9px;
+  top: 30%;
   width: 0;
   height: 0;
-  border-top: 20rpx solid transparent;
-  border-right: 20rpx solid #f2f6fc;
-  border-bottom: 20rpx solid transparent;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #f2f6fc;
+  border-bottom: 10px solid transparent;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-text::before {
   content: '';
   position: absolute;
-  right: 300rpx;
-  top: 43%;
+  right: -11px;
+  top: 30%;
   width: 0;
   height: 0;
-  border-top: 20rpx solid transparent;
-  border-left: 20rpx solid #909999;
-  border-bottom: 20rpx solid transparent;
+  border-top: 10px solid transparent;
+  border-left: 10px solid #909999;
+  border-bottom: 10px solid transparent;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-text::after {
   content: '';
   position: absolute;
-  right: 302rpx;
-  top: 43%;
+  right: -9px;
+  top: 30%;
   width: 0;
   height: 0;
-  border-top: 20rpx solid transparent;
-  border-left: 20rpx solid #f2f6fc;
-  border-bottom: 20rpx solid transparent;
+  border-top: 10px solid transparent;
+  border-left: 10px solid #f2f6fc;
+  border-bottom: 10px solid transparent;
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .left-text {
-  margin-right: 20rpx;
-  margin-left: 40rpx;
   box-shadow: -1px 1px 1px #909999;
+  transform: translate(10px, 0);
 }
 
 .container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .reaction .script-content {
-  flex-grow: 1;
   border: 1px solid #909999;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
   padding: 20rpx 40rpx;
   font-size: 32rpx;
-}
-
-.container .content .body .reaction-scripts .reaction-script-group-container .reaction-container .reaction-item .script-content {
-  height: 100%;
+  min-width: calc(100% - 144px - 10px - 48px - 10px - 48px + 30px);
 }
 
 .container .switch-icon {
