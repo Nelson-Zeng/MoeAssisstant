@@ -8,7 +8,7 @@ Page({
     id: 2,
     dataBackup: {},
     scriptTypes: [],
-    currentScriptType: 2,
+    currentScriptType: 0,
     toast: '',
     showChinese: app.globalData.showChinese,
 
@@ -20,17 +20,35 @@ Page({
     currentPicId: 0,
     reactionScriptContent: [],
 
-    dataError: false
+    dataError: false,
+
+    longPressStart: false,
+    startPointPosition: {},
+    gesturePosition: {},
+    arrowPosition: {},
+    gestureSrc: '/public/gesture.svg',
+    showGesture: false,
+    showLeftPointingArrow: false,
+    showRightPointingArrow: false,
+
+    loginThenable: null
   },
   onLoad(options) {
     options && options.id && (this.data.id = Number(options.id))
     this.data.showChinese = app.globalData.showChinese
 
+    this.data.loginThenable = {
+      then: () => {
+        this.setData({
+          toast: '点击简介栏中的头像图可以查看完整立绘。'
+        })
+      }
+    }
+
     wx.showShareMenu({})
 
     this.initData()
     this.setData({
-      toast: '点击简介栏中的头像图可以查看完整立绘。',
       showChinese: this.data.showChinese
     })
   },
@@ -72,6 +90,7 @@ Page({
 
     wx.nextTick(() => {
       this.initPageInfo()
+      this.data.loginThenable && Promise.resolve(this.data.loginThenable)
     })
   },
   selectScript(e) {
@@ -100,12 +119,12 @@ Page({
       skinDescTitle: '皮肤描述',
       languageTitle: '显示语言'
     } : {
-      dexIndexTitle: '図鑑ID',
-      nameTitle: '名前',
-      skinTitle: 'コスチューム',
-      skinDescTitle: 'コスチューム紹介',
-      languageTitle: '言語選択'
-    }
+        dexIndexTitle: '図鑑ID',
+        nameTitle: '名前',
+        skinTitle: 'コスチューム',
+        skinDescTitle: 'コスチューム紹介',
+        languageTitle: '言語選択'
+      }
 
     this.data.baseInfo.dexIndex = data.id
     this.data.baseInfo.name = data.name
@@ -156,7 +175,6 @@ Page({
           }
         })
         this.data.scriptContent = reactionScripts
-        console.log(reactionScripts)
         break
       default:
         break
@@ -211,6 +229,11 @@ Page({
       if (member.id === Number(this.data.id)) currentIndex = index
     })
 
+    if (currentIndex === MIST_MEMBERS.length - 1) {
+      app.util.toast.info('前方不通。')
+      return
+    }
+
     this.data.id = MIST_MEMBERS[currentIndex + 1].id
 
     this.selectComponent('#headerTap') && this.selectComponent('#headerTap').selectTab({
@@ -231,9 +254,14 @@ Page({
       if (member.id === Number(this.data.id)) currentIndex = index
     })
 
+    if (!currentIndex) {
+      app.util.toast.info('前方不通。')
+      return
+    }
+
     this.data.id = MIST_MEMBERS[currentIndex - 1].id
 
-    this.selectComponent('#headerTap').selectTab({
+    this.selectComponent('#headerTap') && this.selectComponent('#headerTap').selectTab({
       currentTarget: {
         id: 0
       }
@@ -244,5 +272,87 @@ Page({
     })
 
     this.initData()
+  },
+  stopTouch(e) {
+    if (this.data.showLeftPointingArrow)
+      wx.nextTick(() => {
+        this.goPre()
+      })
+    else if (this.data.showRightPointingArrow)
+      wx.nextTick(() => {
+        this.goNext()
+      })
+
+    this.setData({
+      longPressStart: false,
+      startPointPosition: {},
+      gesturePosition: {},
+      arrowPosition: {},
+      gestureSrc: '/public/gesture.svg',
+      showGesture: false,
+      showLeftPointingArrow: false,
+      showRightPointingArrow: false
+    })
+  },
+  touchMoving(e) {
+    const currentLeft = parseInt(e.touches[0].pageX)
+
+    if (!this.data.longPressStart) return
+
+    const offsetDistance = currentLeft - parseInt(this.data.startPointPosition.left)
+    const movingDistance = Math.abs(offsetDistance)
+    const boundaryDistance = 80
+
+    if (offsetDistance < 0) {
+      if (movingDistance > boundaryDistance) this.setData({
+        showGesture: false,
+        showLeftPointingArrow: true,
+        showRightPointingArrow: false,
+        arrowPosition: {
+          top: `${parseInt(this.data.startPointPosition.top) - 100}px`,
+          left: `${currentLeft - 60}px`
+        }
+      })
+      else this.setData({
+        showGesture: true,
+        showLeftPointingArrow: false,
+        showRightPointingArrow: false,
+        gesturePosition: Object.assign(this.data.gesturePosition, {
+          left: `${Number(currentLeft) - 90}px`
+        })
+      })
+    } else {
+      if (movingDistance > boundaryDistance) this.setData({
+        showGesture: false,
+        showLeftPointingArrow: false,
+        showRightPointingArrow: true,
+        arrowPosition: {
+          top: `${parseInt(this.data.startPointPosition.top) - 100}px`,
+          left: `${Number(currentLeft) - 60}px`
+        }
+      })
+      else this.setData({
+        showGesture: true,
+        showLeftPointingArrow: false,
+        showRightPointingArrow: false,
+        gesturePosition: Object.assign(this.data.gesturePosition, {
+          left: `${Number(currentLeft) - 90}px`
+        })
+      })
+    }
+  },
+  startLongPress(e) {
+    this.setData({
+      longPressStart: true,
+      showGesture: true,
+      gesturePosition: {
+        top: `${Number(e.detail.y - 170)}px`,
+        left: `${Number(e.detail.x - 90)}px`
+      },
+      startPointPosition: {
+        top: `${Number(e.detail.y) - 15}px`,
+        left: `${Number(e.detail.x) - 15}px`
+      }
+    })
   }
 })
