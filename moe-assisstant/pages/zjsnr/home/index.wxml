@@ -7,14 +7,17 @@
     <view class="ad-banner">
       <ad unit-id="adunit-477cad452235726c" id="ad-banner" bindload="adLoad"></ad>
     </view>
-    <view class="bottom-sections" style="height: calc(100% - {{topBannerHeight}} - 4px - 200px)">
+    <view class="bottom-sections" style="height: calc(100vh - 40rpx - {{topBannerHeight}} - 440rpx)">
       <view class="bottom-section" wx:for="{{bottomSectionArr}}" wx:for-item="section" wx:key="index" bindtap="startService" id="{{section.id}}">
-        <view class="bottom-section-title">{{section.title}}</view>
-        <image class="bottom-section-image" src="{{section.src}}" mode="aspectFill" style="background-color: {{section.bgColor}}"></image>
+        <view class="home-page-title wsg-home-title">{{section.title}}</view>
+        <image class="bottom-section-image" src="{{section.src}}" mode="aspectFill" style="background-image: url('{{section.bg}}')"></image>
       </view>
     </view>
-    <image class="sea-chart-detail" src="{{seaChartSection.src}}" mode="scaleToFill" bindtap="onSeaChartClick">
-      <label class="sea-chart-title">{{seaChartSection.title}}</label>
+    <image class="horizantal-section" src="{{utilSection.src}}" mode="aspectFill" bindtap="onUtilClick">
+      <label class="wsg-home-horizontal-title home-page-title">{{utilSection.title}}</label>
+    </image>
+    <image class="sea-chart-detail horizantal-section" src="{{seaChartSection.src}}" mode="scaleToFill" bindtap="onSeaChartClick">
+      <label class="wsg-home-horizontal-title home-page-title">{{seaChartSection.title}}</label>
     </image>
   </view>
 </view>

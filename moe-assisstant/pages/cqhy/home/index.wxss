@@ -22,7 +22,7 @@
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 60% 100%);
 }
 
-.entrances .pic .title {
+/* .entrances .pic .title {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.8);
   color: #333333;
@@ -32,15 +32,11 @@
   border-radius: 20rpx;
   border: 1px solid #999999;
   box-shadow: 0 2px 5px #333333;
-}
+} */
 
 .entrances .left-pic .story-title {
   top: 13%;
   left: 12%;
-}
-
-.entrances .left-pic .story-title::after {
-
 }
 
 .entrances .right-pic .script-title {

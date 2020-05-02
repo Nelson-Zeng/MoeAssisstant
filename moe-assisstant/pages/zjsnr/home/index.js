@@ -6,30 +6,33 @@ Page({
     topBannerHeight: '112px',
     topSection: {
       id: 'formula',
-      title: '通用公式查询',
       src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/title-bar.jpg`
     },
     bottomSectionArr: [{
-      id: 'util',
-      title: '游戏工具集',
-      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/left.png`,
-      bgColor: '#ead0d1'
+      id: 'enemy',
+      title: '深海图鉴',
+      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/enemy.png`,
+      bg: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/undersea.png`
     }, {
       id: 'equipment',
-      title: '装备查询',
-      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/middle.png`,
-      bgColor: '#e0e5df'
+      title: '装备图鉴',
+      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/robot.png`,
+      bg: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/sora.png`
     }, {
       id: 'shipgirl',
-      title: '舰船查询',
-      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/right.png`,
-      bgColor: '#c1cbd7'
+      title: '舰船图鉴',
+      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/ship.png`,
+      bg: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/port.png`
     }],
     seaChartSection: {
       id: 'seachart',
       title: '海图详情',
-      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/BattleSeaBg.png`,
-      bgColor: '#c1cbd7'
+      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/BattleSeaBg.png`
+    },
+    utilSection: {
+      id: 'util',
+      title: '游戏工具集',
+      src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/util.png`
     }
   },
   onLoad() {
@@ -45,8 +48,8 @@ Page({
     switch (event.currentTarget.id) {
       case 'formula':
         break
-      case 'util':
-        app.util.navigateTo('/pages/zjsnr/gameutil/index')
+      case 'enemy':
+        app.util.toast.info('深海图鉴暂未开放')
         break
       case 'equipment':
         app.util.navigateTo('/pages/zjsnr/equipmentinfo/brief/brief')
@@ -60,6 +63,9 @@ Page({
   },
   onSeaChartClick() {
     app.util.navigateTo('/pages/zjsnr/seaChart/seachart')
+  },
+  onUtilClick() {
+    app.util.navigateTo('/pages/zjsnr/gameutil/index')
   },
   adLoad() {
     wx.createSelectorQuery().select('#ad-banner').fields({

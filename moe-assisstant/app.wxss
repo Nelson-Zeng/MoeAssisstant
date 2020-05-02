@@ -15,3 +15,17 @@ page {
   box-sizing: border-box;
   overflow: hidden;
 }
+
+.home-page-title {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333333;
+  padding: 30rpx;
+  font-size: 40rpx;
+  font-weight: bolder;
+  border-radius: 20rpx;
+  border: 1px solid #999999;
+  box-shadow: 0 2px 5px #333333;
+  width: 40rpx;
+  word-wrap: break-word;
+}
