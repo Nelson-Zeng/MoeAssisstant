@@ -12,17 +12,17 @@ Page({
       id: 'enemy',
       title: '深海图鉴',
       src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/enemy.png`,
-      bg: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/undersea.png`
+      bg: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/sunrise1.jpg`
     }, {
       id: 'equipment',
       title: '装备图鉴',
       src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/robot.png`,
-      bg: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/sora.png`
+      bg: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/sunrise2.jpg`
     }, {
       id: 'shipgirl',
       title: '舰船图鉴',
       src: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/ship.png`,
-      bg: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/port.png`
+      bg: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/index/home/sunrise3.jpg`
     }],
     seaChartSection: {
       id: 'seachart',

@@ -2,6 +2,7 @@ const app = getApp()
 
 Page({
   data: {
+    versionData: {},
     additionalItems: [{
       id: 0,
       title: '更新内容',
@@ -21,8 +22,19 @@ Page({
       id: 4,
       title: '打赏作者',
       expanded: false,
-      richContent: '<div>1.支持制作者最简单的方法就是把小程序推荐给身边的其他朋友。尽量不要跳过首页的广告，能点进去一下更好。</div><div>2.如果愿意打赏一下的话可以扫描下面的二维码。</div><img src="https://www.moeassisstant.com/QR_code.png" style="width: 80vw;"></img>'
+      richContent: '<div>1.支持制作者最简单的方法就是把小程序推荐给身边的其他朋友。</div><div>2.如果愿意打赏一下的话可以扫描下面的二维码。</div><img src="https://www.moeassisstant.com/QR_code.png" style="width: 80vw;"></img>'
     }]
+  },
+  async onLoad() {
+    const response = await app.http.get(app.http.GET_APPLICATION_VERSION)
+    
+    this.data.versionData = response.data
+    this.data.additionalItems[0].content = response.data.content
+
+    this.setData({
+      versionData: this.data.versionData,
+      additionalItems: this.data.additionalItems
+    })
   },
   expandItem(e) {
     const id = Number(e.currentTarget.id)

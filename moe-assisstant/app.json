@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/zjsnr/home/index",
+    "pages/zjsnr/seaChart/seachart",
     "pages/cqhy/dialogue/detail/detail",
     "pages/cqhy/dialogue/brief/brief",
     "pages/cqhy/home/index",
@@ -8,7 +9,6 @@
     "pages/zjsnr/shipinfo/brief/brief",
     "pages/index/index",
     "pages/zjsnr/gameutil/damageCaculator/damagecaculator",
-    "pages/zjsnr/seaChart/seachart",
     "pages/zjsnr/gameutil/directionTrack/direction",
     "pages/zjsnr/gameutil/dish/dish",
     "pages/zjsnr/gameutil/academy/academy",

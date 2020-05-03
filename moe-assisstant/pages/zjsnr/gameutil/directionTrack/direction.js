@@ -40,8 +40,19 @@ Page({
       columnWidth: ['25%', '25%', '25%', '25%']
     }
   },
-  onLoad() {
+  onLoad(options) {
     wx.showShareMenu({})
+
+    if (Object.keys(options).length > 0) {
+      this.data.inputContentList[2].value = options.flagShipSpeed
+      this.data.inputContentList[3].value = options.speed
+      this.data.dataContainer['敌方旗舰航速'] = options.flagShipSpeed
+      this.data.dataContainer['敌方舰队平均航速'] = options.speed
+
+      this.setData({
+        inputContentList: this.data.inputContentList
+      })
+    }
   },
   inputTracking(e) {
     this.data.dataContainer[e.currentTarget.id] = Number(e.detail.value)

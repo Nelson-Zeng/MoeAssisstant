@@ -1,9 +1,9 @@
 <view class="container">
   <view class="current-version">当前版本：
-    <label style="color: #409EFF;">0.81</label>
+    <label style="color: #409EFF;">{{versionData.version}}</label>
   </view>
   <view class="current-game-version">对应游戏版本：
-    <label style="color: #409EFF;">4.90</label>
+    <label style="color: #409EFF;">{{versionData.gameVersion}}</label>
   </view>
   <view class="additional-items">
     <view class="additional-item" wx:for="{{additionalItems}}" wx:for-item="additionalItem" wx:key="index" bindtap="expandItem" id="{{additionalItem.id}}">

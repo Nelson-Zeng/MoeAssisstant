@@ -147,5 +147,10 @@ Page({
       showDrop: true,
       toast: '点击单个舰船栏可进入对应详情页。'
     })
+  },
+  onSpeedClick(e) {
+    const setting = e.currentTarget.dataset.setting
+
+    if (setting && setting.speed && setting.flagShipSpeed) app.util.navigateTo('/pages/zjsnr/gameutil/directionTrack/direction', { speed: setting.speed, flagShipSpeed: setting.flagShipSpeed })
   }
 })

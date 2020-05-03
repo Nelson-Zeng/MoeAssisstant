@@ -16,6 +16,7 @@ const http = {
   GET_ACADEMY_INFO: `${constants.DOMAIN}/zjsnr/academy`,
   GET_MENU_INFO: `${constants.DOMAIN}/zjsnr/menu`,
   GET_CQHY_SHIP_SCRIPT: `${constants.DOMAIN}/cqhy/script/:id`,
+  GET_APPLICATION_VERSION: `${constants.DOMAIN}/application/version`,
 
   get: function() {
     return new Promise((resolve, reject) => {
