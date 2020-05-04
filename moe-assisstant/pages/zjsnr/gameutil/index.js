@@ -58,6 +58,11 @@ Page({
       title: '航向计算器',
       path: '/pages/zjsnr/gameutil/directionTrack/direction',
       icon: icon.direction
+    }, {
+      id: 10,
+      title: '经验计算器',
+      path: '/pages/zjsnr/gameutil/experienceCaculator/experiencecaculator',
+      icon: icon.experience
     }]
   },
   callUtil(e) {

@@ -378,7 +378,7 @@ const SITUATION_CASES = [{
       }
     },
     coefficientFormula: '阵型系数*战损系数*敌方装甲减伤系数*攻击力系数',
-    defaultPiercingCoefficient: 0.9
+    defaultPiercingCoefficient: 0.8
   },
   {
     title: '夜间导弹战',

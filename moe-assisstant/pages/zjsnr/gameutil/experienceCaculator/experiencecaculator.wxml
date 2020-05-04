@@ -1,0 +1,80 @@
+<view class="container">
+	<view class="content-block">
+		<view class="title-1">选择等级范围</view>
+		<view class="content-1">
+			<view class="input-container content-item">
+				<label class="item-title">初始等级</label><input type="number" class="number-input" value="{{startLevel}}" bindinput="startLevelInput"></input>
+			</view>
+			<view class="input-container content-item">
+				<label class="item-title">目标等级</label><input type="number" class="number-input" value="{{endLevel}}" bindinput="endLevelInput"></input>
+			</view>
+		</view>
+	</view>
+	<view class="content-block">
+		<view class="title-1">选择练习地点<label style="font-size: 20rpx;">（单选）</label></view>
+		<view class="content-1">
+			<view class="leveling-points">
+				<view class="leveling-point {{levelingPoint.selected ? 'selected': ''}} button" wx:for="{{levelingPoints}}" wx:for-item="levelingPoint" wx:key="index" bindtap="selectPoint" id="levelingPoint{{levelingPoint.id}}">
+					<view style="display: flex; flex-direction: column; justify-content: center;"><label>{{levelingPoint.name}}</label><label style="font-size: 20rpx;">{{levelingPoint.description}}</label></view>
+				</view>
+			</view>
+			<view class="base-experience">当前点位基础经验（A胜）为：{{currentBaseExperience}}</view>
+		</view>
+	</view>
+	<view class="content-block">
+		<view class="title-1">战斗结果默认为S+<label style="font-size: 20rpx;">（即享受20%经验加成）</label></view>
+	</view>
+	<view class="content-block">
+		<view class="title-1">是否为旗舰<switch type="checkbox" class="single-checkbox" checked="{{isFlagShip}}" bindchange="changeFlagShipStatus"></switch>
+		</view>
+	</view>
+	<view class="content-block">
+		<view class="title-1">是否控制为MVP<switch type="checkbox" class="single-checkbox" checked="{{isMVP}}" bindchange="changeMVPStatus"></switch>
+		</view>
+	</view>
+	<view class="content-block">
+		<view class="title-1">是否为圣肝期间<switch type="checkbox" class="single-checkbox" checked="{{isEvent}}" bindchange="changeEventStatus"></switch>
+		</view>
+	</view>
+	<view class="content-block">
+		<view class="title-1">是否启用神秘的教材<switch type="checkbox" class="single-checkbox" checked="{{isKejin}}" bindchange="changeKejinStatus"></switch>
+		</view>
+	</view>
+	<view class="content-block">
+		<view class="title-1">选择技能加成<label style="font-size: 20rpx;">（默认Lv3；不包含限定演习的技能；多选）</label></view>
+		<view class="content-1">
+			<view class="skills">
+				<view class="skill button {{skill.selected ? 'selected' : ''}}" wx:for="{{skills}}" wx:for-item="skill" wx:key="index" bindtap="selectSkill" id="skill{{skill.id}}">
+					<view style="display: flex; flex-direction: column; justify-content: center;"><label>{{skill.name}}</label><label style="font-size: 20rpx;">{{skill.description}}</label></view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="content-block">
+		<view class="title-1">选择菜谱<label style="font-size: 20rpx;">（单选）</label></view>
+		<view class="content-1">
+			<view class="recipes">
+				<view class="recipe button {{recipe.selected ? 'selected' : ''}}" wx:for="{{recipes}}" wx:for-item="recipe" wx:key="index" bindtap="selectRecipe" id="recipe{{recipe.id}}">
+					<view style="display: flex; flex-direction: column; justify-content: center;"><label>{{recipe.name}}</label><label style="font-size: 20rpx;">{{recipe.description}}</label></view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="content-block">
+		<view class="title-1">选择经验加成装备<label style="font-size: 20rpx;">（单选；装备效果不叠加，最左边的生效）</label></view>
+		<view class="content-1">
+			<view class="equipments">
+				<view class="equipment button {{equipment.selected ? 'selected' : ''}}" wx:for="{{equipments}}" wx:for-item="equipment" wx:key="index" bindtap="selectEquipment" id="equipment{{equipment.id}}">
+					<view style="display: flex; flex-direction: column; justify-content: center;"><label>{{equipment.name}}</label><label style="font-size: 20rpx;">{{equipment.description}}</label></view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="content-block">
+		<view class="title-1">鉴于督战buff有效次数相对于长期练级来说过于稀少，因此不纳入计算范畴</view>
+	</view>
+	<view class="caculate-button" bindtap="doCaculation">计算结果</view>
+	<view class="final-result-container" wx:if="{{showResult}}" bindtap="clickResultOutside">
+		<rich-text nodes="{{result}}" class="final-result" catchtap="clickResultPanel"></rich-text>
+	</view>
+</view>

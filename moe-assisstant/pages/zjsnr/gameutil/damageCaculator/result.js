@@ -621,11 +621,8 @@ const TYPE_TITLE_MAPPING = [{
     title: '舰船火力',
     key: 'ATKParam0'
   }, {
-    title: '发射器火力',
-    key: 'ATKParam1'
-  }, {
     title: '导弹火力',
-    key: 'ATKParam2'
+    key: 'ATKParam1'
   }, {
     title: '阵型情况',
     key: 'formationTitle'
@@ -669,12 +666,9 @@ const TYPE_TITLE_MAPPING = [{
   subParams: [{
     title: '舰船火力',
     key: 'ATKParam0'
-  }, {
-    title: '发射器火力',
-    key: 'ATKParam1'
-  }, {
+  },, {
     title: '导弹火力',
-    key: 'ATKParam2'
+    key: 'ATKParam1'
   }, {
     title: '阵型情况',
     key: 'formationTitle'

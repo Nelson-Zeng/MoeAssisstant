@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/zjsnr/home/index",
+    "pages/zjsnr/gameutil/experienceCaculator/experiencecaculator",
+    "pages/zjsnr/gameutil/damageCaculator/damagecaculator",
+    "pages/zjsnr/gameutil/index",
     "pages/zjsnr/seaChart/seachart",
     "pages/cqhy/dialogue/detail/detail",
     "pages/cqhy/dialogue/brief/brief",
@@ -8,11 +11,9 @@
     "pages/zjsnr/shipinfo/detail/detail",
     "pages/zjsnr/shipinfo/brief/brief",
     "pages/index/index",
-    "pages/zjsnr/gameutil/damageCaculator/damagecaculator",
     "pages/zjsnr/gameutil/directionTrack/direction",
     "pages/zjsnr/gameutil/dish/dish",
     "pages/zjsnr/gameutil/academy/academy",
-    "pages/zjsnr/gameutil/index",
     "pages/zjsnr/gameutil/buildingTimeList/buildingTimeList",
     "pages/zjsnr/gameutil/cannonry/cannonry",
     "pages/zjsnr/gameutil/expedition/expedition",

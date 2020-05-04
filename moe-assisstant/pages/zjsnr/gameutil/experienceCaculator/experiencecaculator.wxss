@@ -1,0 +1,114 @@
+.container {
+  overflow: scroll;
+}
+
+.content-block {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+}
+
+.content-block:last-of-type {
+  margin-bottom: unset;
+}
+
+.content-block .title-1 {
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+}
+
+.content-block .content-1 {
+  margin-top: 10rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .content-block .leveling-points, .skills, .recipes, .equipments {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.button {
+  font-size: 25rpx;
+  padding: 10rpx 20rpx;
+  border: 1px solid #909399;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.selected {
+  background-color: #409EFF;
+  border: 1px solid #409EFF;
+  color: white;
+}
+
+.content-item {
+  margin-bottom: 20rpx;
+}
+
+.content-item:last-of-type {
+  margin-bottom: unset;
+}
+
+.item-title {
+  width: 40%;
+  box-sizing: border-box;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-container input {
+  box-sizing: border-box;
+  border: 1px solid #909399;
+  border-radius: 10rpx;
+  padding-left: 10rpx;
+  font-size: 20rpx;
+}
+
+.input-container .number-input {
+  width: 100rpx;
+}
+
+.single-checkbox {
+  transform: scale(0.8);
+  margin-left: 20rpx;
+}
+
+.caculate-button {
+  margin: 40rpx;
+  font-size: 40rpx;
+  background-color: #409EFF;
+  color: white;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+  text-align: center;
+}
+
+.final-result-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.final-result-container .final-result {
+  width: 90vw;
+  padding: 40rpx 20rpx;
+  background-color: white;
+  border-radius: 10rpx;
+  font-size: 36rpx;
+}
