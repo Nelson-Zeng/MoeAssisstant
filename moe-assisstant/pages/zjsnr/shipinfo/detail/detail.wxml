@@ -56,7 +56,7 @@
           <parameter-pair title="修理钢耗" value="{{shipInfo.steelCosting}}" height="calc(100% / 11)" class="parameter-pair"></parameter-pair>
           <parameter-pair title="装备孔数" value="{{shipInfo.equipmentSlot}}" height="calc(100% / 11)" class="parameter-pair"></parameter-pair>
           <parameter-pair title="强化提供" value="{{shipInfo.enhancingIncome}}" height="calc(100% / 11)" class="parameter-pair"></parameter-pair>
-          <parameter-pair title="COST" value="{{shipInfo.cost}}" height="calc(100% / 11)" hide-bottom-line="true" class="parameter-pair"></parameter-pair>
+          <parameter-pair title="资源占用" value="{{shipInfo.cost}}" height="calc(100% / 11)" hide-bottom-line="true" class="parameter-pair"></parameter-pair>
         </view>
       </view>
     </view>
