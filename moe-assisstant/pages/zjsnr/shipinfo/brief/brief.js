@@ -20,165 +20,199 @@ const DETAIL_SHIP_DIMENSIONS = [{
 }]
 
 const SHIP_NATIONALITY_FAST_SELECTIONS = [{
-    title: '我全都要'
-  }, {
-    title: '但是，我拒绝'
-  },
-  {
-    title: '同盟国',
-    content: [0, 1, 2, 4, 6, 7]
-  },
-  {
-    title: '轴心国',
-    content: [2, 3, 4, 5]
-  }
+  title: '我全都要'
+}, {
+  title: '但是，我拒绝'
+},
+{
+  title: '同盟国',
+  content: [0, 1, 2, 4, 6, 7]
+},
+{
+  title: '轴心国',
+  content: [2, 3, 4, 5]
+}
 ]
 
 const DETAIL_SHIP_NATIONS = [{
-    id: 0,
-    title: '中国'
-  },
-  {
-    id: 1,
-    title: '英国'
-  },
-  {
-    id: 2,
-    title: '法国'
-  },
-  {
-    id: 3,
-    title: '德国'
-  },
-  {
-    id: 4,
-    title: '意大利'
-  },
-  {
-    id: 5,
-    title: '日本'
-  },
-  {
-    id: 6,
-    title: '苏联'
-  },
-  {
-    id: 7,
-    title: '美国'
-  },
-  {
-    id: 8,
-    title: '其他'
-  }
+  id: 0,
+  title: '中国'
+},
+{
+  id: 1,
+  title: '英国'
+},
+{
+  id: 2,
+  title: '法国'
+},
+{
+  id: 3,
+  title: '德国'
+},
+{
+  id: 4,
+  title: '意大利'
+},
+{
+  id: 5,
+  title: '日本'
+},
+{
+  id: 6,
+  title: '苏联'
+},
+{
+  id: 7,
+  title: '美国'
+},
+{
+  id: 8,
+  title: '其他'
+}
 ]
 
 const SHIP_TYPE_FAST_SELECTIONS = [{
-    title: '我全都要'
-  }, {
-    title: '但是，我拒绝'
-  },
-  {
-    title: '天降正义',
-    content: [0, 1, 2]
-  },
-  {
-    title: '口径即正义',
-    content: [3, 4, 5, 10]
-  },
-  {
-    title: '海上渔夫',
-    content: [1, 7, 9, 11]
-  },
-  {
-    title: '猎杀潜航',
-    content: [12, 13]
-  },
-  {
-    title: '大人，时代变了',
-    content: [15, 16, 17]
-  },
-  {
-    title: '主力披挂',
-    content: [0, 2, 3, 4, 5, 15, 17]
-  },
-  {
-    title: '护卫上阵',
-    content: [1, 6, 7, 8, 9, 10, 11, 14, 16]
-  }
+  title: '我全都要'
+}, {
+  title: '但是，我拒绝'
+},
+{
+  title: '天降正义',
+  content: [0, 1, 2]
+},
+{
+  title: '口径即正义',
+  content: [3, 4, 5, 10]
+},
+{
+  title: '海上渔夫',
+  content: [1, 7, 9, 11]
+},
+{
+  title: '猎杀潜航',
+  content: [12, 13]
+},
+{
+  title: '大人，时代变了',
+  content: [15, 16, 17]
+},
+{
+  title: '主力披挂',
+  content: [0, 2, 3, 4, 5, 15, 17]
+},
+{
+  title: '护卫上阵',
+  content: [1, 6, 7, 8, 9, 10, 11, 14, 16]
+}
 ]
+
 const DETAIL_SHIP_TYPES = [{
-    id: 0,
-    title: '航母'
-  },
-  {
-    id: 1,
-    title: '轻母'
-  },
-  {
-    id: 2,
-    title: '装母'
-  },
-  {
-    id: 3,
-    title: '战列'
-  },
-  {
-    id: 4,
-    title: '航战'
-  },
-  {
-    id: 5,
-    title: '战巡'
-  },
-  {
-    id: 6,
-    title: '重巡'
-  },
-  {
-    id: 7,
-    title: '航巡'
-  },
-  {
-    id: 8,
-    title: '雷巡'
-  },
-  {
-    id: 9,
-    title: '轻巡'
-  },
-  {
-    id: 10,
-    title: '重炮'
-  },
-  {
-    id: 11,
-    title: '驱逐'
-  },
-  {
-    id: 12,
-    title: '潜艇'
-  },
-  {
-    id: 13,
-    title: '炮潜'
-  },
-  {
-    id: 14,
-    title: '补给'
-  },
-  {
-    id: 15,
-    title: '导驱'
-  },
-  {
-    id: 16,
-    title: '防驱'
-  },
-  {
-    id: 17,
-    title: '防战'
-  }
+  id: 0,
+  title: '航母'
+},
+{
+  id: 1,
+  title: '轻母'
+},
+{
+  id: 2,
+  title: '装母'
+},
+{
+  id: 3,
+  title: '战列'
+},
+{
+  id: 4,
+  title: '航战'
+},
+{
+  id: 5,
+  title: '战巡'
+},
+{
+  id: 6,
+  title: '重巡'
+},
+{
+  id: 7,
+  title: '航巡'
+},
+{
+  id: 8,
+  title: '雷巡'
+},
+{
+  id: 9,
+  title: '轻巡'
+},
+{
+  id: 10,
+  title: '重炮'
+},
+{
+  id: 11,
+  title: '驱逐'
+},
+{
+  id: 12,
+  title: '潜艇'
+},
+{
+  id: 13,
+  title: '炮潜'
+},
+{
+  id: 14,
+  title: '补给'
+},
+{
+  id: 15,
+  title: '导驱'
+},
+{
+  id: 16,
+  title: '防驱'
+},
+{
+  id: 17,
+  title: '防战'
+}
 ]
+
+
+const COST_FAST_SELECTIONS = [{
+  title: '我全都要'
+}, {
+  title: '但是，我拒绝'
+}]
+
+const DETAIL_COSTS = [{
+  id: 0,
+  title: '0'
+}, {
+  id: 1,
+  title: '1'
+}, {
+  id: 2,
+  title: '2'
+}, {
+  id: 3,
+  title: '3'
+}, {
+  id: 4,
+  title: '4'
+}, {
+  id: 5,
+  title: '5'
+}, {
+  id: 6,
+  title: '6'
+}, {
+  id: 7,
+  title: '7'
+}]
 
 Page({
   data: {
@@ -241,6 +275,7 @@ Page({
       nationalities: [0, 1, 2, 3, 4, 5, 6, 7, 8],
       types: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
       dimensions: [0, 1, 2],
+      costs: [0, 1, 2, 3, 4, 5, 6, 7],
       sortKey: 0,
       sequence: 'asc',
       page: 1,
@@ -360,7 +395,8 @@ Page({
     this.setData({
       nationalitySetting: new FilterSet('国籍选择', SHIP_NATIONALITY_FAST_SELECTIONS, DETAIL_SHIP_NATIONS, this.data.dataContainer.nationalities),
       typeSetting: new FilterSet('舰种选择', SHIP_TYPE_FAST_SELECTIONS, DETAIL_SHIP_TYPES, this.data.dataContainer.types),
-      dimensionSetting: new FilterSet('舰型选择', SHIP_DIMENSION_FAST_SELECTIONS, DETAIL_SHIP_DIMENSIONS, this.data.dataContainer.dimensions)
+      dimensionSetting: new FilterSet('舰型选择', SHIP_DIMENSION_FAST_SELECTIONS, DETAIL_SHIP_DIMENSIONS, this.data.dataContainer.dimensions),
+      costSetting: new FilterSet('费用选择', COST_FAST_SELECTIONS, DETAIL_COSTS, this.data.dataContainer.costs)
     })
 
     func()
@@ -380,6 +416,8 @@ Page({
     this.setData({
       showSetting: false
     })
+
+    console.log('test', this.data.dataContainer)
 
     this.initShipList()
   },
@@ -404,6 +442,9 @@ Page({
   dimensionChanged(e) {
     this.data.tempDataContainer.dimensions = e.detail
   },
+  costChanged(e) {
+    this.data.tempDataContainer.costs = e.detail
+  },
   search(e) {
     this.data.limitationDataContainer.keyWord = e.detail.value
 
@@ -416,7 +457,7 @@ Page({
       dataset: true,
       node: true,
       context: true
-    }, res => {}).exec()
+    }, res => { }).exec()
   },
   sortingKeyChanged(e) {
     const id = Number(e.currentTarget.id.match(new RegExp(/\d+/)))
@@ -450,7 +491,7 @@ Page({
       detailInfo: !this.data.detailInfo
     })
   },
-  settingIgnoreTouchMove() {},
+  settingIgnoreTouchMove() { },
   initShipList() {
     this.data.limitationDataContainer.page = 1
 

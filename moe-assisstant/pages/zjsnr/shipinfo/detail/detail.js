@@ -48,10 +48,6 @@ Page({
   async onLoad() {
     wx.showShareMenu({})
 
-    this.setData({
-      toast: 'COST字段为4.90版本新增字段。目前还不知道该字段的作用。'
-    })
-
     let queryPromise
     const shipInfo = app.currentShipInfo
     // 图鉴ID大于1000说明是改造船，需要获取原始数据；反之需要判断该船是否可以改造，如果可以的话获取改造数据
