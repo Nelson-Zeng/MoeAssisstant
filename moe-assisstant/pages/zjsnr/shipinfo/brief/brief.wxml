@@ -51,7 +51,8 @@
     <custom-filter source="{{nationalitySetting}}" catchselectionchanged="nationalityChanged"></custom-filter>
     <custom-filter source="{{typeSetting}}" catchselectionchanged="typeChanged"></custom-filter>
     <custom-filter source="{{dimensionSetting}}" catchselectionchanged="dimensionChanged"></custom-filter>
-    <custom-filter source="{{costSetting}}" catchselectionchanged="costChanged"></custom-filter>
+    <!-- <custom-filter source="{{costSetting}}" catchselectionchanged="costChanged"></custom-filter> -->
+    <custom-filter source="{{strategySetting}}" catchselectionchanged="strategyChanged"></custom-filter>
     <view class="footer">
       <view class="cancel button" catchtap="cancelSetting">取消</view>
       <view class="confirm button" catchtap="confirmSetting">确认</view>

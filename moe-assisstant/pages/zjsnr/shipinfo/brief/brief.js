@@ -188,6 +188,12 @@ const COST_FAST_SELECTIONS = [{
   title: '但是，我拒绝'
 }]
 
+const STRATEGY_FAST_SELECTIONS = [{
+  title: '我全都要'
+}, {
+  title: '但是，我拒绝'
+}]
+
 const DETAIL_COSTS = [{
   id: 0,
   title: '0'
@@ -212,6 +218,23 @@ const DETAIL_COSTS = [{
 }, {
   id: 7,
   title: '7'
+}]
+
+const DETAIL_STRATEGIES = [{
+  id: 2,
+  title: '2'
+}, {
+  id: 3,
+  title: '3'
+}, {
+  id: 4,
+  title: '4'
+}, {
+  id: 5,
+  title: '5'
+}, {
+  id: 6,
+  title: '6'
 }]
 
 Page({
@@ -280,7 +303,8 @@ Page({
       sequence: 'asc',
       page: 1,
       capacity: 15,
-      keyWord: ''
+      keyWord: '',
+      strategies: [2, 3, 4, 5, 6]
     },
 
     reachEnd: true,
@@ -396,7 +420,8 @@ Page({
       nationalitySetting: new FilterSet('国籍选择', SHIP_NATIONALITY_FAST_SELECTIONS, DETAIL_SHIP_NATIONS, this.data.dataContainer.nationalities),
       typeSetting: new FilterSet('舰种选择', SHIP_TYPE_FAST_SELECTIONS, DETAIL_SHIP_TYPES, this.data.dataContainer.types),
       dimensionSetting: new FilterSet('舰型选择', SHIP_DIMENSION_FAST_SELECTIONS, DETAIL_SHIP_DIMENSIONS, this.data.dataContainer.dimensions),
-      costSetting: new FilterSet('费用选择', COST_FAST_SELECTIONS, DETAIL_COSTS, this.data.dataContainer.costs)
+      costSetting: new FilterSet('费用选择', COST_FAST_SELECTIONS, DETAIL_COSTS, this.data.dataContainer.costs),
+      strategySetting: new FilterSet('策略选择', STRATEGY_FAST_SELECTIONS, DETAIL_STRATEGIES, this.data.dataContainer.strategies)
     })
 
     func()
@@ -444,6 +469,9 @@ Page({
   },
   costChanged(e) {
     this.data.tempDataContainer.costs = e.detail
+  },
+  strategyChanged(e) {
+    this.data.tempDataContainer.strategies = e.detail
   },
   search(e) {
     this.data.limitationDataContainer.keyWord = e.detail.value
