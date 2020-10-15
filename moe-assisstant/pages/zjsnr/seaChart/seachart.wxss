@@ -209,3 +209,7 @@
 .drop-dialog-mask .dialog .description {
   padding-bottom: 30rpx;
 }
+
+.clickable {
+  color: #409EFF;
+}

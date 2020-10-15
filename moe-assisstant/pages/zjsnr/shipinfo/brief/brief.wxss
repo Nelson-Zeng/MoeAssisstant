@@ -123,7 +123,7 @@
 }
 
 .container .ship-list .ship-item {
-  height: 340rpx;
+  height: 200rpx;
   border: 1px solid black;
   border-radius: 5px;
   position: relative;
@@ -182,13 +182,9 @@
 
 .container .ship-list .ship-item .ship-icon {
   height: 100%;
-  width: 100%;
+  width: 40%;
   box-sizing: border-box;
-  border-radius: 5px;
-}
-
-.container .ship-list .ship-item .show-mask {
-  background-image: linear-gradient(0, rgba(96, 98, 102, 0.4) 0, transparent 30%);
+  border-radius: 5px 0 0 5px;
 }
 
 .container .ship-list .ship-item .simple-introduce {
@@ -201,22 +197,23 @@
 
 .container .ship-list .ship-item .base-info-container {
   position: absolute;
-  top: 1px;
-  left: 1px;
+  top: 0;
+  left: 40%;
   height: 100%;
-  width: 100%;
-  border-radius: 10rpx;
-  background-color: rgba(48, 49, 51, 0.4);
+  width: 60%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.4);
   color: white;
   padding: 10rpx;
   box-sizing: border-box;
   font-size: 28rpx;
 }
 
-.container .ship-list .ship-item .base-info-container label {
+.container .ship-list .ship-item .base-info-container view {
   flex-grow: 1;
+  min-width: 50%;
+  box-sizing: border-box;
 }
 
 .container .ship-list .reloading {

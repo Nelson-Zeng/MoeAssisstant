@@ -21,27 +21,22 @@
       </view>
     </view>
   </view>
-  <view class="detail-switch">
-    <switch type="checkbox" checked="{{detailInfo}}" bindchange="detailInfoStatusChanged" />
-    <label bindtap="detailInfoStatusChanged">显示基础数据</label>
-  </view>
   <view class="ship-list">
     <view class="ship-item" wx:for="{{shipList}}" wx:for-item="ship" wx:key="index" bindtap="checkShipDetail" id="{{ship.dexIndex}}">
       <image src="{{ship.backgroundPicSrc}}" class="background-image" mode="center"></image>
       <view class="update-icon" wx:if="{{ship.updated}}">改造
         <view class="icon"></view>
       </view>
-      <image src="{{ship.url}}" class="ship-icon {{!detailInfo ? 'show-mask' : ''}}" mode="aspectFill"></image>
-      <text class="simple-introduce" wx:if="{{!detailInfo}}">{{ship.name}}</text>
-      <view class="base-info-container" wx:else>
-        <label class="ship-name">名称： {{ship.name}}</label>
-        <label class="ship-dex-index">图鉴ID： {{ship.dexIndex}}</label>
-        <label class="ship-nationality">国籍： {{ship.nationality}}</label>
-        <label class="ship-type">舰种： {{ship.type}}</label>
-        <label class="ship-power" wx:if="{{ship.power}}">火力： {{ship.power}}</label>
-        <label class="ship-torpedo" wx:if="{{ship.torpedo}}">鱼雷： {{ship.torpedo}}</label>
-        <label class="ship-life" wx:if="{{ship.life}}">耐久： {{ship.life}}</label>
-        <label class="ship-speed" wx:if="{{ship.speed}}">航速： {{ship.speed}}节</label>
+      <image src="{{ship.url}}" class="ship-icon" mode="aspectFill"></image>
+      <view class="base-info-container">
+        <view class="ship-name">名称： {{ship.name}}</view>
+        <view class="ship-dex-index">图鉴ID： {{ship.dexIndex}}</view>
+        <view class="ship-nationality">国籍： {{ship.nationality}}</view>
+        <view class="ship-type">舰种： {{ship.type}}</view>
+        <view class="ship-power" wx:if="{{ship.power}}">火力： {{ship.power}}</view>
+        <view class="ship-torpedo" wx:if="{{ship.torpedo}}">鱼雷： {{ship.torpedo}}</view>
+        <view class="ship-life" wx:if="{{ship.life}}">耐久： {{ship.life}}</view>
+        <view class="ship-speed" wx:if="{{ship.speed}}">航速： {{ship.speed}}节</view>
       </view>
     </view>
     <view class="reloading">{{reachEnd ? '下面没了' : '正在加载更多'}}</view>

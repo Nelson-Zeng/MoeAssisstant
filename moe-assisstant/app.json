@@ -20,7 +20,9 @@
     "pages/zjsnr/equipmentinfo/brief/brief",
     "pages/zjsnr/gameutil/buildingFormula/buildingformula",
     "pages/sycjc/home/index",
-    "pages/cqhy/drama/index"
+    "pages/cqhy/drama/index",
+    "pages/zjsnr/gameutil/gift/giftTree",
+    "pages/zjsnr/gameutil/aircarftCaculator/airpower"
   ],
   "window": {
     "backgroundColor": "#409EFF",
@@ -33,7 +35,8 @@
     "color": "#696969",
     "selectedColor": "#66CCFF",
     "backgroundColor": "#EBEEF5",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/zjsnr/home/index",
         "text": "战舰少女R"
       },

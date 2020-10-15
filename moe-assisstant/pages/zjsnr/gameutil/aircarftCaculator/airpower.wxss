@@ -1,0 +1,198 @@
+page {
+  padding: 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.own-aircraft {
+  display: flex;
+  padding: 20rpx 0;
+  align-items: center;
+}
+
+.own-aircraft .aircraft {
+  margin-right: 10rpx;
+  border: 1px solid black;
+  padding: 10rpx;
+  border-radius: 10rpx;
+}
+.own-aircraft .aircraft .antiaircraft {
+  display: flex;
+  align-items: center;
+}
+.own-aircraft .aircraft .count {
+  display: flex;
+  align-items: center;
+}
+.own-aircraft .aircraft input {
+  flex: 1;
+  color: #409EFF;
+  max-width: 40rpx;
+  font-weight: 600;
+}
+
+.add {
+  color: white;
+  background-color: #5CB87A;
+  width: 50rpx;
+  height: 50rpx;
+  min-width: 50rpx;
+  min-height: 50rpx;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  margin-right: 10rpx;
+}
+.add text {
+  margin-top: -5rpx;
+  margin-left: -2rpx;
+}
+
+.remove {
+  color: white;
+  background-color: #F56C6C;
+  width: 50rpx;
+  height: 50rpx;
+  min-width: 50rpx;
+  min-height: 50rpx;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+}
+.remove text {
+  margin-top: -8rpx;
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mask .dialog {
+  background-color: white;
+  padding: 30rpx 40rpx;
+  border: 1px solid black;
+  border-radius: 10rpx;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.mask .dialog .input-item {
+  margin-bottom: 20rpx;
+}
+
+.mask .dialog .input-item .display {
+  font-size: 36rpx;
+  color: #409EFF;
+}
+
+.mask .dialog .input-item .power-input {
+  font-size: 36rpx;
+  color: #409EFF;
+}
+
+.mask .dialog .help-text {
+  font-size: 24rpx;
+  color: #909399;
+  margin-top: -20rpx;
+  margin-bottom: 40rpx;
+}
+
+.mask .dialog .anti-input {
+  margin-bottom: 20rpx;
+}
+
+.mask .dialog .anti-input .input {
+  font-size: 36rpx;
+  color: #409EFF;
+}
+
+.mask .dialog .footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #C0C4CC;
+  padding-top: 30rpx;
+}
+
+.mask .dialog .footer .button {
+  margin: unset;
+  padding: 0 30rpx;
+}
+
+.dividing {
+  width: 100%;
+  height: 60rpx;
+}
+
+.enemy-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.enemy-container .add-enemy {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 5rpx 20rpx;
+  border: 1px solid #67C23A;
+  background-color: #67C23A;
+  border-radius: 5rpx;
+  max-height: 50rpx;
+  box-sizing: border-box;
+  margin: 10rpx 0;
+}
+.enemy-container .enemy-info {
+  max-height: 50rpx;
+  position: relative;
+  padding: 5rpx 20rpx;
+  border: 1px solid black;
+  border-radius: 5rpx;
+  margin: 10rpx 20rpx 10rpx 0;
+  display: flex;
+  box-sizing: border-box;
+}
+.enemy-container .enemy-info .value {
+  max-height: 50rpx;
+  max-width: 50rpx;
+}
+.enemy-container .enemy-info .remove-icon {
+  position: absolute;
+  color: white;
+  width: 30rpx;
+  height: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  top: -15rpx;
+  right: -15rpx;
+  background-color: #F56C6C;
+  z-index: 10;
+}
+.enemy-container .enemy-info .remove-icon text {
+  margin-top: -10rpx;
+}
+
+.caculating-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  padding: 20rpx 0;
+  color: white;
+  border: 1px solid #67C23A;
+  background-color: #67C23A;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+}

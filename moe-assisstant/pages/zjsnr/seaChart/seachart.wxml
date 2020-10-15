@@ -38,7 +38,7 @@
 									<view class="second-type-setting-display second-type-setting-param">
 										<view class="second-type-setting-display-item" wx:for="{{point.setting.display}}" wx:for-item="item" wx:key="index" style="color: {{item.color}}">{{item.content}}</view>
 									</view>
-									<view class="second-type-setting-speed second-type-setting-param" bindtap="onSpeedClick" data-setting="{{point.setting}}">{{point.setting.speed ? point.setting.speed : '-'}}</view>
+									<view class="second-type-setting-speed second-type-setting-param clickable" bindtap="onSpeedClick" data-setting="{{point.setting}}">{{point.setting.speed ? point.setting.speed : '-'}}</view>
 									<view class="second-type-setting-tracking second-type-setting-param">{{point.setting.tracking ? point.setting.tracking : '-'}}</view>
 									<view class="second-type-setting-antiAircraft second-type-setting-param">{{point.setting.antiAircraft ? point.setting.antiAircraft : '-'}}</view>
 								</view>
@@ -50,7 +50,7 @@
 									<view class="second-type-setting-display second-type-setting-param">
 										<view class="second-type-setting-display-item" wx:for="{{point.setting2.display}}" wx:for-item="item" wx:key="index" style="color: {{item.color}}">{{item.content}}</view>
 									</view>
-									<view class="second-type-setting-speed second-type-setting-param" bindtap="onSpeedClick" data-setting="{{point.setting2}}">{{point.setting2.speed ? point.setting2.speed : '-'}}</view>
+									<view class="second-type-setting-speed second-type-setting-param clickable" bindtap="onSpeedClick" data-setting="{{point.setting2}}">{{point.setting2.speed ? point.setting2.speed : '-'}}</view>
 									<view class="second-type-setting-tracking second-type-setting-param">{{point.setting2.tracking ? point.setting2.tracking : '-'}}</view>
 									<view class="second-type-setting-antiAircraft second-type-setting-param">{{point.setting2.antiAircraft ? point.setting2.antiAircraft : '-'}}</view>
 								</view>
@@ -62,7 +62,7 @@
 									<view class="second-type-setting-display second-type-setting-param">
 										<view class="second-type-setting-display-item" wx:for="{{point.setting3.display}}" wx:for-item="item" wx:key="index" style="color: {{item.color}}">{{item.content}}</view>
 									</view>
-									<view class="second-type-setting-speed second-type-setting-param" bindtap="onSpeedClick" data-setting="{{point.setting3}}">{{point.setting3.speed ? point.setting3.speed : '-'}}</view>
+									<view class="second-type-setting-speed second-type-setting-param clickable" bindtap="onSpeedClick" data-setting="{{point.setting3}}">{{point.setting3.speed ? point.setting3.speed : '-'}}</view>
 									<view class="second-type-setting-tracking second-type-setting-param">{{point.setting3.tracking ? point.setting3.tracking : '-'}}</view>
 									<view class="second-type-setting-antiAircraft second-type-setting-param">{{point.setting3.antiAircraft ? point.setting3.antiAircraft : '-'}}</view>
 								</view>

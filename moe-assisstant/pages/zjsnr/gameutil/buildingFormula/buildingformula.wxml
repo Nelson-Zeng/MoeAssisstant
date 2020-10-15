@@ -1,3 +1,8 @@
 <view class="container">
   <custom-table class="list-container" table-content="{{listContent}}" width-distribution="{{listContent.columnWidth}}" wx:if="{{loaded}}" />
+  <view class="show-detail" bindtap="onDetailClick" wx:if="{{type === 1}}">查看详细阈值</view>
+
+  <view class="dialog" wx:if="{{showDetail}}" bindtap="onHideClick">
+    <image class="content" catchtap="onImageClick" src="{{detailSrc}}" mode="scaleToFill"></image>
+  </view>
 </view>
