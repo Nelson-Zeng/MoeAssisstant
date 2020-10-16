@@ -22,7 +22,7 @@
     "pages/sycjc/home/index",
     "pages/cqhy/drama/index",
     "pages/zjsnr/gameutil/gift/giftTree",
-    "pages/zjsnr/gameutil/aircarftCaculator/airpower"
+    "pages/zjsnr/gameutil/aircraftCaculator/airpower"
   ],
   "window": {
     "backgroundColor": "#409EFF",

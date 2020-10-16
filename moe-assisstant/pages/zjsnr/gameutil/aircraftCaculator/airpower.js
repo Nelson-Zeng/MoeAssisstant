@@ -16,7 +16,9 @@ Page({
     shipTypeKey: 0,
     shipPower: 30,
     flightAntiValues: ['14', '0', '0', '0'],
-    enemyInfo: [0]
+    enemyInfo: [{
+      value: 0
+    }]
   },
   selectedIndex: [],
   counts: [],
@@ -30,7 +32,7 @@ Page({
     }
     const localstorage = wx.getStorageSync('flights')
     if (localstorage) {
-      this.data.aircrafts = localstorage
+      this.data.aircrafts = JSON.parse(JSON.stringify(localstorage))
       this.setData({
         aircrafts: this.data.aircrafts
       })
@@ -38,6 +40,13 @@ Page({
 
     if (this.data.aircrafts.length === 0) this.setData({
       showShipSelection: true
+    })
+
+    const {enemy} = options
+    const enemyInfo = JSON.parse(enemy)
+    this.data.enemyInfo = enemyInfo.map(enemy => {return {value: enemy}})
+    this.setData({
+      enemyInfo: this.data.enemyInfo
     })
   },
   onAddClick() {
@@ -51,11 +60,25 @@ Page({
       aircrafts: this.data.aircrafts
     })
   },
-  onItemClick(e) {
-    const {
-      index
-    } = e.currentTarget.dataset
-    this.selectedIndex = index
+  onCountInput(e) {
+    const {index} = e.currentTarget.dataset
+    const arr = index.split(',')
+    const {value} = e.detail
+
+    this.data.aircrafts[arr[0]][arr[1]].count = value
+    this.setData({
+      aircrafts: this.data.aircrafts
+    })
+  },
+  onValueInput() {
+    const {index} = e.currentTarget.dataset
+    const arr = index.split(',')
+    const {value} = e.detail
+
+    this.data.aircrafts[arr[0]][arr[1]].value = value
+    this.setData({
+      aircrafts: this.data.aircrafts
+    })
   },
   onShipTypeSelected(e) {
     const {
@@ -116,12 +139,12 @@ Page({
     const baseList = []
     for (let i = 0; i < 4; i++) {
       const baseItem = {
-        count: carries,
+        count: Number(this.data.flightAntiValues[i]) ? carries : 0,
         value: this.data.flightAntiValues[i]
       }
-      baseList.push(baseItem)
+      baseList.push({...baseItem})
     }
-    this.data.aircrafts.push(baseList)
+    this.data.aircrafts.push(JSON.parse(JSON.stringify(baseList)))
     this.setData({
       aircrafts: this.data.aircrafts,
       showShipSelection: false
@@ -169,7 +192,7 @@ Page({
     })
   },
   onEnemyAdded() {
-    this.data.enemyInfo.push(0)
+    this.data.enemyInfo.push({value: 0})
     this.setData({
       enemyInfo: this.data.enemyInfo
     })
@@ -181,15 +204,37 @@ Page({
     const {
       value
     } = e.detail
-    this.data.enemyInfo[index] = value
+    this.data.enemyInfo[index] = Object.assign(this.data.enemyInfo[index], {
+      value
+    })
     this.setData({
       enemyInfo: this.data.enemyInfo
     })
   },
   onCaculatingClick() {
+    let fullValue = 0
+    this.data.aircrafts.map(ship => {
+      ship.map(waku => {
+        const result = this.getSingleValue(waku.count, waku.value)
+        fullValue += result
+      })
+    })
+    
+    this.data.enemyInfo = this.data.enemyInfo.map(enemy => {
+      const scale = fullValue / Number(enemy.value)
+      if (scale > 3) enemy.color = '#67C23A'
+      else if (scale > 1.5) enemy.color = '#409EFF'
+      else if (scale > 1/3) enemy.color = '#E6A23C'
+      else enemy.color = '#F56C6C'
+      return enemy
+    })
+
+    this.setData({
+      enemyInfo: this.data.enemyInfo
+    })
 
     wx.setStorage({
-      data: this.data.aircrafts,
+      data: JSON.parse(JSON.stringify(this.data.aircrafts)),
       key: 'flights',
     })
   },

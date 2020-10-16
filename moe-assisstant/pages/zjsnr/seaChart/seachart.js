@@ -152,5 +152,12 @@ Page({
     const setting = e.currentTarget.dataset.setting
 
     if (setting && setting.speed && setting.flagShipSpeed) app.util.navigateTo('/pages/zjsnr/gameutil/directionTrack/direction', { speed: setting.speed, flagShipSpeed: setting.flagShipSpeed })
+  },
+  onAntiClick(e) {
+    const {point} = e.currentTarget.dataset
+    const antiAtThisPoint = [point.setting.antiAircraft, point.setting2.antiAircraft, point.setting3.antiAircraft]
+    wx.navigateTo({
+      url: `/pages/zjsnr/gameutil/aircraftCaculator/airpower?enemy=${JSON.stringify(antiAtThisPoint)}`,
+    })
   }
 })

@@ -196,3 +196,12 @@ page {
   border-radius: 10rpx;
   box-sizing: border-box;
 }
+
+.result-help-text {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #909399;
+}
+.result-help-text text {
+  font-size: 30rpx;
+}

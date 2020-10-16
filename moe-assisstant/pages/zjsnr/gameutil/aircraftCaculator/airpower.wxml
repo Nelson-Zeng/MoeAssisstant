@@ -2,25 +2,26 @@
 	<view class="title">请填入己方舰载机数据：</view>
 	<view class="aircraft-container">
 		<view class="own-aircraft" wx:for="{{aircrafts}}" wx:for-item="aircraft" wx:for-index="outerIndex" wx:key="outerIndex">
-			<view class="aircraft" wx:for="{{aircraft}}" wx:for-index="innerIndex" wx:key="innerIndex" bindtap="onItemClick" data-index="[{{outerIndex}},{{innerIndex}}]">
-				<view class="count">放飞:<input class="flight-input" value="{{item.count}}" type="number" /></view>
-				<view class="antiaircraft">对空:<input class="value-input" value="{{item.value}}" type="number" /></view>
+			<view class="aircraft" wx:for="{{aircraft}}" wx:for-index="innerIndex" wx:key="innerIndex">
+				<view class="count">放飞:<input class="flight-input" value="{{item.count}}" type="number" bindinput="onCountInput"  data-index="{{outerIndex}},{{innerIndex}}"/></view>
+				<view class="antiaircraft">对空:<input class="value-input" value="{{item.value}}" type="number" bindinput="onValueInput" data-index="{{outerIndex}},{{innerIndex}}"/></view>
 			</view>
-			<view class="add" wx:if="{{outerIndex < 5}}" bindtap="onAddClick"><text>+</text></view>
+			<view class="add" wx:if="{{outerIndex < 5 && outerIndex === aircrafts.length - 1}}" bindtap="onAddClick"><text>+</text></view>
 			<view class="remove" wx:if="{{outerIndex !== 0}}" bindtap="onRemoveClick"><text>-</text></view>
 		</view>
 	</view>
   <view class="dividing" />
   <view class="title">请填入敌方对空数据：</view>
   <view class="enemy-container">
-    <view class="enemy-info" wx:for="{{enemyInfo}}" wx:key="index">
-      <input class="value" type="number" value="{{item}}" bindinput="onEnemyInput" data-index="{{index}}"/>
+    <view class="enemy-info" wx:for="{{enemyInfo}}" wx:key="index" style="background-color: {{item.color}}">
+      <input class="value" type="number" value="{{item.value}}" bindinput="onEnemyInput" data-index="{{index}}"/>
       <view class="remove-icon" catchtap="onEnemyRemoved" data-index="{{index}}" wx:if="{{index > 0}}"><text>-</text></view>
     </view>
     <view class="add-enemy" bindtap="onEnemyAdded">增加</view>
   </view>
   <view class="dividing" />
   <view class="caculating-button" bindtap="onCaculatingClick">计算结果</view>
+	<view class="result-help-text">输入框背景色代表计算结果，分别为<text style="color: #67C23A;">空占</text>、<text style="color: #409EFF">空优</text>、<text style="color: #E6A23C">均势</text>和<text style="color: #F56C6C">空劣</text>。</view>
 
 	<view class="mask" wx:if="{{showShipSelection}}">
 		<view class="dialog">

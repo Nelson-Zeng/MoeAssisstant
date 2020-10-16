@@ -40,7 +40,7 @@
 									</view>
 									<view class="second-type-setting-speed second-type-setting-param clickable" bindtap="onSpeedClick" data-setting="{{point.setting}}">{{point.setting.speed ? point.setting.speed : '-'}}</view>
 									<view class="second-type-setting-tracking second-type-setting-param">{{point.setting.tracking ? point.setting.tracking : '-'}}</view>
-									<view class="second-type-setting-antiAircraft second-type-setting-param">{{point.setting.antiAircraft ? point.setting.antiAircraft : '-'}}</view>
+									<view class="second-type-setting-antiAircraft second-type-setting-param clickable" bindtap="onAntiClick" data-point="{{point}}">{{point.setting.antiAircraft ? point.setting.antiAircraft : '-'}}</view>
 								</view>
 							</view>
 							<view class="second-type-item">
@@ -52,7 +52,7 @@
 									</view>
 									<view class="second-type-setting-speed second-type-setting-param clickable" bindtap="onSpeedClick" data-setting="{{point.setting2}}">{{point.setting2.speed ? point.setting2.speed : '-'}}</view>
 									<view class="second-type-setting-tracking second-type-setting-param">{{point.setting2.tracking ? point.setting2.tracking : '-'}}</view>
-									<view class="second-type-setting-antiAircraft second-type-setting-param">{{point.setting2.antiAircraft ? point.setting2.antiAircraft : '-'}}</view>
+									<view class="second-type-setting-antiAircraft second-type-setting-param clickable" bindtap="onAntiClick" data-point="{{point}}">{{point.setting2.antiAircraft ? point.setting2.antiAircraft : '-'}}</view>
 								</view>
 							</view>
 							<view class="second-type-item">
@@ -64,7 +64,7 @@
 									</view>
 									<view class="second-type-setting-speed second-type-setting-param clickable" bindtap="onSpeedClick" data-setting="{{point.setting3}}">{{point.setting3.speed ? point.setting3.speed : '-'}}</view>
 									<view class="second-type-setting-tracking second-type-setting-param">{{point.setting3.tracking ? point.setting3.tracking : '-'}}</view>
-									<view class="second-type-setting-antiAircraft second-type-setting-param">{{point.setting3.antiAircraft ? point.setting3.antiAircraft : '-'}}</view>
+									<view class="second-type-setting-antiAircraft second-type-setting-param clickable" bindtap="onAntiClick" data-point="{{point}}">{{point.setting3.antiAircraft ? point.setting3.antiAircraft : '-'}}</view>
 								</view>
 							</view>
 						</view>
