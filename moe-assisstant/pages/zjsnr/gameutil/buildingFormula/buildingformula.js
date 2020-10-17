@@ -4,7 +4,11 @@ Page({
   data: {
     listContent: {},
 
-    loaded: false
+    loaded: false,
+    showDetail: false,
+    detailSrc: `${app.constants.ZJSNR_IMAGE_RESOURCES_PREFIX}/gamestrategy/detail_build.png`,
+
+    type: 0
   },
   async onLoad(options) {
     wx.showShareMenu({})
@@ -14,6 +18,9 @@ Page({
       title: '正在加载数据',
     })
     const type = Number(options.type)
+    this.setData({
+      type
+    })
     let response
 
     function* init() {
@@ -45,5 +52,18 @@ Page({
         it.next()
         break
     }
+  },
+  onDetailClick() {
+    this.setData({
+      showDetail: true
+    })
+  },
+  onImageClick() {
+
+  },
+  onHideClick() {
+    this.setData({
+      showDetail: false
+    })
   }
 })

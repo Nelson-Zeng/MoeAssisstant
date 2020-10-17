@@ -352,7 +352,7 @@ Page({
 
     expGained = (expGained * equipmentCoefficient).getFixed(10)
 
-    this.data.isKejin && (expGained += Number(this.data.currentBaseExperience))
+    this.data.isKejin && (expGained += Number(this.data.currentBaseExperience * 1.2))
 
     expGained = Math.floor(expGained)
 
