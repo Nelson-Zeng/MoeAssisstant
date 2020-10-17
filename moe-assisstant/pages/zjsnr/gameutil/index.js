@@ -76,11 +76,11 @@ Page({
           path: '/pages/zjsnr/gameutil/directionTrack/direction',
           icon: icon.direction
         },
-        // {
-        //   title: '工程模拟器',
-        //   path: '/pages/zjsnr/gameutil/gift/giftTree',
-        //   icon: icon.gift
-        // }
+        {
+          title: '工程模拟器',
+          path: '/pages/zjsnr/gameutil/gift/giftTree',
+          icon: icon.gift
+        }
       ]
     ],
   },

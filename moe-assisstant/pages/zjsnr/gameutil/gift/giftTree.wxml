@@ -1,2 +1,5 @@
-<!--moe-assisstant/pages/zjsnr/gameutil/gift/gift.wxml-->
-<text>moe-assisstant/pages/zjsnr/gameutil/gift/gift.wxml</text>
+<view class="mask" wx:if="{{showTypeSelection}}">
+  <view class="selection">
+    
+  </view>
+</view>

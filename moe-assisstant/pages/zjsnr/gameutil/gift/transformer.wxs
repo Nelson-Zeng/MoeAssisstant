@@ -1,0 +1,72 @@
+var SHIP_SIZE_DICT = {
+  '1': '小型船',
+  '2': '中型船',
+  '3': '大型船'
+}
+var SHIP_TYPE_DICT = {
+  '1': '航母',
+  '2': '轻母',
+  '3': '装母',
+  '4': '战列',
+  '5': '航战',
+  '6': '战巡',
+  '7': '重巡',
+  '8': '航巡',
+  '9': '雷巡',
+  '10': '轻巡',
+  '11': '重炮',
+  '12': '驱逐',
+  '13': '潜母',
+  '14': '潜艇',
+  '15': '炮潜',
+  '16': '补给',
+  '17': "要塞",
+  '18': "机场",
+  '19': "港口",
+  '23': '导驱',
+  '24': '防驱',
+  '26': '大巡',
+  '27': '导战'
+}
+var SHIP_NATION_DICT = {
+  '1': '日本',
+  '2': '德国',
+  '3': '英国',
+  '4': '美国',
+  '5': '意大利',
+  '6': '法国',
+  '7': '苏联',
+  '8': '中国',
+  '9': '韩国',
+  '11': '土耳其',
+  '12': '荷兰',
+  '13': '瑞典',
+  '14': '泰国',
+  '15': '澳大利亚',
+  '16': '加拿大',
+  '17': '蒙古',
+  '18': '冰岛',
+  '19': '智利',
+  '20': '芬兰',
+  '21': '波兰',
+  '22': '奥匈帝国',
+  '23': '希腊',
+  '24': '西班牙',
+  '25': '南斯拉夫'
+}
+
+function displayShipSize(id) {
+  return SHIP_SIZE_DICT[id.toString()];
+}
+function displayShipType(id) {
+  return SHIP_TYPE_DICT[id.toString()]
+}
+function displayShipNation(id) {
+  return SHIP_NATION_DICT[id.toString()]
+}
+
+module.exports = {
+  shipSize: displayShipSize,
+  shipType: displayShipType,
+  shipNation: displayShipNation
+};
