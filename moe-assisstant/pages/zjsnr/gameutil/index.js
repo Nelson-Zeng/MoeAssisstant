@@ -5,34 +5,29 @@ import icon from './utilIcons.js'
 Page({
   data: {
     utilList: [
-      [
-        {
-          title: '建造公式查询',
-          path: '/pages/zjsnr/gameutil/buildingFormula/buildingformula',
-          type: app.constants.ZJSNR_BUILDING_FORMULA_TYPES.SHIP,
-          icon: icon.building
-        }, {
-          title: '开发公式查询',
-          path: '/pages/zjsnr/gameutil/buildingFormula/buildingformula',
-          type: app.constants.ZJSNR_BUILDING_FORMULA_TYPES.EQUIPMENT,
-          icon: icon.developing
-        }
-      ],
-      [ 
-        {
-          title: '建造时间对照表',
-          path: '/pages/zjsnr/gameutil/buildingTimeList/buildingTimeList',
-          type: app.constants.ZJSNR_BUILDING_TIME_TYPES.SHIP,
-          icon: icon.buildingTime
-        }, {
-          title: '开发时间对照表',
-          path: '/pages/zjsnr/gameutil/buildingTimeList/buildingTimeList',
-          type: app.constants.ZJSNR_BUILDING_TIME_TYPES.EQUIPMENT,
-          icon: icon.developingTime
-        }
-      ],
-      [
-        {
+      [{
+        title: '建造公式查询',
+        path: '/pages/zjsnr/gameutil/buildingFormula/buildingformula',
+        type: app.constants.ZJSNR_BUILDING_FORMULA_TYPES.SHIP,
+        icon: icon.building
+      }, {
+        title: '开发公式查询',
+        path: '/pages/zjsnr/gameutil/buildingFormula/buildingformula',
+        type: app.constants.ZJSNR_BUILDING_FORMULA_TYPES.EQUIPMENT,
+        icon: icon.developing
+      }],
+      [{
+        title: '建造时间对照表',
+        path: '/pages/zjsnr/gameutil/buildingTimeList/buildingTimeList',
+        type: app.constants.ZJSNR_BUILDING_TIME_TYPES.SHIP,
+        icon: icon.buildingTime
+      }, {
+        title: '开发时间对照表',
+        path: '/pages/zjsnr/gameutil/buildingTimeList/buildingTimeList',
+        type: app.constants.ZJSNR_BUILDING_TIME_TYPES.EQUIPMENT,
+        icon: icon.developingTime
+      }],
+      [{
           title: '餐厅菜单查询',
           path: '/pages/zjsnr/gameutil/dish/dish',
           icon: icon.menu
@@ -48,8 +43,7 @@ Page({
           icon: icon.expedition
         }
       ],
-      [
-        {
+      [{
           title: '伤害计算器',
           path: '/pages/zjsnr/gameutil/damageCaculator/damagecaculator',
           icon: icon.damageCaculator
@@ -65,8 +59,7 @@ Page({
           icon: icon.experience
         }
       ],
-      [
-        {
+      [{
           title: '炮序模拟器',
           path: '/pages/zjsnr/gameutil/cannonry/cannonry',
           icon: icon.cannonry
@@ -76,18 +69,23 @@ Page({
           path: '/pages/zjsnr/gameutil/directionTrack/direction',
           icon: icon.direction
         },
-        {
-          title: '工程模拟器',
-          path: '/pages/zjsnr/gameutil/gift/giftTree',
-          icon: icon.gift
-        }
+        // {
+        //   title: '工程模拟器',
+        //   path: '/pages/zjsnr/gameutil/gift/giftTree',
+        //   icon: icon.gift
+        // }
       ]
     ],
   },
   callUtil(e) {
-    const { content } = e.currentTarget.dataset
+    const {
+      content
+    } = e.currentTarget.dataset
 
-    const { path, type } = content
+    const {
+      path,
+      type
+    } = content
     let data = {}
     if (typeof type === 'number') data = {
       type

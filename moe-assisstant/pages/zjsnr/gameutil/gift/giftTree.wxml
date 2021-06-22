@@ -1,5 +1,14 @@
+<wxs src="./transformer.wxs" module="transformer" />
 <view class="mask" wx:if="{{showTypeSelection}}">
-  <view class="selection">
-    
-  </view>
+	<view class="ship-type-dialog">
+		<view class="ship-size-selector">
+			<image class="size-bg" />
+        <view class="ship-size-swiper">
+          <view class="ship-size-card" wx:for="{{shipTypes}}" wx:for-item="shipSize" wx:key="index">
+            <image class="ship-size-image" src="{{shipSize.url}}" mode="aspectFill" />
+            <view class="ship-size-title">{{transformer.shipSize(shipSize.id)}}</view>     
+          </view>
+        </view>
+		</view>
+	</view>
 </view>

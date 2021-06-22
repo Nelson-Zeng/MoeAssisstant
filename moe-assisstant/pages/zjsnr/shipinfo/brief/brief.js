@@ -177,7 +177,11 @@ const DETAIL_SHIP_TYPES = [{
 },
 {
   id: 17,
-  title: '防战'
+  title: '大巡'
+},
+{
+  id: 18,
+  title: '导战'
 }
 ]
 
@@ -294,7 +298,7 @@ Page({
 
     limitationDataContainer: {
       nationalities: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-      types: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+      types: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
       dimensions: [0, 1, 2],
       costs: [0, 1, 2, 3, 4, 5, 6, 7],
       sortKey: 0,

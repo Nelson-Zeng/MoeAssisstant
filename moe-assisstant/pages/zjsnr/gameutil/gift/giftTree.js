@@ -2,9 +2,10 @@ const app = getApp()
 
 Page({
   data: {
-    showTypeSelection: false,
+    showTypeSelection: true,
     shipTypes: [{
         id: 1,
+        url: '../../../../public/test.jpg',
         types: [{
             id: 12
           },
@@ -30,6 +31,7 @@ Page({
       },
       {
         id: 2,
+        url: '../../../../public/test.jpg',
         types: [{
             id: 2
           },
@@ -49,6 +51,7 @@ Page({
       },
       {
         id: 3,
+        url: '../../../../public/test.jpg',
         types: [{
             id: 4
           },
@@ -77,11 +80,7 @@ Page({
   fullSetting: [],
   async onLoad() {
     // 先读本地缓存，如无缓存则发送网络请求获取配置。若有缓存则静默读取远程配置与本地配置进行比对，如果出现不一样的情况则弹出通知并更新缓存，刷新页面
-    wx.showLoading({
-      title: '正在载入配置',
-    })
     const localSetting = wx.getStorageSync('talentTree')
-    wx.hideLoading()
     if (!localSetting) {
       wx.showLoading({
         title: '正在获取配置',

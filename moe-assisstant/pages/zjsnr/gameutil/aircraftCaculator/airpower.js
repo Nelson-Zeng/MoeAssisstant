@@ -72,7 +72,7 @@ Page({
       aircrafts: this.data.aircrafts
     })
   },
-  onValueInput() {
+  onValueInput(e) {
     const {index} = e.currentTarget.dataset
     const arr = index.split(',')
     const {value} = e.detail
@@ -243,6 +243,6 @@ Page({
   getSingleValue(count, anti) {
     if (count === 0) return 0
 
-    return Math.log(2 * (count + 1)) * anti
+    return Math.log(2 * (Number(count) + 1)) * anti
   }
 })
