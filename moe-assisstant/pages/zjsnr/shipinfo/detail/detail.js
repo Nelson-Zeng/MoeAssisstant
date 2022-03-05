@@ -128,7 +128,7 @@ Page({
 
     this.setData({
       illustrationList: response.data.map(url => {
-        return `${app.constants.STATIC_RESOURCE_DOMAIN}/jianr/moeassisstant/zjsnr/${url}`
+        return `${app.constants.STATIC_RESOURCE_DOMAIN}/zjsnr/${url}`
       }),
       backgroundPicSrc: `url(${app.filters.getZJSNClearShipBackground(this.data.shipInfo.rarity)})`,
       showIllustration: true
